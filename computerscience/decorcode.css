@@ -1,0 +1,27 @@
+.codebox {
+    text-shadow: 0 0 0;
+    border: 0px;
+    background-color: #1f1f1f;
+    width: 50%;
+    padding: 7px;
+    border-radius: 10px 10px 0px 0px;
+    text-align: left;
+}
+
+.answerbox {
+    text-shadow: 0 0 0;
+    border: 0px;
+    background-color: rgb(80, 80, 80);
+    width: 50%;
+    padding: 7px;
+    border-radius: 0px 0px 10px 10px;
+    text-align: left;
+}
+
+.func {
+    color: rgb(195, 115, 220);
+}
+
+.moc {
+    color: rgb(250, 250, 76);
+}

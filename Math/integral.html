@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../decor.css">
+    <link rel="icon" href="../images-removebg-preview.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Tích phân</title>
+</head>
+
+<body>
+    <header> <a href="Pagemath.html">Tích phân</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="derivative.html">Đạo hàm</a></p>
+            <p><a href="limitoffunction.html">Giới hạn</a></p>
+            <p><a href="trigonometry.html">Lượng giác</a></p>
+            <p><a href="matrix.html">Ma trận</a></p>
+            <p><a href="laplace.html">Phép biến đổi laplace</a></p>
+            <p><a>Tích phân</a></p>
+        </nav>
+        <main>
+            <h2>Tính chất:</h2>
+            <p>\(\bullet \int 0 \, dx = C\)</p>
+            <p>\(\bullet \int k \cdot f(x) dx = k \int f(x) dx \quad (k \ne 0)\)</p>
+            <p>\(\bullet \int [f(x) \pm g(x)] dx = \int f(x) dx \pm \int g(x) dx\)</p>
+            <p>\(\bullet \int_{a}^{b} f(x) dx = F(b) - F(a) = F(x) \Big|_a^b\)</p>
+            <p>\(\bullet \int_{a}^{b} f(x) dx = \int_{a}^{c} f(x) dx + \int_{c}^{b} f(x) dx\)</p>
+            <p>\(\bullet \int_{a}^{b} f(x) dx = -\int_{b}^{a} f(x) dx \Rightarrow \int_{a}^{a} f(x) dx = 0\)</p>
+
+            <h2>Phương pháp cốt lõi:</h2>
+            <p>\(\bullet \text{Đổi biến số (Dạng 1): } \int f[\phi(x)]\cdot\phi'(x)dx = \int f(u)du \quad (\text{với } u
+                = \phi(x))\)</p>
+            <p>\(\bullet \text{Tích phân từng phần: } \int u \, dv = u \cdot v - \int v \, du \Rightarrow \int_{a}^{b} u
+                \, dv = (u \cdot v) \Big|_a^b - \int_{a}^{b} v \, du\)</p>
+            <h2>Công thức tích phân nhanh:</h2>
+            <p>\(\bullet \int \frac{dx}{(x-a)(x-b)} = \frac{1}{a-b} \ln \left| \frac{x-a}{x-b} \right| + C\)</p>
+            <p>\(\bullet \int \frac{ax+b}{cx+d} dx = \frac{a}{c}x + \frac{bc-ad}{c^2}\ln|cx+d| + C\)</p>
+            <p>\(\bullet \int \frac{dx}{a\sin x + b\cos x} = \frac{1}{\sqrt{a^2+b^2}} \ln \left| \tan \left( \frac{x +
+                \arctan(b/a)}{2} \right) \right| + C\)</p>
+            <p>\(\bullet \int e^{ax}\sin(bx) dx = \frac{e^{ax}(a\sin bx - b\cos bx)}{a^2+b^2} + C\)</p>
+            <p>\(\bullet \int e^{ax}\cos(bx) dx = \frac{e^{ax}(a\cos bx + b\sin bx)}{a^2+b^2} + C\)</p>
+            <h2>Công thức tích phân</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hàm số \(f(x)\)</th>
+                        <th>Nguyên hàm \(\int f(x)dx\)</th>
+                        <th>Hàm hợp \(f(u)\) với \(u=u(x)\)</th>
+                        <th>Tích phân nâng cao / Mở rộng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Hàm mũ e^x -->
+                    <tr>
+                        <td>\(e^x\)</td>
+                        <td>\(e^x + C\)</td>
+                        <td>\(\int e^u du = e^u + C\)</td>
+                        <td>\(\int e^{ax+b} dx = \frac{1}{a}e^{ax+b} + C\)</td>
+                    </tr>
+                    <!-- Hàm ln x (Nguyên hàm từng phần) -->
+                    <tr>
+                        <td>\(\ln x\)</td>
+                        <td>\(x \ln x - x + C\)</td>
+                        <td>\(\int \ln u du = u \ln u - u + C\)</td>
+                        <td>\(\int x^n \ln x dx = \frac{x^{n+1}}{n+1}\ln x - \frac{x^{n+1}}{(n+1)^2} + C\)</td>
+                    </tr>
+                    <!-- Hàm lũy thừa cơ bản 1/x -->
+                    <tr>
+                        <td>\(\frac{1}{x} \quad (x \ne 0)\)</td>
+                        <td>\(\ln|x| + C\)</td>
+                        <td>\(\int \frac{1}{u} du = \ln|u| + C\)</td>
+                        <td>\(\int \frac{1}{ax+b} dx = \frac{1}{a}\ln|ax+b| + C\)</td>
+                    </tr>
+                    <!-- Hàm lũy thừa x^a -->
+                    <tr>
+                        <td>\(x^a \quad (a \ne -1)\)</td>
+                        <td>\(\frac{x^{a+1}}{a+1} + C\)</td>
+                        <td>\(\int u^a du = \frac{u^{a+1}}{a+1} + C\)</td>
+                        <td>\(\int (ax+b)^r dx = \frac{1}{a} \cdot \frac{(ax+b)^{r+1}}{r+1} + C\)</td>
+                    </tr>
+                    <!-- Hàm mũ a^x -->
+                    <tr>
+                        <td>\(a^x \quad (a>0, a\ne1)\)</td>
+                        <td>\(\frac{a^x}{\ln a} + C\)</td>
+                        <td>\(\int a^u du = \frac{a^u}{\ln a} + C\)</td>
+                        <td>\(\int a^{kx+m} dx = \frac{1}{k} \cdot \frac{a^{kx+m}}{\ln a} + C\)</td>
+                    </tr>
+                    <!-- Hàm vô tỷ cơ bản 1/sqrt(x) -->
+                    <tr>
+                        <td>\(\frac{1}{\sqrt{x}}\)</td>
+                        <td>\(2\sqrt{x} + C\)</td>
+                        <td>\(\int \frac{1}{\sqrt{u}} du = 2\sqrt{u} + C\)</td>
+                        <td>\(\int \frac{1}{\sqrt{ax+b}} dx = \frac{2}{a}\sqrt{ax+b} + C\)</td>
+                    </tr>
+                    <!-- Hàm sin x -->
+                    <tr>
+                        <td>\(\sin x\)</td>
+                        <td>\(-\cos x + C\)</td>
+                        <td>\(\int \sin u du = - \cos u + C\)</td>
+                        <td>\(\int \sin(ax+b) dx = -\frac{1}{a}\cos(ax+b) + C\)</td>
+                    </tr>
+                    <!-- Hàm cos x -->
+                    <tr>
+                        <td>\(\cos x\)</td>
+                        <td>\(\sin x + C\)</td>
+                        <td>\(\int \cos u du = \sin u + C\)</td>
+                        <td>\(\int \cos(ax+b) dx = \frac{1}{a}\sin(ax+b) + C\)</td>
+                    </tr>
+                    <!-- Hàm 1/cos^2 x -->
+                    <tr>
+                        <td>\(\frac{1}{\cos^2 x}\)</td>
+                        <td>\(\tan x + C\)</td>
+                        <td>\(\int \frac{1}{\cos^2 u} du = \tan u + C\)</td>
+                        <td>\(\int \frac{1}{\cos^2(ax+b)} dx = \frac{1}{a}\tan(ax+b) + C\)</td>
+                    </tr>
+                    <!-- Hàm 1/sin^2 x -->
+                    <tr>
+                        <td>\(\frac{1}{\sin^2 x}\)</td>
+                        <td>\(-\cot x + C\)</td>
+                        <td>\(\int \frac{1}{\sin^2 u} du = -\cot u + C\)</td>
+                        <td>\(\int \frac{1}{\sin^2(ax+b)} dx = -\frac{1}{a}\cot(ax+b) + C\)</td>
+                    </tr>
+                    <!-- Hàm phân thức bậc hai vô nghiệm dạng bình phương liên kết hằng số -->
+                    <tr>
+                        <td>\(\frac{1}{x^2 + a^2}\)</td>
+                        <td>\(\frac{1}{a} \arctan \frac{x}{a} + C\)</td>
+                        <td>\(\int \frac{1}{u^2 + a^2} du = \frac{1}{a} \arctan \frac{u}{a} + C\)</td>
+                        <td>\(\int \frac{1}{\sqrt{a^2 - x^2}} dx = \arcsin \frac{x}{a} + C\)</td>
+                    </tr>
+                    <!-- Hàm phân thức bậc hai dạng hằng số trừ bình phương -->
+                    <tr>
+                        <td>\(\frac{1}{x^2 - a^2}\)</td>
+                        <td>\(\frac{1}{2a} \ln \left| \frac{x-a}{x+a} \right| + C\)</td>
+                        <td>\(\int \frac{1}{u^2 - a^2} du = \frac{1}{2a} \ln \left| \frac{u-a}{u+a} \right| + C\)</td>
+                        <td>\(\int \frac{1}{\sqrt{x^2 \pm a^2}} dx = \ln \left| x + \sqrt{x^2 \pm a^2} \right| + C\)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Tích phân suy rộng loại 1 & Tiêu chuẩn hội tụ</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Định lý chuẩn (Mẫu)</th>
+                        <th>Tiêu chuẩn so sánh 1 (Bất đẳng thức)</th>
+                        <th>Tiêu chuẩn so sánh 2 (Giới hạn - Lim)</th>
+                        <th>Tiêu chuẩn Abel / Dirichlet</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            \(\int_{a}^{+\infty} \frac{dx}{x^\alpha} \quad (a > 0)\)
+                            <br><br>
+                            \(\bullet \text{ Hội tụ nếu } \alpha > 1\)
+                            <br>
+                            \(\bullet \text{ Phân kỳ nếu } \alpha \le 1\)
+                        </td>
+                        <td>
+                            Cho \(0 \le f(x) \le g(x)\):
+                            <br><br>
+                            \(\bullet \int_{a}^{+\infty} g(x)dx \text{ hội tụ} \Rightarrow \int_{a}^{+\infty} f(x)dx
+                            \text{ hội tụ}\)
+                            <br>
+                            \(\bullet \int_{a}^{+\infty} f(x)dx \text{ phân kỳ} \Rightarrow \int_{a}^{+\infty} g(x)dx
+                            \text{ phân kỳ}\)
+                        </td>
+                        <td>
+                            Xét \(k = \lim_{x \to +\infty} \frac{f(x)}{g(x)} \quad (f, g \ge 0)\):
+                            <br><br>
+                            \(\bullet \text{Nếu } 0 < k < +\infty\): 2 tích phân cùng hội tụ hoặc cùng phân kỳ. <br>
+                                \(\bullet \text{Nếu } k = 0\): \(g(x)\) hội tụ \(\Rightarrow f(x)\) hội tụ.
+                                <br>
+                                \(\bullet \text{Nếu } k = +\infty\): \(g(x)\) phân kỳ \(\Rightarrow f(x)\) phân kỳ.
+                        </td>
+                        <td>
+                            \(\int_{a}^{+\infty} f(x) \cdot g(x) \, dx\)
+                            <br><br>
+                            \(\bullet \text{Dirichlet: } f(x) \text{ liên tục, đơn điệu và } \lim_{x \to +\infty} f(x) =
+                            0\); còn \(g(x)\) có nguyên hàm bị chặn. \(\Rightarrow\) Hội tụ.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+    </div>
+</body>
+
+</html>

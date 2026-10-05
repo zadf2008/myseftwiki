@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../decor.css">
+    <link rel="icon" href="../images-removebg-preview.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Ma trận</title>
+</head>
+
+<body>
+    <header> <a href="Pagemath.html">Ma trận</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="derivative.html">Đạo hàm</a></p>
+            <p><a href="limitoffunction.html">Giới hạn</a></p>
+            <p><a href="trigonometry.html">Lượng giác</a></p>
+            <p><a>Ma trận</a></p>
+            <p><a href="laplace.html">Phép biến đổi laplace</a></p>
+            <p><a href="integral.html">Tích phân</a></p>
+        </nav>
+        <main>
+            <h2>Các công thức toán học ma trận cơ bản & nâng cao:</h2>
+
+            <!-- Định nghĩa ma trận tổng quát -->
+            <p>Cho ma trận \(A\) cỡ \(m \times n\) và ma trận \(B\) cỡ \(n \times p\):</p>
+            <p>
+                \(A = \begin{bmatrix}
+                a_{11} & a_{12} & \cdots & a_{1n} \\
+                a_{21} & a_{22} & \cdots & a_{2n} \\
+                \vdots & \vdots & \ddots & \vdots \\
+                a_{m1} & a_{m2} & \cdots & a_{mn}
+                \end{bmatrix}\)
+                \(\quad ; \quad\)
+                \(B = \begin{bmatrix}
+                b_{11} & b_{12} & \cdots & b_{1p} \\
+                b_{21} & b_{22} & \cdots & b_{2p} \\
+                \vdots & \vdots & \ddots & \vdots \\
+                b_{n1} & b_{n2} & \cdots & b_{np}
+                \end{bmatrix}\)
+            </p>
+
+            <!-- Phép cộng và trừ -->
+            <h2>Phép cộng / trừ ma trận (Cùng cỡ \(m \times n\)):</h2>
+            <p>
+                \(A \pm B = C \implies c_{ij} = a_{ij} \pm b_{ij}\)
+            </p>
+
+            <!-- Nhân ma trận với một số -->
+            <h2>Phép nhân ma trận với một số (\(k \in \mathbb{R}\)):</h2>
+            <p>
+                \(k \cdot A = \begin{bmatrix} k \cdot a_{ij} \end{bmatrix}\)
+            </p>
+
+            <!-- Nhân hai ma trận -->
+            <h2>Phép nhân hai ma trận (Số cột \(A\) = Số hàng \(B\)):</h2>
+            <p>
+                \(C = A \cdot B \implies c_{ij} = \sum\limits_{k=1}^{n} a_{ik} \cdot b_{kj}\) \(\quad\) (Kích thước ma
+                trận kết quả \(C\) là \(m \times p\))
+            </p>
+
+            <!-- Ma trận chuyển vị T -->
+            <h2>Ma trận chuyển vị (\(A^T\)):</h2>
+            <p>
+                Là ma trận có được bằng cách đổi các **hàng** thành các **cột** tương ứng (hoặc ngược lại). Nếu \(A\) cỡ
+                \(m \times n\) thì \(A^T\) sẽ có cỡ \(n \times m\):<br>
+                \(A = [a_{ij}] \implies A^T = [a_{ji}]\)
+            </p>
+
+            <!-- Định thức det -->
+            <h2>Định thức của ma trận vuông (\(\det(A)\) hoặc \(|A|\|\)):</h2>
+            <p>
+                Là một giá trị số thực duy nhất được tính từ một ma trận vuông. Ví dụ với ma trận cỡ \(2 \times 2\):<br>
+                \(\det \begin{bmatrix} a & b \\ c & d \end{bmatrix} = a \cdot d - b \cdot c\)
+            </p>
+
+            <h2>Định lý khai triển Laplace (Hạ cấp ma trận tính \(\det\)):</h2>
+            <p>
+                Cho phép tính định thức của ma trận cấp \(n\) bằng cách đưa về tổng các định thức cấp \(n-1\). Có thể
+                chọn khai triển theo bất kỳ hàng \(i\) hoặc cột \(j\) nào:<br>
+                \(\bullet \quad \text{Khai triển theo hàng } i: \quad \det(A) = \sum\limits_{j=1}^{n} (-1)^{i+j} \cdot
+                a_{ij} \cdot \det(M_{ij})\)<br>
+                \(\bullet \quad \text{Khai triển theo cột } j: \quad \det(A) = \sum\limits_{i=1}^{n} (-1)^{i+j} \cdot
+                a_{ij} \cdot \det(M_{ij})\)<br>
+                <em>(Trong đó \(M_{ij}\) là ma trận con cấp \(n-1\) có được bằng cách xóa đi hàng \(i\) và cột \(j\) của
+                    ma trận \(A\)).</em>
+                <button id="openBtn"
+                    style="padding: 5px 10px; font-size: 16px; border-radius: 18px; cursor: pointer; background-color: #222;">Video
+                    minh họa:</button>
+
+                <!-- 2. Khung màn hình mờ phủ toàn bộ trang (Mặc định ẩn) -->
+            <div id="videoModal"
+                style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(8px); justify-content: center; align-items: center;">
+                <!-- 3. Chiếc Box chứa Video bên trong -->
+                <div
+                    style="position: relative; background: #222; padding: 20px; border-radius: 12px; width: 60%; max-width: 800px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                    <!-- Nút đóng (X) nằm ở góc phải của Box -->
+                    <span id="closeBtn"
+                        style="position: absolute; top: 10px; right: 15px; color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
+                    <!-- Thẻ video của bạn (Đã chỉnh width 100% để vừa khít chiếc Box) -->
+                    <video id="myVideo" controls
+                        style="width: 50%; border-radius: 8px; display: block; margin-top: 15px;">
+                        <source src="Download.mp4" type="video/mp4">
+                        Trình duyệt của bạn không hỗ trợ xem video trực tiếp.
+                    </video>
+                </div>
+            </div>
+            </p>
+
+            <h2>Quy tắc Sarrus (Chỉ áp dụng duy nhất cho ma trận vuông cấp \(3 \times 3\)):</h2>
+            <p>
+                Cho ma trận cấp 3, ta viết thêm 2 cột đầu tiên vào bên phải ma trận, sau đó lấy tổng các tích của 3
+                đường chéo chính (từ trái sang phải, dấu \(+\)) trừ đi tổng các tích của 3 đường chéo phụ (từ phải sang
+                trái, dấu \(-\)):<br>
+                \(\det(A) = (a_{11}a_{22}a_{33} + a_{12}a_{23}a_{31} + a_{13}a_{21}a_{32}) - (a_{13}a_{22}a_{31} +
+                a_{11}a_{23}a_{32} + a_{12}a_{21}a_{33})\)
+            </p>
+            <img src="Screenshot 2026-10-01 114138.png">
+
+            <!-- Bản chất phép chia (Ma trận nghịch đảo) -->
+            <h2>Bản chất "Phép chia" ma trận (Nhân với ma trận nghịch đảo):</h2>
+            <p>
+                Không tồn tại phép chia ma trận trực tiếp. Phép chia được chuyển đổi thông qua ma trận nghịch đảo
+                \(B^{-1}\) với điều kiện định thức \(\det(B) \neq 0\):<br>
+                \(\bullet \quad A \div B \text{ (chia bên phải)} \implies A \cdot B^{-1}\)<br>
+                \(\bullet \quad A \div B \text{ (chia bên trái)} \implies B^{-1} \cdot A\)
+            </p>
+
+            <!-- Công thức tìm ma trận nghịch đảo -->
+            <h2>Cách tính ma trận đại số liên hợp:</h2>
+            <p>Cho ma trận vuông A cấp n</p>
+            <p>Tính ma trận C = \((-1)^{i+j}.Det(M_{ij})\)</p>
+            <p>Ma trận đại số liên hợp A* = \(C^T\)</p>
+
+            <h2>Công thức tính ma trận nghịch đảo:</h2>
+            <p>
+                \(B^{-1} = \frac{1}{\det(B)} \cdot B^*\) \(\quad\) (Trong đó \(B^*\) là ma trận đại số liên hợp)
+            </p>
+
+        </main>
+    </div>
+</body>
+
+<script>
+    const modal = document.getElementById("videoModal");
+    const openBtn = document.getElementById("openBtn");
+    const closeBtn = document.getElementById("closeBtn");
+    const video = document.getElementById("myVideo");
+
+    // Khi bấm nút: Hiện khung mờ lên (dạng flex để căn giữa)
+    openBtn.onclick = function () {
+        modal.style.display = "flex";
+    }
+
+    // Hàm đóng modal và dừng phát video
+    function closeModal() {
+        modal.style.display = "none";
+        video.pause(); // Tự động dừng video khi đóng, tránh việc tắt khung nhưng tiếng vẫn phát
+    }
+
+    // Khi bấm vào nút (X): Đóng khung
+    closeBtn.onclick = closeModal;
+
+    // Khi bấm ra vùng trống bên ngoài chiếc Box: Cũng tự động đóng khung
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            closeModal();
+        }
+    }
+</script>
+
+</html>

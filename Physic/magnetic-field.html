@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../decor.css">
+    <link rel="icon" href="../images-removebg-preview.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Từ trường</title>
+</head>
+
+<body>
+    <header> <a href="pagephysic.html">Từ trường</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="electricity.html">Điện</a></p>
+            <p><a>Từ trường</a></p>
+        </nav>
+        <main>
+            <div style="display: flex; justify-content: space-between; width: 100%;">
+                <div style="width: max-content;">
+                    <h2>Kiến thức cơ bản:</h2>
+                    <p>\(\bullet\) Từ trường là dạng vật chất đặc biệt tồn tại xung quanh các hạt mang điện chuyển động hoặc một thanh nam châm, có chiều từ cực Bắc(N) ra cực Nam(S)</p>
+                    <p>\(\bullet\) Tác dụng lực lên một nam châm hoặc một đoạn dây có dòng điện đi qua</p>
+                    <p>\(\bullet\) Để hình dung được đường sức từ, người ta dùng từ phổ(hình các hạt mạt sắt gần nam châm)</p>
+                    <p>\(\bullet\) Các đường sức từ là các đường khép kín không bao giờ cắt nhau, mỗi điểm chỉ có một đường sức từ đi qua</p>
+                    <p>\(\bullet\) Quy ước từ trường độ mạnh của từ trường tỉ lệ thuận với mật độ đường sức từ</p>
+                    <P>\(\bullet\) Các đường sức từ là đại lượng vec-tơ có hướng</P>
+                    <h2>Tính lực từ tác dụng lên một vật:</h2>
+                    <h3>Công thức tính lực từ tác dụng lên dây dẫn:</h3>
+                </div>
+                <div style="width: 20%;justify-self: right;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Từ trường</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <canvas id="magnet" style="width: 100%; height: auto;"></canvas>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p>\(\vec{F}=\vec{B} \vec{I}l. \sin \alpha \)</p>
+            <p>\(\bullet\) \(\vec{F}\) :Lực từ tác dụng lên dây dẫn(đơn vị Newton, kí hiệu N)</p>
+            <p>\(\bullet\) \(\vec{B}\) :Cảm ứng từ của từ trường(đơn vị Tesla, kí hiệu T)</p>
+            <p>\(\bullet\) \(\vec{I}\) :Cường độ dòng điện chạy qua dây(đơn vị Ampe, kí hiệu A)</p>
+            <p>\(\bullet\) \(l\) :Chiều dài dây dẫn(đơn vị Mét, kí hiệu m)</p>
+            <p>\(\bullet\) \(\alpha \) :Góc hợp bởi \(\vec{B}\) và \(\vec{I}\) (đơn vị độ, kí hiệu \(^o\))</p>
+            <h3>Công thức tính lực tác dụng lên các hạt mang điện đang chuyển động(lực Lorentz):</h3>
+            <p>\(\vec{F_L} = \vec{B} |q| \vec{v} \sin \alpha\)</p>
+            <p>\(\bullet\) \(\vec{F_L}\) :Lực Lorentz (đơn vị Newton, kí hiệu N)</p>
+            <p>\(\bullet\) \(\vec{v}\) :tốc độ của các hạt mang điện (đơn vị Newton, kí hiệu N)</p>
+            <p>\(\bullet\) \(|q|\) :Độ lớn điện tích (đơn vị Cu-lông, kí hiệu C)</p>
+            <p>\(\bullet\) \(\alpha \) :Góc hợp bởi \(\vec{B}\) và \(\vec{v}\) (đơn vị độ, kí hiệu \(^o\))</p>
+        </main>
+    </div>
+</body>
+
+<script>
+    const canvas = document.getElementById('magnet');
+    const ctx = canvas.getContext('2d');
+
+    // Cài đặt độ phân giải gốc hình vuông cho Canvas
+    canvas.width = 250;
+    canvas.height = 250;
+
+    // Tọa độ tâm của Canvas
+    const cx = canvas.width / 2;
+    const cy = canvas.height / 2;
+
+    // 🛠️ TĂNG KÍCH THƯỚC 1.1 LẦN VÀ LẬT NGANG
+    const magW = 120;  // Chiều dài thanh nam châm khi nằm ngang (60 * 1.1 = 66)
+    const magH = 22;  // Chiều cao thanh nam châm khi nằm ngang (20 * 1.1 = 22)
+
+    // Điểm đầu cực Bắc (Trái) và cực Nam (Phải) sau khi lật ngang
+    const northPole = { x: cx - magW / 2, y: cy };
+    const southPole = { x: cx + magW / 2, y: cy };
+
+    // 🛠️ ĐIỀU CHỈNH TỪ TRƯỜNG DẸP LẠI (DẠNG BÓNG BẦU DỤC)
+    // Giảm độ phình trục Y (cp1y, cp2y gần tâm cy hơn) và kéo giãn trục X
+    const orbits = [
+        // Các vòng phía trên (từ nhỏ đến to, dẹp theo chiều dọc)
+        { cp1x: cx - 100, cp1y: cy - 35, cp2x: cx + 100, cp2y: cy - 35 },
+        { cp1x: cx - 120, cp1y: cy - 60, cp2x: cx + 120, cp2y: cy - 60 },
+        { cp1x: cx - 180, cp1y: cy - 90, cp2x: cx + 180, cp2y: cy - 90 },
+        
+        // Các vòng phía dưới (từ nhỏ đến to, dẹp theo chiều dọc)
+        { cp1x: cx - 100, cp1y: cy + 35, cp2x: cx + 100, cp2y: cy + 35 },
+        { cp1x: cx - 120, cp1y: cy + 60, cp2x: cx + 120, cp2y: cy + 60 },
+        { cp1x: cx - 180, cp1y: cy + 90, cp2x: cx + 180, cp2y: cy + 90 }
+    ];
+
+    // Tạo mảng chứa các hạt năng lượng chạy trên đường sức từ
+    const particles = [];
+    orbits.forEach((orbit, orbitIndex) => {
+        for (let i = 0; i < 3; i++) {
+            particles.push({
+                orbitIndex: orbitIndex,
+                t: i / 3, // Vị trí xuất phát rải đều từ 0 đến 1
+                speed: 0.005 + Math.random() * 0.003 // Tốc độ di chuyển ổn định
+            });
+        }
+    });
+
+    // Hàm lượng giác Bezier bậc 3 tính tọa độ hạt
+    function getBezierPoint(t, p0, p1, p2, p3) {
+        const mt = 1 - t;
+        const x = mt*mt*mt*p0.x + 3*mt*mt*t*p1.x + 3*mt*t*t*p2.x + t*t*t*p3.x;
+        const y = mt*mt*mt*p0.y + 3*mt*mt*t*p1.y + 3*mt*t*t*p2.y + t*t*t*p3.y;
+        return { x: x, y: y };
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // 1. VẼ CÁC ĐƯỜNG SỨC TỪ HÌNH BẦU DỤC DẸP (NÉT ĐỨT MỜ)
+        orbits.forEach(orb => {
+            ctx.beginPath();
+            ctx.moveTo(northPole.x, northPole.y);
+            // Đường cong đi từ cực Bắc (Trái) uốn lên/xuống rồi đi vào cực Nam (Phải)
+            ctx.bezierCurveTo(orb.cp1x, orb.cp1y, orb.cp2x, orb.cp2y, southPole.x, southPole.y);
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.06)';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([4, 4]); // Nét đứt từ trường rõ ràng hơn
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.closePath();
+        });
+
+        // 2. VẼ VÀ CẬP NHẬT CÁC HẠT CHẠY TỪ TRÁI (N) SANG PHẢI (S)
+        particles.forEach(p => {
+            p.t += p.speed;
+            if (p.t > 1) p.t = 0; // Chạm cực Nam (Phải) thì quay lại xuất phát ở cực Bắc (Trái)
+
+            const orb = orbits[p.orbitIndex];
+            const pos = getBezierPoint(p.t, northPole, {x: orb.cp1x, y: orb.cp1y}, {x: orb.cp2x, y: orb.cp2y}, southPole);
+
+            ctx.beginPath();
+            ctx.arc(pos.x, pos.y, 2, 0, Math.PI * 2);
+            ctx.fillStyle = '#00d2d3';
+            ctx.shadowBlur = 8;
+            ctx.shadowColor = '#00d2d3';
+            ctx.fill();
+            ctx.closePath();
+        });
+        ctx.shadowBlur = 0;
+
+        // 3. VẼ THANH NAM CHÂM LẬT NGANG 2 CỰC (TO HƠN 1.1 LẦN)
+        // Cực Bắc (North - Màu đỏ nằm bên TRÁI)
+        ctx.fillStyle = '#ff4757';
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = '#ff4757';
+        ctx.fillRect(cx - magW / 2, cy - magH / 2, magW / 2, magH);
+
+        // Cực Nam (South - Màu xanh dương nằm bên PHẢI)
+        ctx.fillStyle = '#54a0ff';
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = '#54a0ff';
+        ctx.fillRect(cx, cy - magH / 2, magW / 2, magH);
+        ctx.shadowBlur = 0;
+
+        // Viết chữ ký hiệu N và S nằm ngang theo thân nam châm
+        ctx.fillStyle = '#ffffff';
+        ctx.font = 'bold 12px sans-serif';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText('N', cx - magW / 4, cy);
+        ctx.fillText('S', cx + magW / 4, cy);
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+</script>
+</html>
