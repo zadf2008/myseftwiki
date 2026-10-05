@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../decor.css">
+    <link rel="icon" href="../images-removebg-preview.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Đạo hàm</title>
+</head>
+
+<body>
+    <header> <a href="Pagemath.html">Đạo hàm</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a>Đạo hàm</a></p>
+            <p><a href="limitoffunction.html">Giới hạn</a></p>
+            <p><a href="trigonometry.html">Lượng giác</a></p>
+            <p><a href="matrix.html">Ma trận</a></p>
+            <p><a href="laplace.html">Phép biến đổi laplace</a></p>
+            <p><a href="integral.html">Tích phân</a></p>
+        </nav>
+        <main>
+            <h2>Tính chất:</h2>
+            <p>\(\bullet k' = 0\)</p>
+            <p>\(\bullet (f(x) \pm g(x))' = f'(x) \pm g'(x)\)</p>
+            <p>\(\bullet (k.f(x))'=k.f'(x)\)</p>
+            <p>\(\bullet (f(x).g(x))'=f'(x).g(x)+f(x).g(x) \Rightarrow (f(x).g(x))^{(n)} = \sum_{k=0}^{n} C_n^k
+                f^k(x).g^{(n-k)}(x)\)</p>
+            <p>\(\bullet \left(\frac{f(x)}{g(x)}\right)'=\frac{f'(x).g(x)-f(x).g'(x)}{g^2(x)}\)</p>
+            <p>\(\bullet (f(x)^{g(x)})'= f(x)^{g(x)} \cdot \left[ g'(x)\ln f(x) + \frac{g(x)f'(x)}{f(x)} \right]\)</p>
+            <p>\(\bullet f(x_0 + \Delta x) - f(x_0)=f'(x_0).\Delta x + o(\Delta x) \Rightarrow f(x_0 + \Delta x) \approx
+                f(x_0) + f'(x_0).\Delta x \text{ (Nếu } \Delta x \approx 0 \text{)}\)</p>
+            <h2>Công thức đạo hàm nhanh:</h2>
+            <p>\(\bullet \left( \frac{ax+b}{cx+d} \right)' = \frac{\begin{bmatrix} a&b\\c&d \end{bmatrix} }{(cx+d)^2}\)
+            </p>
+            <p>\(\bullet \left( \frac{ax^2 + bx + c}{dx^2 + ex + f} \right)' = \frac{\begin{bmatrix} a&b\\d&e
+                \end{bmatrix} x^2 + 2 \begin{bmatrix} a&c\\d&f \end{bmatrix} x + \begin{bmatrix} b&c\\e&f
+                \end{bmatrix}}{(dx + e)^2}\)</p>
+            <h2>Công thức đạo hàm: </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Hàm sơ cấp \(f(x)\)</th>
+                        <th>Đạo hàm \(f'(x)\)</th>
+                        <th>Hàm hợp \(f(u)\) với \(u=u(x)\)</th>
+                        <th>Đạo hàm cấp cao \(f^{(n)}(x)\)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Hàm mũ e^x -->
+                    <tr>
+                        <td>\(e^x\)</td>
+                        <td>\(e^x\)</td>
+                        <td>\((e^u)' = u' \cdot e^u\)</td>
+                        <td>\(e^x\)</td>
+                    </tr>
+                    <!-- Hàm ln x -->
+                    <tr>
+                        <td>\(\ln x \quad (x > 0)\)</td>
+                        <td>\(\frac{1}{x}\)</td>
+                        <td>\((\ln u)' = \frac{u'}{u}\)</td>
+                        <td>\(\frac{(-1)^{n-1}(n-1)!}{x^n}\)</td>
+                    </tr>
+                    <!-- Hàm nghịch đảo 1/x -->
+                    <tr>
+                        <td>\(\frac{1}{x} \quad (x \ne 0)\)</td>
+                        <td>\(-\frac{1}{x^2}\)</td>
+                        <td>\(\left(\frac{1}{u}\right)' = -\frac{u'}{u^2}\)</td>
+                        <td>\(\frac{(-1)^n \cdot n!}{x^{n+1}}\)</td>
+                    </tr>
+                    <!-- Hàm lũy thừa x^a sử dụng hàm Gamma -->
+                    <tr>
+                        <td>\(x^a \quad (x>0)\)</td>
+                        <td>\(a x^{a-1}\)</td>
+                        <td>\((u^a)' = a u^{a-1} \cdot u'\)</td>
+                        <td>\(\frac{\Gamma(a + 1)}{\Gamma(a - n + 1)} x^{a-n}\)</td>
+                    </tr>
+                    <!-- Hàm mũ a^x -->
+                    <tr>
+                        <td>\(a^x \quad (a>0, a\ne1)\)</td>
+                        <td>\(a^x \ln a\)</td>
+                        <td>\((a^u)' = u' \cdot a^u \ln a\)</td>
+                        <td>\(a^x (\ln a)^n\)</td>
+                    </tr>
+                    <!-- Hàm log_a x -->
+                    <tr>
+                        <td>\(\log_a x \quad (a,x>0; a\ne1)\)</td>
+                        <td>\(\frac{1}{x \ln a}\)</td>
+                        <td>\((\log_a u)' = \frac{u'}{u \ln a}\)</td>
+                        <td>\(\frac{(-1)^{n-1}(n-1)!}{x^n \ln a}\)</td>
+                    </tr>
+                    <!-- Hàm sin x -->
+                    <tr>
+                        <td>\(\sin x\)</td>
+                        <td>\(\cos x\)</td>
+                        <td>\((\sin u)' = u' \cdot \cos u\)</td>
+                        <td>\(\begin{array}{l} \sin \left(x + \frac{n\pi}{2}\right) \\ (-1)^k\sin x \text{ (nếu n = 2k)}
+                            \\ (-1)^k\cos x \text{ (nếu n = 2k+1)} \end{array}\)</td>
+                    </tr>
+                    <!-- Hàm cos x -->
+                    <tr>
+                        <td>\(\cos x\)</td>
+                        <td>\(-\sin x\)</td>
+                        <td>\((\cos u)' = -u' \cdot \sin u\)</td>
+                        <td>\(\begin{array}{l} \cos\left(x + \frac{n\pi}{2}\right) \\ (-1)^k \cos x \text{ (nếu n = 2k)}
+                            \\ (-1)^{k+1} \sin x \text{ (nếu n = 2k+1)} \end{array}\)</td>
+                    </tr>
+                    <!-- Hàm tan x -->
+                    <tr>
+                        <td>\(\tan x \quad (x \ne \frac{\pi}{2}+k\pi)\)</td>
+                        <td>\(\frac{1}{\cos^2 x} = 1 + \tan^2 x\)</td>
+                        <td>\((\tan u)' = \frac{u'}{\cos^2 u}\)</td>
+                        <td>\(\sum_{k=0}^{n-1} \binom{n-1}{k} \tan^{(k)}x \cdot \tan^{(n-1-k)}x\)</td>
+                    </tr>
+                    <!-- Hàm cot x -->
+                    <tr>
+                        <td>\(\cot x \quad (x \ne k\pi)\)</td>
+                        <td>\(-\frac{1}{\sin^2 x} = -(1 + \cot^2 x)\)</td>
+                        <td>\((\cot u)' = -\frac{u'}{\sin^2 u}\)</td>
+                        <td>\((-1)^n \cdot n! \cdot \csc^{n+1}x \cdot \sin\left(x + \frac{n\pi}{2}\right)\)</td>
+                    </tr>
+                    <!-- Hàm arcsin x -->
+                    <tr>
+                        <td>\(\arcsin x \quad (-1 < x < 1)\)</td>
+                        <td>\(\frac{1}{\sqrt{1-x^2}}\)</td>
+                        <td>\((\arcsin u)' = \frac{u'}{\sqrt{1-u^2}}\)</td>
+                        <td>\(\frac{d^{n-1}}{dx^{n-1}}\left[(1-x^2)^{-1/2}\right]\)</td>
+                    </tr>
+                    <!-- Hàm arccos x -->
+                    <tr>
+                        <td>\(\arccos x \quad (-1 < x < 1)\)</td>
+                        <td>\(-\frac{1}{\sqrt{1-x^2}}\)</td>
+                        <td>\((\arccos u)' = -\frac{u'}{\sqrt{1-u^2}}\)</td>
+                        <td>\(-\frac{d^{n-1}}{dx^{n-1}}\left[(1-x^2)^{-1/2}\right]\)</td>
+                    </tr>
+                    <!-- Hàm arctan x -->
+                    <tr>
+                        <td>\(\arctan x\)</td>
+                        <td>\(\frac{1}{1+x^2}\)</td>
+                        <td>\((\arctan u)' = \frac{u'}{1+u^2}\)</td>
+                        <td>\(\frac{(-1)^{n-1}(n-1)!}{(1+x^2)^{n/2}} \sin\left(n \arctan \frac{1}{x}\right)\)</td>
+                    </tr>
+                    <!-- Hàm arccot x -->
+                    <tr>
+                        <td>\(\operatorname{arccot} x\)</td>
+                        <td>\(-\frac{1}{1+x^2}\)</td>
+                        <td>\((\operatorname{arccot} u)' = -\frac{u'}{1+u^2}\)</td>
+                        <td>\(\frac{(-1)^n(n-1)!}{(1+x^2)^{n/2}} \sin\left(n \arctan \frac{1}{x}\right)\)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Đạo hàm hàm ẩn & Đạo hàm hàm ngược</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Loại hàm số</th>
+                        <th>Định nghĩa / Điều kiện</th>
+                        <th>Công thức Đạo hàm tổng quát</th>
+                        <th>Công thức mở rộng (Cấp cao / 2 biến)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Đạo hàm hàm ẩn -->
+                    <tr>
+                        <td>
+                            **Hàm ẩn**
+                            <br>
+                            \(F(x, y) = 0\)
+                        </td>
+                        <td>
+                            Hàm số \(y = y(x)\) không được biểu diễn tường minh mà ẩn trong phương trình \(F(x, y) =
+                            0\).
+                        </td>
+                        <td>
+                            \[y' = -\frac{F'_x(x, y)}{F'_y(x, y)}\]
+                            *(với \(F'_y \ne 0\))*
+                        </td>
+                        <td>
+                            Đạo hàm cấp 2 của hàm ẩn:
+                            <br>
+                            \[y'' = -\frac{F''_{xx} \cdot (F'_y)^2 - 2F''_{xy} \cdot F'_x \cdot F'_y + F''_{yy} \cdot
+                            (F'_x)^2}{(F'_y)^3}\]
+                        </td>
+                    </tr>
+                    <!-- Đạo hàm hàm ngược -->
+                    <tr>
+                        <td>
+                            **Hàm ngược**
+                            <br>
+                            \(x = f^{-1}(y)\)
+                        </td>
+                        <td>
+                            Cho hàm số \(y = f(x)\) đơn điệu ngặt và có đạo hàm \(f'(x) \ne 0\).
+                        </td>
+                        <td>
+                            \[(f^{-1})'(y) = \frac{1}{f'(x)}\]
+                            <br>
+                            Hoặc viết dưới dạng vi phân: \(\frac{dx}{dy} = \frac{1}{\frac{dy}{dx}}\)
+                        </td>
+                        <td>
+                            Đạo hàm cấp 2 của hàm ngược:
+                            <br>
+                            \[(f^{-1})''(y) = -\frac{f''(x)}{[f'(x)]^3}\]
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Khai triển Taylor & Maclaurin (Xấp xỉ hàm số):</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tên công thức</th>
+                        <th>Dạng tổng quát</th>
+                        <th>Các hàm Maclaurin kinh điển \((x_0 = 0)\)</th>
+                        <th>Phần dư Peano \(o(x^n)\)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Công thức Taylor -->
+                    <tr>
+                        <td>**Khai triển Taylor**<br>(tại điểm \(x_0\))</td>
+                        <td>
+                            \(f(x) = \sum\limits_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k + o((x-x_0)^n)\)
+                        </td>
+                        <td>
+                            Dùng để xấp xỉ một hàm phức tạp thành một đa thức quanh điểm \(x_0\).
+                        </td>
+                        <td>
+                            \(o((x-x_0)^n)\) là VCB bậc cao, thể hiện sai số vô cùng nhỏ khi \(x \to x_0\).
+                        </td>
+                    </tr>
+                    <!-- Công thức Maclaurin -->
+                    <tr>
+                        <td>**Khai triển Maclaurin**<br>(khi \(x_0 = 0\))</td>
+                        <td>
+                            \(f(x) = f(0) + \frac{f'(0)}{1!}x + \frac{f''(0)}{2!}x^2 + \dots + \frac{f^{(n)}(0)}{n!}x^n
+                            + o(x^n)\)
+                        </td>
+                        <td>
+                            \(\bullet e^x = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots + \frac{x^n}{n!} + o(x^n)\)
+                            <br><br>
+                            \(\bullet \sin x = x - \frac{x^3}{3!} + \frac{x^5}{5!} - \dots + (-1)^m
+                            \frac{x^{2m+1}}{(2m+1)!} + o(x^{2m+1})\)
+                            <br><br>
+                            \(\bullet \cos x = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \dots + (-1)^m \frac{x^{2m}}{(2m)!}
+                            + o(x^{2m})\)
+                            <br><br>
+                            \(\bullet \ln(1+x) = x - \frac{x^2}{2} + \frac{x^3}{3} - \dots + (-1)^{n-1}\frac{x^n}{n} +
+                            o(x^n)\)
+                        </td>
+                        <td style="text-align: left; vertical-align: top;">
+                            Khi \(x \approx 0\), ta có xấp xỉ tuyến tính bậc 1 cực nhanh trong kỹ thuật:
+                            <br>
+                            \(\bullet \sin x \approx x\)
+                            <br>
+                            \(\bullet \cos x \approx 1 - \frac{x^2}{2}\)
+                            <br>
+                            \(\bullet e^x \approx 1 + x\)
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>Bài tập:</h2>
+            <h3>Bài 1:</h3>
+            <div style="display: flex;">
+                <div style="margin-right: 20px;">
+                    <p>1. \(y = \frac{\tan x}{\sqrt[3]{x^2}}\)</p>
+                    <p>\(y =\tan x.x^{\frac{-2}{3}}\)</p>
+                    <p>\(y' =(\tan x)'.x^{\frac{-2}{3}}+(\tan x).\left(x^{\frac{-2}{3}}\right)'\)</p>
+                    <p>\(y' =\frac{1}{\cos^2 x}.x^{\frac{-2}{3}}+(\tan x).\frac{-2}{3}x^{\frac{-5}{3}}\)</p>
+                    <p>\(y' =\frac{1}{\cos^2 x.x^{\frac{2}{3}}}-\frac{2 \sin x}{3.x^{\frac{5}{3}} \cos x}\)</p>
+                    <p>\(y' =\frac{3x}{3\cos^2 x.x^{\frac{5}{3}}}-\frac{2 \sin x \cos x}{3.x^{\frac{5}{3}} \cos^2 x}\)
+                    </p>
+                    <p>\(y' =\frac{3x-\sin 2x}{3\cos^2 x.x^{\frac{5}{3}}}\)</p>
+                </div>
+                <div style="margin-right: 20px;">
+                    <p>2. \(y = \cos^2 (\sin \frac{x}{3})\)</p>
+                    <p>\(y' = 2\cos (\sin \frac{x}{3})\left(\cos (\sin \frac{x}{3})\right)'\)</p>
+                    <p>\(y' = 2\cos (\sin \frac{x}{3})(-(\sin \frac{x}{3})'\sin (\sin \frac{x}{3}))\)</p>
+                    <p>\(y' = 2\cos (\sin \frac{x}{3})(-(\frac{1}{3}\cos \frac{x}{3})\sin (\sin \frac{x}{3}))\)</p>
+                    <p>\(y' = -\frac{2}{3}\cos (\sin \frac{x}{3})\cos \frac{x}{3}\sin (\sin \frac{x}{3})\)</p>
+                    <p>\(y' = -\frac{1}{3}\cos \frac{x}{3}\sin (2\sin \frac{x}{3})\)</p>
+                </div>
+                <div style="margin-right: 20px;">
+                    <p>3. \(y = \sqrt{\sin \sqrt{x}}\)</p>
+                    <p>\(y = \sin^{\frac{1}{2}} \sqrt{x}\)</p>
+                    <p>\(y' = \frac{1}{2}(\sin^{\frac{-1}{2}} \sqrt{x})(\sin \sqrt{x})'\)</p>
+                    <p>\(y' = \frac{1}{2}(\sin^{\frac{-1}{2}} \sqrt{x})(\frac{1}{2}\cos \sqrt{x}.x^{\frac{-1}{2}})\)</p>
+                    <p>\(y' = \frac{\cos \sqrt{x}}{4\sqrt{\sin \sqrt{x}} \sqrt{x}}\)</p>
+                </div>
+            </div>
+            <div style="display: flex;">
+                <div style="margin-right: 20px;">
+                    <p>4. \(y = \arcsin \frac{1}{|x|}\)</p>
+                    <p>\(y' = -\frac{\frac{1}{x^2}}{\sqrt{1-\frac{1}{|x|}^2}}\)</p>
+                    <p>\(y' = -\frac{\frac{1}{x|x|}}{\frac{\sqrt{x^2-1}}{|x|}}\)</p>
+                    <p>\(y' = -\frac{1}{x\sqrt{x^2-1}}\)</p>
+                </div>
+                <div style="margin-right: 20px;">
+                    <p>5. \(y = 2^{\frac{x}{\ln x}}\)</p>
+                    <p>\(y' = \ln 2.2^{\frac{x}{\ln x}}(\frac{x}{\ln x})'\)</p>
+                    <p>\(y' = \ln 2.2^{\frac{x}{\ln x}}(\frac{1}{\ln x}+x(\frac{1}{\ln x})')\)</p>
+                    <p>\(y' = \ln 2.2^{\frac{x}{\ln x}}(\frac{1}{\ln x}+x(\frac{1}{x.(\ln x)^2}))\)</p>
+                    <p>\(y' = \ln 2.2^{\frac{x}{\ln x}}(\frac{1}{\ln x}-\frac{1}{(\ln x)^2})\)</p>
+                    <p>\(y' = \ln 2.2^{\frac{x}{\ln x}}\frac{\ln x - 1}{(\ln x)^2}\)</p>
+                </div>
+                <div style="margin-right: 20px;">
+                    <p>6. \(y = \sqrt{\sin \sqrt{x}}\)</p>
+                    <p>\(y = \frac{1}{2} \sin ^ \frac{-1}{2} \sqrt{x} (\sin \sqrt{x})' \)</p>
+                    <p>\(y = \frac{1}{2} \sin ^ \frac{-1}{2}\sqrt{x} \cos \sqrt{x} \frac{1}{2} x^ \frac{-1}{2} \)</p>
+                    <p>\(y = \frac{1}{4} \frac{\cos \sqrt{x}}{(\sin ^ \frac{1}{2}\sqrt{x})(x^ \frac{1}{2})}\)</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

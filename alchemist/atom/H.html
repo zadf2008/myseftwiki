@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../decor.css">
+    <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="drawneutron.js"></script>
+    <title>H</title>
+</head>
+
+<body>
+    <header> <a href="../pagealchemist.html">Hydrogen</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a>H</a></p>
+        </nav>
+        <main>
+            <div>
+                <div></div>
+                <div style="width: 20%;justify-self: right;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Hydrogen</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <canvas id="hydrogen" style="width: 100%; height: auto;"></canvas>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+<script>
+    const canvas = document.getElementById('hydrogen');
+    const ctx = canvas.getContext('2d');
+
+    createAtom(1, 0, 1, "Hydrogen");
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height); // Xóa màn hình cũ
+
+        // 1. Cập nhật và Vẽ chùm hạt nhân (Proton & Neutron) trước
+        nucleusList.forEach(particle => {
+            particle.update();
+            particle.draw();
+        });
+
+        // 2. Cập nhật và Vẽ các Electron bay xung quanh vỏ
+        electronList.forEach(electron => {
+            electron.update();
+            electron.draw();
+        });
+
+        requestAnimationFrame(animate); // Lặp lại vòng quay vô hạn
+    }
+
+    // Bật công tắc vận hành hệ thống
+    animate();
+</script>
+
+</html>
