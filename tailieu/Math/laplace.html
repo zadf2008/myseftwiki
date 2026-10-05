@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../decor.css">
+    <link rel="icon" href="../images-removebg-preview.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Phép biến đổi Laplace</title>
+</head>
+
+<body>
+    <header> <a href="Pagemath.html">Phép biến đổi Laplace</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="derivative.html">Đạo hàm</a></p>
+            <p><a href="limitoffunction.html">Giới hạn</a></p>
+            <p><a href="trigonometry.html">Lượng giác</a></p>
+            <p><a href="matrix.html">Ma trận</a></p>
+            <p><a>Phép biến đổi laplace</a></p>
+            <p><a href="integral.html">Tích phân</a></p>
+        </nav>
+        <main>
+            <h2>Định nghĩa:</h3>
+                <p>\(f(t)\) là miền thời gian tuyến tính</p>
+                <p>s là biến số ở miền tần số phức thường được viết dưới dạng s = \(\sigma + i \omega\), trong đó:</p>
+                <p> \(\bullet \sigma\) :Đại diện cho hệ số suy giảm hoặc
+                    tăng trưởng (biên độ của tín hiệu thay đổi thế nào theo thời gian)</p>
+                <p> \(\bullet \omega\) :Chính là tần số góc của tín hiệu dao
+                    động (tương tự như tần số sóng radio, dòng điện xoay chiều mà bạn thường biết)</p>
+                <p>\(\bullet j\) :Là số phức \(\left(j = \sqrt{-1}
+                    \right)\)</p>
+                <h2>Ứng dụng trong Điều khiển:</h3>
+                    <p>Nhờ tính chất đạo hàm, ta dễ dàng chuyển một phương trình vi phân mô tả hệ thống phần cứng về
+                        dạng hàm đại số:</p>
+                    <p>\(\text{Hàm truyền } G(s) = \frac{Y(s)}{X(s)}\)</p>
+                    <p>Trong đó \(Y(s)\) là tín hiệu đầu ra và \(X(s)\) là tín hiệu đầu vào khi giả định mọi điều kiện
+                        ban đầu bằng 0.</p>
+                    <h2>Công thức biến đổi Laplace</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tên hàm gốc</th>
+                                <th>Miền thời gian \(f(t) \quad
+                                    (t \ge 0)\)</th>
+                                <th>Miền tần số \(F(s) =
+                                    \mathcal{L}\{f(t)\}\)</th>
+                                <th>Định lý dịch chuyển / Mở
+                                    rộng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Hàm xung Delta Dirac -->
+                            <tr>
+                                <td>Xung Dirac</td>
+                                <td>\(\delta(t)\)</td>
+                                <td>\(1\)</td>
+                                <td>\(\mathcal{L}\{\delta(t - t_0)\} = e^{-s
+                                    t_0}\)</td>
+                            </tr>
+                            <!-- Hàm nấc thang đơn vị Heaviside -->
+                            <tr>
+                                <td>Nấc đơn vị</td>
+                                <td>\(1(t) \text{ hoặc } u(t)\)</td>
+                                <td>\(\frac{1}{s}\)</td>
+                                <td>\(\mathcal{L}\{u(t - t_0)\} = \frac{e^{-s
+                                    t_0}}{s}\)</td>
+                            </tr>
+                            <!-- Hàm trễ thời gian -->
+                            <tr>
+                                <td>Hàm trễ (Dịch thời gian)</td>
+                                <td>\(f(t - t_0) \cdot u(t - t_0)\)</td>
+                                <td>\(e^{-s t_0} F(s)\)</td>
+                                <td>Vị trí bắt đầu của tín hiệu lùi một khoảng
+                                    \(t_0\)</td>
+                            </tr>
+                            <!-- Hàm tuyến tính / Tuyến tính mũ -->
+                            <tr>
+                                <td>Hàm dốc (Ramp)</td>
+                                <td>\(t\)</td>
+                                <td>\(\frac{1}{s^2}\)</td>
+                                <td>\(\mathcal{L}\{t \cdot e^{at}\} =
+                                    \frac{1}{(s-a)^2}\)</td>
+                            </tr>
+                            <!-- Hàm lũy thừa bậc n -->
+                            <tr>
+                                <td>Hàm lũy thừa</td>
+                                <td>\(t^n \quad (n \in \mathbb{N})\)</td>
+                                <td>\(\frac{n!}{s^{n+1}}\)</td>
+                                <td>\(\mathcal{L}\{t^n e^{at}\} =
+                                    \frac{n!}{(s-a)^{n+1}}\)</td>
+                            </tr>
+                            <!-- Hàm mũ bậc nhất -->
+                            <tr>
+                                <td>Hàm mũ</td>
+                                <td>\(e^{at}\)</td>
+                                <td>\(\frac{1}{s - a}\)</td>
+                                <td>\(\mathcal{L}\{e^{(a+bj)t}\} = \frac{1}{s -
+                                    (a+bj)}\)</td>
+                            </tr>
+                            <!-- Hàm Lượng giác Sin -->
+                            <tr>
+                                <td>Hàm lượng giác sin</td>
+                                <td>\(\sin(\omega t)\)</td>
+                                <td>\(\frac{\omega}{s^2 + \omega^2}\)</td>
+                                <td>\(\mathcal{L}\{e^{at} \sin(\omega t)\} =
+                                    \frac{\omega}{(s-a)^2 + \omega^2}\)</td>
+                            </tr>
+                            <!-- Hàm Lượng giác Cos -->
+                            <tr>
+                                <td>Hàm lượng giác cos</td>
+                                <td>\(\cos(\omega t)\)</td>
+                                <td>\(\frac{s}{s^2 + \omega^2}\)</td>
+                                <td>\(\mathcal{L}\{e^{at} \cos(\omega t)\} =
+                                    \frac{s-a}{(s-a)^2 + \omega^2}\)</td>
+                            </tr>
+                            <!-- Hàm nhân thêm thời gian t -->
+                            <tr>
+                                <td>Nhân thêm \(t\)</td>
+                                <td>\(t \cdot f(t)\)</td>
+                                <td>\(-F'(s) = -\frac{d}{ds}F(s)\)</td>
+                                <td>\(\mathcal{L}\{t^n \cdot f(t)\} = (-1)^n
+                                    \frac{d^n}{ds^n}F(s)\)</td>
+                            </tr>
+                            <!-- Hàm chia cho thời gian t -->
+                            <tr>
+                                <td>Chia cho \(t\)</td>
+                                <td>\(\frac{f(t)}{t}\)</td>
+                                <td>\(\int_{s}^{\infty} F(u) \, du\)</td>
+                                <td>Điều kiện tồn tại: \(\lim_{t \to 0^+}
+                                    \frac{f(t)}{t}\) hữu hạn</td>
+                            </tr>
+                            <!-- Hàm Sin Hypebol -->
+                            <tr>
+                                <td>Sin Hyperbol</td>
+                                <td>\(\sinh(at)\)</td>
+                                <td>\(\frac{a}{s^2 - a^2}\)</td>
+                                <td>\(\mathcal{L}\{e^{kt}\sinh(at)\} =
+                                    \frac{a}{(s-k)^2 - a^2}\)</td>
+                            </tr>
+                            <!-- Hàm Cos Hypebol -->
+                            <tr>
+                                <td>Cos Hyperbol</td>
+                                <td>\(\cosh(at)\)</td>
+                                <td>\(\frac{s}{s^2 - a^2}\)</td>
+                                <td>\(\mathcal{L}\{e^{kt}\cosh(at)\} =
+                                    \frac{s-k}{(s-k)^2 - a^2}\)</td>
+                            </tr>
+                            <!-- Hàm tuần hoàn -->
+                            <tr>
+                                <td>Hàm tuần hoàn</td>
+                                <td>\(f(t) = f(t + T)\)</td>
+                                <td>\(\frac{1}{1 - e^{-sT}} \int_{0}^{T} e^{-st}
+                                    f(t) \, dt\)</td>
+                                <td>\(T\) là chu kỳ tuần hoàn của tín hiệu</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h2>Tính chất & Định lý ứng dụng</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tên tính chất</th>
+                                <th>Công thức toán học miền Laplace</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Tính tuyến tính -->
+                            <tr>
+                                <td>Tính tuyến tính</td>
+                                <td>\(\mathcal{L}\{a \cdot f(t) + b \cdot g(t)\} = aF(s) + bG(s)\)</td>
+                            </tr>
+                            <!-- Đạo hàm miền thời gian -->
+                            <tr>
+                                <td>Đạo hàm cấp 1</td>
+                                <td>\(\mathcal{L}\{f'(t)\} = sF(s) - f(0)\)</td>
+                            </tr>
+                            <tr>
+                                <td>Đạo hàm cấp 2</td>
+                                <td>\(\mathcal{L}\{f''(t)\} = s^2F(s) - sf(0) - f'(0)\)</td>
+                            </tr>
+                            <!-- Tích phân miền thời gian -->
+                            <tr>
+                                <td>Tích phân</td>
+                                <td>\(\mathcal{L}\left\{\int_{0}^{t} f(\tau) d\tau\right\} = \frac{F(s)}{s}\)</td>
+                            </tr>
+                            <!-- Định lý giá trị đầu và cuối -->
+                            <tr>
+                                <td>Giá trị đầu (t → 0)</td>
+                                <td>\(f(0^+) = \lim_{s \to +\infty} sF(s)\)</td>
+                            </tr>
+                            <tr>
+                                <td>Giá trị cuối (t → ∞)</td>
+                                <td>\(f(\infty) = \lim_{s \to 0} sF(s) \quad\) (Nếu hệ ổn định)</td>
+                            </tr>
+                            <!-- Phép chập thời gian -->
+                            <tr>
+                                <td>Tích chập (Convolution)</td>
+                                <td>\(\mathcal{L}\{f(t) * g(t)\} = F(s) \cdot G(s)\)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+        </main>
+    </div>
+</body>
+
+</html>
