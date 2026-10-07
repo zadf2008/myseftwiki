@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../decor.css">
+    <link rel="icon" href="../images-removebg-preview.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Điện trường</title>
+</head>
+
+<body>
+    <header> <a href="pagephysic.html">Điện trường</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="electricity.html">Điện</a></p>
+            <p><a href="magnetic-field.html">Từ trường</a></p>
+            <p><a>Điện trường</a></p>
+        </nav>
+        <main>
+            <div style="display: flex; justify-content: space-between; width: 100%;">
+                <div style="width: max-content;">
+                    <h2>Kiến thức cơ bản:</h2>
+                    <p>\(\bullet\) Từ trường là dạng vật chất đặc biệt tồn tại xung quanh các hạt mang điện(không cần
+                        biết chuyển động hay không)</p>
+                    <p>\(\bullet\) Tác dụng lên mọi điện tích trong điện trường</p>
+                    <p>\(\bullet\) Để hình dung điện trường người ta sử dụng khái niệm đường sức điện (electric field
+                        lines) do nhà bác học Michael Faraday đề xuất</p>
+                    <p>\(\bullet\) Các đường sức điện là các đường không khép kính đi ra từ cực dương và vô cực âm(hoặc
+                        kết thức ở vô cùng)</p>
+                    <p>\(\bullet\) Quy ước độ mạnh của điện trường tỉ lệ thuận với mật độ đường sức điện</p>
+                    <p>\(\bullet\) Cùng dấu thì đẩy, trái dấu thì hút</p>
+                </div>
+                <div style="width: 20%;justify-self: right;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Điện trường</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <canvas id="electric-field" style="width: 100%; height: auto;"></canvas>
+                                </td>
+                            </tr>
+
+                            <!-- Hàng thứ 3 -->
+                            <tr>
+                                <td style="padding: 0px; display: flex; justify-content: space-between">
+                                    <button onclick="showPositive()" style="background-color: #1f1f1f;margin: 0px; height: auto; width: 80px; color: aliceblue;text-shadow: 0px 0px 1px aliceblue; justify-self: left; padding: 0px;"><span style="color: red;font-size: 200%; margin: 0%;">+</span></button>
+                                    <button onclick="showNegative()" style="background-color: #1f1f1f;margin: 0px; height: auto; width: 80px; color: aliceblue;text-shadow: 0px 0px 1px aliceblue; justify-self: center; padding: 0px;"><span style="color: blue;font-size: 200%; margin: 0%;">-</span></button>
+                                    <button onclick="showBoth()" style="background-color: #1f1f1f;margin: 0px; height: auto; width: 80px; color: aliceblue;text-shadow: 0px 0px 1px aliceblue; justify-self: right; padding: 0px;"><span style="color: red;font-size: 200%; margin: 0%;">+</span>/<span style="color: blue;font-size: 200%; margin: 0%;">-</span></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+<script>
+const canvas = document.getElementById("electric-field");
+const ctx = canvas.getContext("2d");
+
+
+// ==============================
+// CẤU HÌNH CANVAS
+// ==============================
+
+canvas.width = 800;
+canvas.height = 500;
+
+
+// ==============================
+// TRẠNG THÁI MÔ HÌNH
+// ==============================
+
+// "positive" = hạt dương
+// "negative" = hạt âm
+// "both"     = cả hai
+
+let electricFieldMode = "positive";
+
+
+// ==============================
+// CÁC HẠT ĐIỆN
+// ==============================
+
+let positiveParticle = {
+    x: 280,
+    y: 250,
+    charge: 1
+};
+
+let negativeParticle = {
+    x: 520,
+    y: 250,
+    charge: -1
+};
+
+
+// ==============================
+// ĐỔI CHẾ ĐỘ
+// ==============================
+
+function showPositive() {
+    electricFieldMode = "positive";
+    drawElectricField();
+}
+
+function showNegative() {
+    electricFieldMode = "negative";
+    drawElectricField();
+}
+
+function showBoth() {
+    electricFieldMode = "both";
+    drawElectricField();
+}
+
+
+// ==============================
+// TÍNH ĐIỆN TRƯỜNG
+// ==============================
+
+function calculateElectricField(x, y) {
+
+    let Ex = 0;
+    let Ey = 0;
+
+    let particles = [];
+
+    if (electricFieldMode === "positive") {
+        particles.push(positiveParticle);
+    }
+
+    if (electricFieldMode === "negative") {
+        particles.push(negativeParticle);
+    }
+
+    if (electricFieldMode === "both") {
+        particles.push(positiveParticle);
+        particles.push(negativeParticle);
+    }
+
+
+    for (let particle of particles) {
+
+        let dx = x - particle.x;
+        let dy = y - particle.y;
+
+        let distanceSquared = dx * dx + dy * dy;
+
+        // Tránh chia cho 0
+        if (distanceSquared < 100) {
+            continue;
+        }
+
+        let distance = Math.sqrt(distanceSquared);
+
+        // Độ lớn điện trường
+        let E = particle.charge / distanceSquared;
+
+        // Thành phần X và Y
+        Ex += E * dx / distance;
+        Ey += E * dy / distance;
+    }
+
+    return {
+        x: Ex,
+        y: Ey
+    };
+}
+
+
+// ==============================
+// VẼ MŨI TÊN
+// ==============================
+
+function drawArrow(x, y, dx, dy) {
+
+    let length = Math.sqrt(dx * dx + dy * dy);
+
+    if (length === 0) return;
+
+    // Chuẩn hóa vector
+    dx /= length;
+    dy /= length;
+
+    // Độ dài mũi tên
+    let arrowLength = 18;
+
+    let endX = x + dx * arrowLength;
+    let endY = y + dy * arrowLength;
+
+    ctx.beginPath();
+
+    ctx.moveTo(x, y);
+    ctx.lineTo(endX, endY);
+
+    ctx.stroke();
+
+    // Đầu mũi tên
+    let angle = Math.atan2(dy, dx);
+
+    ctx.beginPath();
+
+    ctx.moveTo(endX, endY);
+
+    ctx.lineTo(
+        endX - 7 * Math.cos(angle - Math.PI / 6),
+        endY - 7 * Math.sin(angle - Math.PI / 6)
+    );
+
+    ctx.lineTo(
+        endX - 7 * Math.cos(angle + Math.PI / 6),
+        endY - 7 * Math.sin(angle + Math.PI / 6)
+    );
+
+    ctx.closePath();
+
+    ctx.fill();
+}
+
+
+// ==============================
+// VẼ HẠT ĐIỆN
+// ==============================
+
+function drawParticle(particle) {
+
+    ctx.beginPath();
+
+    ctx.arc(
+        particle.x,
+        particle.y,
+        18,
+        0,
+        Math.PI * 2
+    );
+
+    if (particle.charge > 0) {
+        ctx.fillStyle = "red";
+    } else {
+        ctx.fillStyle = "blue";
+    }
+
+    ctx.fill();
+
+    ctx.fillStyle = "white";
+
+    ctx.font = "bold 22px Arial";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+
+    if (particle.charge > 0) {
+        ctx.fillText("+", particle.x, particle.y);
+    } else {
+        ctx.fillText("−", particle.x, particle.y);
+    }
+}
+
+
+// ==============================
+// VẼ ĐIỆN TRƯỜNG
+// ==============================
+
+function drawElectricField() {
+
+    // Xóa Canvas
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    // Nền
+    ctx.fillStyle = "#111";
+
+    ctx.fillRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+
+    // ==========================
+    // VẼ VECTOR ĐIỆN TRƯỜNG
+    // ==========================
+
+    ctx.strokeStyle = "rgba(255,255,255,0.35)";
+    ctx.fillStyle = "rgba(255,255,255,0.35)";
+    ctx.lineWidth = 1;
+
+
+    let spacing = 40;
+
+    for (let y = 20; y < canvas.height; y += spacing) {
+
+        for (let x = 20; x < canvas.width; x += spacing) {
+
+            let field = calculateElectricField(x, y);
+
+            let strength = Math.sqrt(
+                field.x * field.x +
+                field.y * field.y
+            );
+
+            if (strength < 0.00001) {
+                continue;
+            }
+
+            drawArrow(
+                x,
+                y,
+                field.x,
+                field.y
+            );
+        }
+    }
+
+
+    // ==========================
+    // VẼ HẠT
+    // ==========================
+
+    if (electricFieldMode === "positive") {
+
+        drawParticle(positiveParticle);
+
+    } else if (electricFieldMode === "negative") {
+
+        drawParticle(negativeParticle);
+
+    } else if (electricFieldMode === "both") {
+
+        drawParticle(positiveParticle);
+        drawParticle(negativeParticle);
+    }
+
+
+    // ==========================
+    // CHÚ THÍCH
+    // ==========================
+
+    ctx.fillStyle = "white";
+    ctx.font = "16px Arial";
+    ctx.textAlign = "left";
+}
+
+
+// ==============================
+// KHỞI ĐỘNG
+// ==============================
+
+drawElectricField();
+
+</script>
+
+</html>

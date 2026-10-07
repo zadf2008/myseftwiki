@@ -6,7 +6,21 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../../decor.css">
     <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <script>
+        window.MathJax = {
+            loader: {
+                load: ['[tex]/mathtools']
+            },
+            tex: {
+                packages: {
+                    '[+]': ['mathtools']
+                }
+            }
+        };
+    </script>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>Vitamin A</title>
 </head>
 
@@ -20,21 +34,65 @@
         </nav>
         <main>
             <h2>Tính chất:</h2>
-            <p>\(\bullet\) Tan tốt trong dầu.</p>
-            <p>\(\bullet\) Khó bị biến tính bởi nhiệt độ, nhưng dễ bị biến
-                tính hoặc vô hiệu hóa bởi các chất oxy hóa, ánh sáng và tia cực tím.</p>
-            <h2>Các tiền chất nhóm carotenoid:</h2>
-            <p>\(\bullet\) Beta-carotene: tiền chất phổ biến nhất và có khả
-                năng chuyển đổi thành Vitamin A hiệu quả nhất.</p>
-            <p>\(\bullet\) Alpha-carotene: khả năng chuyển đổi thành
-                Vitamin A chỉ bằng khoảng một nửa so với beta-carotene.</p>
-            <p>\(\bullet\) Beta-cryptoxanthin: cũng là một dạng tiền chất
-                Vitamin A hoạt tính thấp hơn beta-carotene</p>
-            <h2>Các dạng Vitamin A thành phẩm(Retinoid):</h2>
-            <p>\(\bullet\) Retinol</p>
-            <p>\(\bullet\) Retinal</p>
-            <p>\(\bullet\) Retinoic acid</p>
+            <p>\(\bullet\) Ở nhiệt độ phòng, vitamin A tồn tại dưới dạng chất rắn kết tinh màu vàng nhạt hoặc dạng dầu
+                đặc màu vàng(đối với các chế phẩm vitamin A), tùy thuộc vào độ tinh khiết.</p>
+            <p>\(\bullet\) Tan tốt trong dầu và các dung môi hữu cơ(ethanol, ether,...) nhưng ít hoặc gần như không tan
+                trong nước</p>
+            <p>\(\bullet\) Các vitamin A tự nhiên(như tiền chất beta-carotene) có khả năng chịu nhiệt độ nhất định, từ
+                120-140\(^oC\) trở lên(hoặc cao hơn, tùy điều kiện), vitamin A và các tiền chất sẽ bị thúc đẩy oxy hóa
+                hoặc bị phân hủy mạnh làm hao hụt đáng kế vitamin này. Đối với các vitamin A tổng hợp thì nhiệt độ chịu
+                được kém hơn rất nhiều(thường không quá 40\(^oC\)) nên nhiệt độ bảo quản lí tưởng thường giao động từ
+                15-30\(^oC\)</p>
+            <p>\(\bullet\) Rất nhạy cảm với oxy trong khống khí, khi tiếp xúc trực tiếp không khí sẽ diễn ra quá trình
+                oxy hóa làm cho vitamin A bị biến chất, mất tác dụng sinh học đối với cơ thể(diễn ra nhanh hơn trong
+                điều kiện oxy hóa thuận lợi như nhiều oxy, nhiều ánh sáng, và có các chất xúc tác oxy hóa như các ion
+                kim loại)</p>
+            <p>\(\bullet\) Khá nhạy cảm với ánh sáng, khi tiếp xúc trực tiếp với ánh nắng mặt trời(trong đó có tia UV)
+                trong thời gian ngắn, cấu trúc retinol sẽ bị hiện tượng đồng phân hóa và quang oxy hóa, khiến vitamin A
+                mất hoàn toàn hoạt tính sinh học chỉ sau vài giờ đến vài ngày, ngay cả ánh sáng từ đèn huỳnh quang hay
+                sợi đốt thông thường cũng có thể khiến vitamin A bị hao hụt tuy nhiên cường độ yếu hơn nhưng vẫn có thể
+                gây sụt giảm hàm lượng nghiêm trọng trong 1-2 ngày để dưới ánh sáng.</p>
+            <h2>Các dạng vitamin A:</h2>
+            <p>
+                \(
+                \begin{cases}
+                \alpha\text{-carotene} \\
+                \beta\text{-carotene} \\
+                \beta\text{-cryptoxanthin}
+                \end{cases}
+                \xRightarrow{\text{enzyme BCO1}}
+                \text{Retinal}
+                \underset{\text{________retinol dehydrogenase (RDH)________}}{\xLeftrightarrow{\text{retinal reductase (RDH) và aldo-keto reductase (AKR)}}}
+                \text{Retinol}
+                \begin{cases}
+                \xRightarrow{retinaldehyde dehydrogenase(RALDH/ALDH1A)}
+                \text{Retinoic acid} \\
+                \underset{\text{retinyl ester hydrolases (REHs)}}{\xLeftrightarrow{\text{LRAT (lecithin:retinol acyltransferase)}}}
+                \text{Retinyl Ester}
+                \end{cases}
+                \)
+            </p>
+            <p>\(\bullet\) Tiền Vitamin A(hay các carotenoid) có hàng trăm loại nhưng các carotenoid không được liệt kê
+                thường là đóng góp rất ít, hoặc không thể chuyển hóa(như lycopene,lutein,...) nên sẽ không được liệt kê.
+            </p>
+            <p>\(\bullet\) Retinal có thể chuyển hóa trực tiếp thành Retinoic acid(tùy nhu cầu sử dụng của cơ thể).</p>
+            <p>\(\bullet\) Retinyl Ester là dạng vitamin A dùng để tích chữ.</p>
             <h2>Công dụng:</h2>
+            <p>\(\bullet\) Retinal tham gia tạo 11-cis-retinal(thành phần cấu tạo nên rhodopsin, một sắc tố trong võng
+                mạc) đóng
+                vai trò là chất hấp thụ ánh sáng, đặc biệt cho khả năng nhìn trong môi trường ánh sáng yếu.</p>
+            <p>\(\bullet\) Vitamin A(đặc biệt thông qua retinoic acid) tham gia điều hòa biểu hiện gen và quá trình biệt
+                hóa tế bào biểu mô. Ở một số biểu mô, vitamin A giúp duy trì tế bào hình đài (goblet cells) — đây là
+                những tế bào chuyên tiết mucin, thành phần chính của chất nhầy(có tác dụng tạo lớp chất nhầy bảo vệ trên
+                các bề mặt như đường hô hấp, đường tiêu hóa và bề mặt mắt).</p>
+            <p>\(\bullet\) Hỗ trợ sản xuất và thúc đẩy chức năng của các tế bào miễn dịch (như tế bào lympho T, lympho
+                B), giúp cơ
+                thể tạo ra kháng thể để chống lại các bệnh nhiễm trùng như sởi, tiêu chảy hay nhiễm trùng đường hô hấp.
+            </p>
+            <p>\(\bullet\) Vitamin A (đặc biệt thông qua retinoic acid) tham gia điều hòa sự tăng sinh và biệt hóa của các tế bào
+                biểu bì (keratinocyte), giúp duy trì quá trình thay mới và cấu trúc bình thường của da. Vitamin A cũng
+                góp phần duy trì hàng rào bảo vệ của biểu bì và hỗ trợ quá trình phục hồi mô khi da bị tổn thương.</p>
+            <p>\(\bullet\) Vitamin A(đặc biệt là retinoic acid) tham gia điều hòa biểu hiện gen, quá trình biệt hóa và phát triển của tế bào. Ở nam giới, retinoic acid có vai trò trong quá trình sinh tinh; thiếu vitamin A có thể làm rối loạn quá trình này và ảnh hưởng đến chức năng sinh sản. Ở nữ giới, vitamin A tham gia vào hoạt động của hệ sinh sản và sự phát triển của phôi trong những giai đoạn đầu của thai kỳ.</p>
         </main>
     </div>
 </body>

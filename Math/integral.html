@@ -29,7 +29,7 @@
             <p>\(\bullet \int_{a}^{b} f(x) dx = F(b) - F(a) = F(x) \Big|_a^b\)</p>
             <p>\(\bullet \int_{a}^{b} f(x) dx = \int_{a}^{c} f(x) dx + \int_{c}^{b} f(x) dx\)</p>
             <p>\(\bullet \int_{a}^{b} f(x) dx = -\int_{b}^{a} f(x) dx \Rightarrow \int_{a}^{a} f(x) dx = 0\)</p>
-
+            <p>\(\bullet f(x) dx = g(y) dy \Rightarrow \int_{a}^{b} f(x) dx = \int_{a}^{b} g(x) dy + C \)</p>
             <h2>Phương pháp cốt lõi:</h2>
             <p>\(\bullet \text{Đổi biến số (Dạng 1): } \int f[\phi(x)]\cdot\phi'(x)dx = \int f(u)du \quad (\text{với } u
                 = \phi(x))\)</p>
@@ -125,6 +125,30 @@
                     </tr>
                     <!-- Hàm phân thức bậc hai vô nghiệm dạng bình phương liên kết hằng số -->
                     <tr>
+                        <tr>
+                        <td>\(\arcsin x\)</td>
+                        <td>\(x \arcsin x + \sqrt{1 - x^2} + C\)</td>
+                        <td>\(\int \arcsin u \, du = \sqrt{1 - u^2} + C\)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>\(\arccos x\)</td>
+                        <td>\(x \arccos x - \sqrt{1 - x^2} + C\)</td>
+                        <td>\(\int \arccos u \, du = - \sqrt{1 - u^2} + C\)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>\(\arctan x\)</td>
+                        <td>\(x \arctan x - \frac{1}{2} \ln(1 + x^2) + C\)</td>
+                        <td>\(\int \arctan u \, du = u \arctan u - \frac{1}{2} \ln(1 + u^2) + C\)</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>\(arccot x \)</td>
+                        <td>\(x.arccot x + \frac{1}{2} \ln(1 + x^2) + C\)</td>
+                        <td>\(\int arccot \, u \, du = u.arccot u + \frac{1}{2} \ln(1 + u^2) + C\)</td>
+                        <td></td>
+                    </tr>
                         <td>\(\frac{1}{x^2 + a^2}\)</td>
                         <td>\(\frac{1}{a} \arctan \frac{x}{a} + C\)</td>
                         <td>\(\int \frac{1}{u^2 + a^2} du = \frac{1}{a} \arctan \frac{u}{a} + C\)</td>
@@ -140,7 +164,7 @@
                     </tr>
                 </tbody>
             </table>
-            <h2>Tích phân suy rộng loại 1 & Tiêu chuẩn hội tụ</h2>
+            <h2>Tích phân suy rộng & Tiêu chuẩn hội tụ:</h2>
             <table>
                 <thead>
                     <tr>
@@ -167,6 +191,11 @@
                             <br>
                             \(\bullet \int_{a}^{+\infty} f(x)dx \text{ phân kỳ} \Rightarrow \int_{a}^{+\infty} g(x)dx
                             \text{ phân kỳ}\)
+                            <br><br>
+                            Mở rộng (Hội tụ tuyệt đối):
+                            <br><br>
+                            \(\bullet \int_{a}^{+\infty} |f(x)|dx \text{ phân kì} \Rightarrow \int_{a}^{+\infty} f(x)dx \text{ phân kì}\)
+                          
                         </td>
                         <td>
                             Xét \(k = \lim_{x \to +\infty} \frac{f(x)}{g(x)} \quad (f, g \ge 0)\):
@@ -181,6 +210,44 @@
                             <br><br>
                             \(\bullet \text{Dirichlet: } f(x) \text{ liên tục, đơn điệu và } \lim_{x \to +\infty} f(x) =
                             0\); còn \(g(x)\) có nguyên hàm bị chặn. \(\Rightarrow\) Hội tụ.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            \(\int_{0}^{b} \frac{dx}{x^\alpha} \quad (b > 0)\)
+                            <br><br>
+                            \(\bullet \text{ Hội tụ nếu } \alpha < 1\)
+                            <br>
+                            \(\bullet \text{ Phân kỳ nếu } \alpha \ge 1\)
+                        </td>
+                        <td>
+                            Cho \(0 \le f(x) \le g(x)\):
+                            <br><br>
+                            \(\bullet \int_{a}^{+\infty} g(x)dx \text{ hội tụ} \Rightarrow \int_{a}^{+\infty} f(x)dx
+                            \text{ hội tụ}\)
+                            <br>
+                            \(\bullet \int_{a}^{+\infty} f(x)dx \text{ phân kỳ} \Rightarrow \int_{a}^{+\infty} g(x)dx
+                            \text{ phân kỳ}\)
+                            <br><br>
+                            Mở rộng (Hội tụ tuyệt đối):
+                            <br><br>
+                            \(\bullet \int_{a}^{+\infty} |f(x)|dx \text{ hội tụ} \Rightarrow \int_{a}^{+\infty} f(x)dx \text{ hội tụ}\)
+                        </td>
+                        <td>
+                            Xét \(k = \lim_{x \to +\infty} \frac{f(x)}{g(x)} \quad (f, g \ge 0)\):
+                            <br><br>
+                            \(\bullet \text{Nếu } 0 < k < +\infty\): 2 tích phân cùng hội tụ hoặc cùng phân kỳ. <br>
+                            \(\bullet \text{Nếu } k = 0\): \(g(x)\) hội tụ \(\Rightarrow f(x)\) hội tụ.
+                            <br>
+                            \(\bullet \text{Nếu } k = +\infty\): \(g(x)\) phân kỳ \(\Rightarrow f(x)\) phân kỳ.
+                        </td>
+                        <td>
+                            \(\int_{a}^{+\infty} f(x) \cdot g(x) \, dx\)
+                            <br><br>
+                            \(\bullet \text{Dirichlet: } f(x) \text{ liên tục, đơn điệu và } \lim_{x \to +\infty} f(x) =
+                            0\); còn \(g(x)\) có nguyên hàm bị chặn. \(\Rightarrow\) Hội tụ.
+                            <br><br>
+                            \(\bullet \text{Abel: } f(x) \text{ đơn điệu, bị chặn}\); còn \(\int_{a}^{+\infty} g(x)dx \text{ hội tụ}. \Rightarrow\) Hội tụ.
                         </td>
                     </tr>
                 </tbody>
