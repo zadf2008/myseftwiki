@@ -17,6 +17,7 @@
         <nav>
             <p><a>H</a></p>
             <p><a href="He.html">He</a></p>
+            <p><a href="Li.html">Li</a></p>
         </nav>
         <main>
             <div style="display: flex; justify-content: space-between; width: 100%;">
@@ -25,7 +26,7 @@
                     <p>Nhóm 1A</p>
                     <p>Nguyên tử khối: 1.00784</p>
                     <p>Cấu hình electron: 1s\(^1\)</p>
-                    <p>Dạng đơn chất: H\(_2\)</p>
+                    <p>Độ âm điện: +2.2</p>
                     <p>Trạng thái tự nhiên: Khí</p>
                 </div>
                 <div style="width: 20%;justify-self: right;">
@@ -38,7 +39,7 @@
                         <tbody>
                             <tr>
                                 <td>
-                                    <canvas id="hydrogen" style="width: 100%; height: auto;"></canvas>
+                                    <canvas id="atom" style="width: 100%; height: auto;"></canvas>
                                 </td>
                             </tr>
                         </tbody>
@@ -50,7 +51,7 @@
 </body>
 
 <script>
-    const canvas = document.getElementById('hydrogen');
+    const canvas = document.getElementById('atom');
     const ctx = canvas.getContext('2d');
 
     createAtom(1, 0, 1, "Hydrogen");

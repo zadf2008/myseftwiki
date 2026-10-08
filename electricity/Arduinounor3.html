@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../decor.css">
+    <link rel="icon" href="../images-removebg-preview.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Arduino</title>
+</head>
+
+<body>
+    <header> <a href="electricitypage.html">Arduino</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a>Arduino</a></p>
+        </nav>
+        <main>
+            <h2>Thông tin sơ bộ về arduino:</h2>
+            <div style="display: flex; justify-content: space-between; width: 100%;">
+                <div>
+                    <p>Đây là một con Arduino khởi đầu với giá rẻ(tầm 3$) và là bộ khởi đầu cho ai muốn lập trình nhúng,
+                        về thông số kỹ thuật cơ bản:</p>
+                    <p>\(\bullet\) Tốc độ thạch anh: 16MHz</p>
+                    <p>\(\bullet\) Điện áp hoạt động: 5V</p>
+                    <p>\(\bullet\) Vi điều khiển chính: ATmega328P (chip 8-bit của hãng Atmel/Microchip)</p>
+                    <p>\(\bullet\) Chân Digital I/O: 14 chân, mỗi chân tối đa 20mA</p>
+                    <p>\(\bullet\) Chân Analog Input: 6 chân (độ phân giải 10-bit, đọc giá trị từ 0 đến 1023)</p>
+                    <p>\(\bullet\) 32KB (trong đó 0.5 KB dùng cho Bootloader)</p>
+                    <p>\(\bullet\) SRAM: 2KB</p>
+                    <p>\(\bullet\) EEPROM(bộ nhớ không mất dữ liệu khi tắt nguồn): 1KB(mỗi byte đọc/ghi giao động khoảng
+                        100.000 lần)</p>
+                </div>
+                <div style="width: 20%;justify-self: right;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Arduino UNO R3</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="margin: 0px;padding: 0px;">
+                                    <img src="https://dientutuonglai.com/uploads/media/2018_10/arduino/arduino-uno.png?1541773249244"
+                                        style="margin: 0px; width: 100%; height: 100%;">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p>\(\bullet\) Cổng JACK nguồn DC(cổng màu đen đen ở hình bên): điện áp đầu vào khuyến nghị từ 7-12V(tối đa
+                20V nhưng có thể gây nỏng hoặc làm hoảng chip)</p>
+            <p>\(\bullet\) Cổng USB(type-B): cổng nạp code đồng thời lấy nguồn từ máy tính(5V)</p>
+            <P>Thông tin cụ thể về lịch sử, nguồn gốc, các loại Arduino khác,... bạn có thể tìm kiếm ở <a
+                    href="https://vi.wikipedia.org/wiki/Arduino" target="_blank" rel="noopener noreferrer"
+                    style="font-size: 120%; color: aliceblue;">Wikipedia</a></P>
+            <h2>Lập trình arduino:</h2>
+            <p>Trước tiên phải tải ứng dụng Arduino IDE, tôi có để link trang tải ở đây: <a
+                    href="https://docs.arduino.cc/software/ide/" target="_blank" rel="noopener noreferrer"
+                    style="font-size: 120%; color: aliceblue;">IDE</a></p>
+            <p>Cấu trúc code:</p>
+            <div style="background-color: #0e2529; width: 60%; border:2px solid #031317;">
+                <p><span style="text-shadow: 0 0 0; color: rgb(80, 80, 80);">// phần trên cùng để thư viện hoặc các hàm
+                        void, biến</span></p>
+                <p><span style="text-shadow: 0 0 0; color: rgb(25, 126, 111);">void</span> <span
+                        style="text-shadow: 0 0 0; color: rgb(224, 167, 22);">setup</span><span
+                        style="text-shadow: 0 0 0; color: rgb(255, 255, 255);">()</span> <span
+                        style="text-shadow: 0 0 0; color: rgb(255, 255, 255);">{</span></p>
+                <p><span style="text-shadow: 0 0 0; color: rgb(80, 80, 80);">// hàm đặc biệt chỉnh in/out, các chân
+                        digital hoặc analog, hoặc Serial</span></p>
+                <p><span style="text-shadow: 0 0 0; color: rgb(255, 255, 255);">}</span></p>
+                <p><span style="text-shadow: 0 0 0; color: rgb(25, 126, 111);">void</span> <span
+                        style="text-shadow: 0 0 0; color: rgb(224, 167, 22);">loop</span><span
+                        style="text-shadow: 0 0 0; color: rgb(255, 255, 255);">()</span> <span
+                        style="text-shadow: 0 0 0; color: rgb(255, 255, 255);">{</span></p>
+                <p><span style="text-shadow: 0 0 0; color: rgb(80, 80, 80);">// hàm đặc biệt chạy các lệnh liên tục, như
+                        while True của C++ ấy</span></p>
+                <p><span style="text-shadow: 0 0 0; color: rgb(255, 255, 255);">}</span></p>
+            </div>
+            <p>Các lệnh cơ bản:</p>
+            <p>\(\bullet\) <code>pinMode([tên chân], INPUT/OUTPUT/INPUT_PULLUP);</code>: chỉnh chế độ của các chân:</p>
+            <p>- INPUT(mặc định): có tác dụng cho chân đọc điện áp từ cảm biến</p>
+            <p>- OUTPUT: thì có tác dụng cho chân làm đầu điều khiển điện áp</p>
+            <p>- INPUT_PULLUP: kích hoạt một con điện trở treo có sẵn bên trong chip Arduino, không cần tốn một con điện
+                trở ngoài giúp mạch trong đỡ rối hơn, khi nút ở bình thường, chân sẽ trả về mức HIGH, và khi bấm(tức
+                mạch đóng) chân sẽ trả về mức LOW</p>
+            <p>\(\bullet\) <code>digitalRead([tên chân digital])</code>: đọc điện áp của chân INPUT(0V thì chả về LOW
+                hoặc 0, và 5V
+                thì chả về HIGH hoặc số 1)</p>
+            <p>\(\bullet\) <code>analogRead([tên chân analog])</code>: đọc điện áp analog(5V chia thành 1024 mức từ 0
+                đến 1023)</p>
+            <p>\(\bullet\) <code>digitalWrite([tên chân đã output], HIGH/LOW)</code>: chỉnh điện áp đầu ra của chân
+                OUTPUT với HIGH
+                là mức 5V và LOW là mức 0V</p>
+            <p>\(\bullet\) <code>analogWrite([tên chân digital OUTPUT có dấu ~], 0-255)</code>: có tác dụng giả lập các
+                mức điện áp
+                khác nhau(5 Vôn chia đều cho 256 mức từ 0 đến 255), ví dụ <code>analogWrite(10, 127);</code>(chân 10 cho
+                ra điện áp
+                2,5 vôn), chỉ hoạt động với các chân digital có dấu ~, không cho các chân analog như cái tên lệnh của nó
+            </p>
+            <p>\(\bullet\) <code>delay([số])</code>: hoãn việc chạy code(đơn vị mili giây)</p>
+            <p>\(\bullet\) <code>delayMicroseconds([số])</code>: hoãn việc chạy code(đơn vị micro giây)</p>
+            <p>\(\bullet\) <code>pulseIn([tên chân], HIGH/LOW)</code>: đo mức điện áp(tính bằng micro giấy)</p>
+            <p>Lệnh Serial:</p>
+            <p>\(\bullet\) <code>Serial.begin(9600)</code>: Lệnh khởi tạo serial với tốc độ truyền dữ liệu là 9600 Baud
+                (bit/giây),
+                đặt ở void setup(), và khi đã bật khuyến cáo không nên dùng cổng digital 0 và 1, rất dễ lỗi</p>
+            <p>\(\bullet\) <code>Serial.print([cái cần ghi để ở đây])</code>: gửi dữ liệu cho máy tính</p>
+            <p>\(\bullet\) <code>Serial.println([cái cần ghi để ở đây])</code>: gửi dữ liệu cho máy tính, và xuống dòng
+                mới</p>
+            <p>\(\bullet\) <code>Serial.end()</code>: kết thức cổng Serial, giải phóng 2 chân 0 và 1</p>
+
+            <p>\(\bullet\) <code>if (Serial)</code>: Kiểm tra xem cổng Serial đã kết nối thành công với máy tính hay
+                chưa (bắt buộc dùng trên mạch Leonardo/Micro trước khi in dữ liệu).</p>
+
+            <p>\(\bullet\) <code>Serial.available()</code>: Trả về số lượng byte dữ liệu mà máy tính đã gửi xuống và
+                đang nằm chờ trong bộ đệm của Arduino (thường dùng trong hàm if để kiểm tra có tin nhắn mới hay không).
+            </p>
+
+            <p>\(\bullet\) <code>Serial.write([giá trị byte])</code>: Gửi dữ liệu dưới dạng byte nhị phân thuần túy (dữ
+                liệu thô) lên máy tính thay vì dạng ký tự chữ mã hóa, thường dùng để truyền dữ liệu cho các app đồ họa.
+            </p>
+
+            <p>\(\bullet\) <code>Serial.read()</code>: Đọc và trả về 1 byte dữ liệu đầu tiên có trong bộ đệm nhận được
+                từ máy tính, sau khi đọc xong thì byte này sẽ bị xóa khỏi hàng đợi.</p>
+
+            <p>\(\bullet\) <code>Serial.peek()</code>: Xem trước 1 byte dữ liệu đầu tiên trong bộ đệm nhận mà không xóa
+                nó đi, giúp kiểm tra ký tự trước khi quyết định đọc.</p>
+
+            <p>\(\bullet\) <code>Serial.flush()</code>: Ép Arduino tạm dừng chương trình và chờ cho đến khi toàn bộ dữ
+                liệu đang xếp hàng ở bộ đệm đầu ra được truyền lên máy tính xong hoàn toàn.</p>
+
+            <p>\(\bullet\) <code>Serial.availableForWrite()</code>: Trả về số lượng byte còn trống trong bộ đệm đầu ra
+                để biết mạch có thể viết thêm bao nhiêu dữ liệu mà không bị nghẽn.</p>
+
+            <p>\(\bullet\) <code>Serial.parseInt()</code>: Tự động tìm kiếm, bỏ qua các ký tự chữ và chỉ lọc ra số
+                nguyên đầu tiên từ chuỗi dữ liệu mà máy tính gửi xuống.</p>
+
+            <p>\(\bullet\) <code>Serial.parseFloat()</code>: Tương tự như parseInt nhưng dùng để tự động lọc và đọc ra
+                số thập phân đầu tiên từ chuỗi dữ liệu nhận được.</p>
+
+            <p>\(\bullet\) <code>Serial.readBytes([mảng bộ nhớ], [độ dài])</code>: Đọc một số lượng byte nhất định từ
+                cổng Serial rồi lưu thẳng vào một mảng bộ nhớ được chuẩn bị sẵn.</p>
+
+            <p>\(\bullet\) <code>Serial.readBytesUntil([ký tự đánh dấu], [mảng bộ nhớ], [độ dài])</code>: Tiếp tục đọc
+                dữ liệu và lưu vào mảng cho đến khi gặp một ký tự được chỉ định (như dấu xuống dòng hoặc dấu chấm phẩy)
+                thì dừng lại.</p>
+
+            <p>\(\bullet\) <code>Serial.readString()</code>: Đọc toàn bộ các ký tự có trong bộ đệm nhận và tự động gộp
+                lại thành một chuỗi văn bản (String).</p>
+
+            <p>\(\bullet\) <code>Serial.readStringUntil([ký tự đánh dấu])</code>: Đọc và gộp các ký tự thành một chuỗi
+                văn bản cho đến khi gặp đúng ký tự đánh dấu được chỉ định.</p>
+
+            <p>\(\bullet\) <code>Serial.setTimeout([số mili-giây])</code>: Thiết lập thời gian chờ tối đa cho các lệnh
+                đọc thông minh (như parseInt, readString), quá thời gian này mạch sẽ tự hủy lệnh để chạy tiếp nhằm tránh
+                bị treo (mặc định là 1000ms).</p>
+            <p>Lệnh EEPROM:</p>
+            <p>\(\bullet\) <code>EEPROM.read([địa chỉ]);</code>: Đọc và trả về giá trị (1 byte từ 0-255) tại vị trí địa
+                chỉ được chỉ định.</p>
+            <p>\(\bullet\) <code>EEPROM.write([địa chỉ], [giá trị 0-255]);</code>: Ghi một giá trị vào vị trí địa chỉ
+                được chỉ định, lưu ý lệnh này luôn thực hiện ghi đè dữ liệu bất kể ô nhớ đó đã có sẵn giá trị giống vậy
+                hay chưa.</p>
+            <p>\(\bullet\) <code>EEPROM.update([địa chỉ], [giá trị 0-255]);</code>: Chỉ ghi giá trị mới vào ô nhớ nếu
+                giá trị đó khác với giá trị đang có sẵn, khuyên dùng lệnh này thay thế cho <code>EEPROM.write</code> để
+                tiết kiệm tối đa số lần ghi/xóa và tăng tuổi thọ cho chip.</p>
+            <p>\(\bullet\) <code>EEPROM.get([địa chỉ], [tên biến]);</code>: Đọc một kiểu dữ liệu bất kỳ (như số thập
+                phân float, số nguyên lớn int, hoặc cấu trúc struct chiếm nhiều byte) bắt đầu từ vị trí địa chỉ được chỉ
+                định và gán thẳng vào biến.</p>
+            <p>\(\bullet\) <code>EEPROM.put([địa chỉ], [tên biến]);</code>: Ghi một kiểu dữ liệu bất kỳ hoặc một cấu
+                trúc dữ liệu phức tạp vào bộ nhớ bắt đầu từ vị trí địa chỉ được chỉ định, lệnh này tự động tích hợp tính
+                năng kiểm tra giống như hàm update để tránh ghi đè lãng phí.</p>
+            <p>\(\bullet\) <code>EEPROM.length();</code>: Trả về tổng dung lượng bộ nhớ EEPROM của bo mạch đang sử dụng
+                tính bằng byte (ví dụ mạch Uno R3 sẽ trả về số 1024).</p>
+        </main>
+    </div>
+</body>
+
+</html>
