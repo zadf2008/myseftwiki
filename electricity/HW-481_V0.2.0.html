@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../decor.css">
+    <link rel="icon" href="../images-removebg-preview.png" type="image/png">
+    <link rel="stylesheet" href="arduino.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>HW-481 V0.2.0</title>
+</head>
+
+<body>
+    <header> <a href="electricitypage.html">HW-481 V0.2.0</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="Arduinounor3.html">Arduino</a></p>
+            <p><a href="ESP32.html">ESP32</a></p>
+            <p><a href="Resistor.html">Điện trở</a></p>
+            <p><a href="LED.html">LED</a></p>
+            <p><a>HW-481 V0.2.0</a></p>
+        </nav>
+        <main>
+            <h2>Thông tin sơ bộ về Điện trở:</h2>
+            <div style="display: flex; justify-content: space-between; width: 100%;">
+                <div>
+                    <p>Thông tin cơ bản:</p>
+                    <p>\(\bullet\) Đây là 1 con cảm biến đo cả độ ẩm và nhiệt độ trong không khí</p>
+                    <p>\(\bullet\) Dải đo nhiệt độ: từ 0-50\(^oC\) (sai số \(\pm\)2%)</p>
+                    <p>\(\bullet\) Dải đo độ ẩm: từ 20-90% RH (sai số \(\pm\)5%)</p>
+                    <p>\(\bullet\) Điện áp hoạt động: 3.3-5V</p>
+                    <p>\(\bullet\) Không cần gắn thêm điện trở</p>
+                    <p>\(\bullet\) Sơ đồ nối chân cơ bản(giữa chân cảm biến-arduino)</p>
+                    <p>- S(chân Signal ngây bên trái) nối với chân 2(hoặc bất kì chân digital nào của arduino)</p>
+                    <p>- Cực dương(ở giữa) nối với đầu 5V</p>
+                    <p>- Cực âm(bên phải) nối với đầu GND</p>
+                    <p>- Tải thư viện: bấm vô Tools \(\rightarrow\) Manage Libraries \(\rightarrow\) tra thư viện tên "DHT sensor library" của tác giả "Adafruit" \(\rightarrow\) Install</p>
+                    <p>- Code mẫu:</p>
+                    <div class="arduinoIDEstyle" style="width: 100%;">
+                        <p><span class="purple">#include</span> <span class="blue">"DHT.h"</span></p>
+                        <p><span class="purple">#define</span> <span class="orange">DHTPIN</span> <span class="blue">2</span> <span class="comment">// Khai báo chân Signal nối với chân Digital 2 trên Arduino</span></p>
+                        <p><span class="purple">#define</span> <span class="orange">DHTTYPE</span> DHT11 <span class="comment">// Khai báo đang dùng cảm biến loại DHT11</span></p>
+                        <p>DHT <span class="orange">dht</span>(DHTPIN, DHTTYPE);</p>
+                        <p><span class="blue">void</span> <span class="orange">setup</span>() <span class="white">{</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">Serial</span>.<span class="orange">begin</span>(<span class="blue">9600</span>);</p>
+                        <p><span class="darkblue">__</span><span class="orange">dht</span>.<span class="orange">begin</span>(); <span class="comment">// bắt đầu đọc cảm biến</span></p>
+                        <p><span class="white">}</span></p>
+                        <p><span class="blue">void</span> <span class="orange">loop</span><span class="white">()</span> <span class="white">{</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">delay</span>(<span class="blue">2000</span>); <span class="comment">// Phải delay lâu tại cảm biến này đọc không được nhanh lắm</span></p>
+                        <p><span class="darkblue">__</span><span class="blue">float</span> do_am = <span class="orange">dht</span>.<span class="orange">readHumidity</span>(); <span class="comment">// đo độ ẩm</span></p>
+                        <p><span class="darkblue">__</span><span class="blue">float</span> nhiet_do = <span class="orange">dht</span>.<span class="orange">readTemperature</span>(); <span class="comment">// đo nhiệt độ</span></p>
+                        <p><span class="darkblue">__</span><span class="purple">if</span> (<span>isnan</span>(do_am) || <span>isnan</span>(nhiet_do)) {</p>
+                        <p><span class="darkblue">__</span><span class="darkblue">__</span><span class="orange">Serial</span>.<span class="orange">println</span>(<span class="blue">"Lỗi"</span>);</p>
+                        <p><span class="darkblue">__</span><span class="darkblue">__</span><span class="purple">return</span>;</p>
+                        <p><span class="darkblue">__</span>}</p>
+                        <p><span class="darkblue">__</span><span class="orange">Serial</span>.<span class="orange">print</span>(<span class="blue">"Độ ẩm: "</span>);</p>
+                        <p><span class="darkblue">__</span><span class="orange">Serial</span>.<span class="orange">print</span>(do_am);</p>
+                        <p><span class="darkblue">__</span><span class="orange">Serial</span>.<span class="orange">print</span>(<span class="blue">" % \t"</span>);</p>
+                        <p><span class="darkblue">__</span><span class="orange">Serial</span>.<span class="orange">print</span>(<span class="blue">"Nhiệt độ: "</span>);</p>
+                        <p><span class="darkblue">__</span><span class="orange">Serial</span>.<span class="orange">print</span>(nhiet_do);</p>
+                        <p><span class="darkblue">__</span><span class="orange">Serial</span>.<span class="orange">println</span>(<span class="blue">" *C"</span>);</p>
+                        <p><span class="white">}</span></p>
+                    </div>
+                </div>
+                <div style="width: 20%;justify-self: right;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>HW-481 V0.2.0</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="margin: 0px;padding: 0px;">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTziY-QJRoO38-uUFCzM3A-a1HbXBaEN6Oj_5wLoHUF1HTL5mqAlZ3-sXNG&s=10"
+                                        style="margin: 0px; width: 100%; height: 100%;">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</body>

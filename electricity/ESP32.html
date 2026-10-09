@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../decor.css">
+    <link rel="stylesheet" href="arduino.css">
+    <link rel="icon" href="../images-removebg-preview.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>ESP32</title>
+</head>
+
+<body>
+    <header> <a href="electricitypage.html">ESP32</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="Arduinounor3.html">Arduino</a></p>
+            <p><a>ESP32</a></p>
+            <p><a href="Resistor.html">Điện trở</a></p>
+            <p><a href="LED.html">LED</a></p>
+            <p><a href="HW-481_V0.2.0.html">HW-481 V0.2.0</a></p>
+        </nav>
+        <main>
+            <h2>Thông tin sơ bộ về ESP32:</h2>
+            <div style="display: flex; justify-content: space-between; width: 100%;">
+                <div>
+                    <p>Đây là một con ESP32 khởi đầu với giá rẻ(tôi mua đâu đó tầm 4-5$),
+                        về thông số kỹ thuật cơ bản:</p>
+                    <p>\(\bullet\) Tốc độ thạch anh: 240 MHz</p>
+                    <p>\(\bullet\) Điện áp hoạt động: 3.3V</p>
+                    <p>\(\bullet\) Vi điều khiển chính: Xtensa Dual-Core 32-bit LX6</p>
+                    <p>\(\bullet\) Tích hợp bluetooth và Wi-Fi</p>
+                    <p>\(\bullet\) Số chân GPIO: 36 chân đa chức năng.</p>
+                    <p>\(\bullet\) ROM(dung lượng bộ nhớ): 448KB (trong đó 0.5 KB dùng cho Bootloader)</p>
+                    <p>\(\bullet\) SRAM: 520KB</p>
+                    <p>\(\bullet\) RTC SRAM: 16 KB (Dùng cho việc lưu trữ dữ liệu khi ở chế độ Deep Sleep)</p>
+                    <p>\(\bullet\) Dòng điện tiêu thụ: thay đổi từ 15 µA (chế độ Deep Sleep) cho đến 240 mA (khi truyền
+                        dữ liệu qua Wi-Fi/Bluetooth)</p>
+                    <p>\(\bullet\) Đầu cắm type-C, ESP32 có bộ chuyển đổi 5V cấp từ máy tính thành 3.3V</p>
+                    <P>Thông tin cụ thể về lịch sử, nguồn gốc, các loại ESP khác,thông số cụ thể,... bạn có thể tìm kiếm
+                        ở <a href="https://vi.wikipedia.org/wiki/ESP32" target="_blank" rel="noopener noreferrer"
+                            style="font-size: 120%; color: aliceblue;">Wikipedia</a></P>
+                </div>
+                <div style="width: 20%;justify-self: right;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ESP32</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="margin: 0px;padding: 0px;">
+                                    <img src="https://bizweb.dktcdn.net/thumb/1024x1024/100/301/098/products/esp32-wroom-32-type-c-38pin-cp2102-kit-phat-trien-ho-esp32-dai-dien-3-png-v-1765715899253.png?v=1768291836743"
+                                        style="margin: 0px; width: 100%; height: 100%;">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p>Các lệnh cơ bản:</p>
+            <p>Không khác arduino là bao vì thật tế ESP32 xây dựng trên nền tảng của arduino, nhưng cổng Serial nhanh
+                hơn nhiều đấy, khi gọi cổng Serial thì ghi Serial.begin(115200);</p>
+            <p>Các lệnh mở rộng của ESP32:</p>
+            <div class="arduinoIDEstyle">
+                <p><span class="comment">// phần trên cùng để thư viện hoặc các hàm
+                        void, biến</span></p>
+
+                <!-- Hàm TaskWiFiCode -->
+                <p><span style="color: rgb(25, 126, 111);">void</span> <span
+                        class="orange">TaskWiFiCode</span><span
+                        style="color: rgb(255, 255, 255);">(void * pvParameters) {</span><span
+                        class="comment"> // void * pvParameters nằm ở đây là bắt buộc với các hàm dùng
+                        để chạy song song trên core 0</span></p>
+                <p><span class="purple">for</span>(;;) {</p>
+                <p><span class="darkblue">__</span><span class="comment"> // Code xử lý Wi-Fi
+                        hoặc tác vụ nặng ở
+                        đây, không làm ảnh hưởng đến hàm loop()</span></p>
+                <p><span class="darkblue"">__</span><span>vTaskDelay(10);</span><span
+                        class="comment"> // Lệnh delay chuyên dụng
+                        của FreeRTOS giúp giải phóng CPU, tính bằng tick(tuy vậy mặc định esp32 để 1 tick = 1 ms nên có
+                        thể tạm hiểu là delay số ms)</span></p>
+                <p><span style="color: rgb(255, 255, 255);"> }</span></p>
+                <p><span style="color: rgb(255, 255, 255);">}</span></p>
+
+                <!-- Hàm setup -->
+                <p><span style="color: rgb(25, 126, 111);">void</span> <span
+                        class="orange">setup</span><span style="color: rgb(255, 255, 255);">()
+                        {</span></p>
+                <p><span class="comment"> // Tạo một tác vụ chạy song song có tên là
+                        "TaskWiFi" trên Lõi 0 (Core 0)</span></p>
+                <p><span class="purple">xTaskCreatePinnedToCore</span>(</p>
+                <p><span class="darkblue">__</span><span
+                        class="orange">TaskWiFiCode</span>,<span class="comment"> //
+                        Tên hàm xử lý tác
+                        vụ</span></p>
+                <p><span class="darkblue">__</span><span style="color: rgb(8, 162, 18);">"TaskWiFi"</span>,<span
+                        class="comment"> // Tên tác vụ (để
+                        debug)</span></p>
+                <p><span class="darkblue">__</span><span class="orange">10000</span>,<span
+                        class="comment"> // Kích thước bộ nhớ cấp cho tác vụ
+                        (theo đơn vị Word với mỗi Word = 4 Bytes)</span></p>
+                <p><span class="darkblue">__</span><span class="orange">NULL</span>,<span
+                        class="comment"> // Tham số truyền vào hàm, để NULL khi không chuyền tham số gì
+                        vào</span></p>
+                <p><span class="darkblue">__</span><span class="orange">1</span>,<span
+                        class="comment"> // Độ ưu tiên của tác vụ, từ 0 đến 24, số càng cao càng được ưu
+                        tiên</span></p>
+                <p><span class="darkblue">__</span><span class="orange">NULL</span>,<span
+                        class="comment"> // Biến quản lý tác vụ, để NULL khi không chuyền cái gì
+                        ra</span></p>
+                <p><span class="darkblue">__</span><span class="orange">0</span><span
+                        class="comment"> // Chạy trên Lõi số 0 (Core 0)</span>
+                </p>
+                <p><span style="color: rgb(255, 255, 255);"> );</span></p>
+                <p><span style="color: rgb(255, 255, 255);">}</span></p>
+
+                <!-- Hàm loop -->
+                <p><span style="color: rgb(25, 126, 111);">void</span> <span
+                        class="orange">loop</span><span style="color: rgb(255, 255, 255);">()
+                        {</span></p>
+                <p><span class="comment"> // Hàm loop mặc định vẫn chạy bình thường
+                        trên Lõi 1 (Core 1) để đọc cảm biến</span></p>
+                <p><span style="color: rgb(255, 255, 255);">}</span></p>
+            </div>
+            <p>Thư viện Wifi.h:</p>
+            <p>\(\bullet\) <code>WiFi.mode(WIFI_STA)</code>: Cấu hình ESP32 ở chế độ Station thu Wi-Fi</p>
+            <p>\(\bullet\) <code>WiFi.mode(WIFI_AP)</code>: Cấu hình ESP32 ở chế độ Access Point tự phát Wi-Fi</p>
+            <p>\(\bullet\) <code>WiFi.mode(WIFI_OFF)</code>: Tắt hoàn toàn tính năng Wi-Fi để tiết kiệm năng lượng</p>
+            <p>\(\bullet\) <code>WiFi.begin([Tên_WiFi], [Mật_Khẩu])</code>: Bắt đầu kết nối vào mạng Wi-Fi chỉ định</p>
+            <p>\(\bullet\) <code>WiFi.disconnect()</code>: Ngắt kết nối mạng Wi-Fi hiện tại</p>
+            <p>\(\bullet\) <code>WiFi.status()</code>: Kiểm tra trạng thái kết nối mạng</p>
+            <p>\(\bullet\) <code>WiFi.localIP()</code>: Lấy địa chỉ IP nội bộ do Router cấp cho ESP32</p>
+            <p>\(\bullet\) <code>WiFi.macAddress()</code>: Lấy địa chỉ MAC phần cứng của chip ESP32</p>
+            <p>\(\bullet\) <code>WiFi.RSSI()</code>: Đo cường độ tín hiệu sóng Wi-Fi đang kết nối</p>
+            <p>\(\bullet\) <code>WiFi.softAP([Tên_Mạng], [Mật_Khẩu])</code>: Bắt đầu phát một trạm Wi-Fi riêng biệt</p>
+            <p>\(\bullet\) <code>WiFi.softAPIP()</code>: Lấy địa chỉ IP của trạm Wi-Fi do mạch tự phát</p>
+            <p>\(\bullet\) <code>WiFi.softAPgetStationNum()</code>: Đếm số lượng thiết bị đang kết nối vào Wi-Fi của
+                ESP32</p>
+            <p>\(\bullet\) <code>WiFi.scanNetworks()</code>: Kích hoạt quét và tìm kiếm các mạng Wi-Fi xung quanh</p>
+            <p>\(\bullet\) <code>WiFi.SSID([vị_trí])</code>: Lấy tên của mạng Wi-Fi tìm thấy tại vị trí chỉ định</p>
+            <p>\(\bullet\) <code>WiFi.scanDelete()</code>: Giải phóng bộ nhớ RAM chứa kết quả sau khi quét xong</p>
+            <p>\(\bullet\) <code>WiFi.config([IP_tĩnh], [Gateway], [Subnet])</code>: Thiết lập địa chỉ IP cố định cho
+                bo mạch</p>
+            <p>\(\bullet\) <code>WiFi.subnetMask()</code>: Lấy địa chỉ mặt nạ mạng con (Subnet Mask) hiện tại của thiết
+                bị</p>
+            <p>\(\bullet\) <code>WiFi.gatewayIP()</code>: Lấy địa chỉ IP của Router gốc (Gateway) đang cấp mạng</p>
+            <p>\(\bullet\) <code>WiFi.dnsIP([vị_trí])</code>: Lấy địa chỉ máy chủ phân giải tên miền (DNS) đang sử dụng
+            </p>
+            <p>\(\bullet\) <code>WiFi.BSSID([vị_trí])</code>: Lấy địa chỉ MAC của chính cục Router (Access Point) mà
+                ESP32 đang bắt sóng</p>
+            <p>\(\bullet\) <code>WiFi.encryptionType([vị_trí])</code>: Trả về kiểu mã hóa mã bảo mật của mạng Wi-Fi (như
+                WPA, WPA2, hoặc Open)</p>
+            <p>\(\bullet\) <code>WiFi.getAutoReconnect()</code>: Kiểm tra xem tính năng tự động kết nối lại khi mất mạng
+                đang bật hay tắt</p>
+            <p>\(\bullet\) <code>WiFi.setTxPower([mức_công_suất])</code>: Điều chỉnh công suất phát sóng Wi-Fi của chip
+                nhằm tiết kiệm pin hoặc tăng cự ly phát</p>
+            <p>\(\bullet\) <code>WiFi.getTxPower()</code>: Đọc mức công suất phát sóng Wi-Fi hiện tại của bo mạch</p>
+            <p>\(\bullet\) <code>WiFi.setSleep([bật_tắt])</code>: Kích hoạt chế độ ngủ tiết kiệm điện riêng cho modem
+                Wi-Fi khi không truyền nhận dữ liệu</p>
+            <p>\(\bullet\) <code>WiFi.getSleep()</code>: Kiểm tra trạng thái ngủ tiết kiệm điện của modem Wi-Fi</p>
+            <p>\(\bullet\) <code>WiFi.enableSTA([bật_tắt])</code>: Bật hoặc tắt độc lập luồng kết nối Station mà không
+                cần đổi Mode hệ thống</p>
+            <p>\(\bullet\) <code>WiFi.enableAP([bật_tắt])</code>: Bật hoặc tắt độc lập luồng phát mạng Access Point</p>
+            <p>Các thư viện BLE:</p>
+            <p>\(\bullet\) <code>#include &lt;BLEDevice.h&gt;</code>: Thư viện cốt lõi dùng để khởi tạo hệ thống phần
+                cứng Bluetooth trên chip ESP32</p>
+            <p>\(\bullet\) <code>#include &lt;BLEServer.h&gt;</code>: Thư viện dùng khi muốn biến ESP32 thành máy chủ
+                phát tín hiệu kết nối</p>
+            <p>\(\bullet\) <code>#include &lt;BLEUtils.h&gt;</code>: Thư viện chứa các công cụ xử lý chuỗi ký tự và định
+                dạng mã UUID cho Bluetooth</p>
+            <p>\(\bullet\) <code>#include &lt;BLE2902.h&gt;</code>: Thư viện quản lý bộ mô tả đặc biệt giúp bật tính
+                năng tự động gửi thông báo (Notify) về điện thoại</p>
+            <p>\(\bullet\) <code>#include &lt;BLEScan.h&gt;</code>: Thư viện dùng khi muốn cấu hình ESP32 đi quét và tìm
+                kiếm các thiết bị Bluetooth xung quanh</p>
+            <p>\(\bullet\) <code>#include &lt;BLEClient.h&gt;</code>: Thư viện dùng để cấu hình ESP32 làm máy trạm đi
+                kết nối vào các thiết bị Bluetooth khác</p>
+            <p>Các lệnh của các thư viện BLE:</p>
+            <p>\(\bullet\) <code>BLEDevice.init([Tên_Thiết_Bị])</code>: Khởi tạo và đặt tên hiển thị Bluetooth cho ESP32
+            </p>
+            <p>\(\bullet\) <code>BLEDevice.createServer()</code>: Tạo một thực thể Server Bluetooth để điện thoại có thể
+                kết nối vào</p>
+            <p>\(\bullet\) <code>BLEDevice.getAdvertising()</code>: Lấy thực thể quảng bá giúp ESP32 phát tín hiệu cho
+                các thiết bị xung quanh tìm thấy</p>
+            <p>\(\bullet\) <code>BLEDevice.startAdvertising()</code>: Bắt đầu phát sóng quảng bá tên và dịch vụ
+                Bluetooth ra môi trường xung quanh</p>
+            <p>\(\bullet\) <code>BLEDevice.stopAdvertising()</code>: Dừng phát sóng quảng bá Bluetooth để ẩn thiết bị
+            </p>
+            <p>\(\bullet\) <code>[tên_server]->createService([Mã_UUID])</code>: Tạo một Dịch vụ (Service) chứa các đặc
+                tính dữ liệu dựa trên mã UUID định danh</p>
+            <p>\(\bullet\) <code>[tên_service]->start()</code>: Kích hoạt dịch vụ Bluetooth đã khởi tạo để sẵn sàng trao
+                đổi dữ liệu</p>
+            <p>\(\bullet\) <code>[tên_service]->createCharacteristic([Mã_UUID], [Chế_Độ])</code>: Tạo một Đặc tính
+                (Characteristic) trong dịch vụ để ghi/đọc dữ liệu (ví dụ chế độ PROPERTY_READ, PROPERTY_WRITE,
+                PROPERTY_NOTIFY)</p>
+            <p>\(\bullet\) <code>[tên_characteristic]->setValue([Giá_Trị])</code>: Cài đặt hoặc cập nhật giá trị dữ liệu
+                (dạng chuỗi hoặc mảng) vào đặc tính Bluetooth</p>
+            <p>\(\bullet\) <code>[tên_characteristic]->getValue()</code>: Đọc dữ liệu hiện tại đang lưu trữ bên trong
+                đặc tính Bluetooth</p>
+            <p>\(\bullet\) <code>[tên_characteristic]->notify()</code>: Phát thông báo gửi thẳng dữ liệu mới cập nhật về
+                ứng dụng trên điện thoại ngay lập tức</p>
+            <p>\(\bullet\) <code>[tên_characteristic]->addDescriptor(new BLE2902())</code>: Thêm bộ mô tả chuẩn mã 2902
+                để cho phép điện thoại đăng ký nhận thông báo (Notification)</p>
+            <p>\(\bullet\) <code>[tên_server]->setCallbacks(new [Tên_Lớp_Callback]())</code>: Gắn các hàm phản hồi tự
+                động (Callback) khi có thiết bị kết nối hoặc ngắt kết nối với server</p>
+            <p>\(\bullet\) <code>[tên_characteristic]->setCallbacks(new [Tên_Lớp_Callback]())</code>: Gắn hàm phản hồi
+                tự động xử lý sự kiện khi điện thoại gửi hoặc đọc dữ liệu từ đặc tính này</p>
+            <p>\(\bullet\) <code>BLEDevice.createClient()</code>: Khởi tạo một thực thể Client nếu muốn dùng ESP32 đi
+                kết nối và đọc dữ liệu từ thiết bị BLE khác</p>
+            <p>\(\bullet\) <code>BLEDevice.getScan()</code>: Lấy bộ quét thiết bị BLE để chuẩn bị dò tìm các cảm biến
+                Bluetooth xung quanh</p>
+            <p>\(\bullet\) <code>[tên_scan]->start([Thời_Gian_Quét])</code>: Bắt đầu kích hoạt tiến trình quét các thiết
+                bị BLE xung quanh trong số giây chỉ định</p>
+            <p>\(\bullet\) <code>[tên_scan]->stop()</code>: Dừng tiến trình quét thiết bị Bluetooth để giải phóng tài
+                nguyên chip</p>
+
+        </main>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,30 @@
+.purple {
+    color: #db54dd;
+}
+
+.orange {
+    color: rgb(218, 140, 14);
+}
+
+.blue {
+    color: rgb(11, 130, 130);
+}
+
+.comment {
+    color: rgb(60, 60, 60);
+}
+
+.darkblue {
+    color: #0e2529;
+}
+
+.white {
+    color:white
+}
+
+.arduinoIDEstyle {
+    background-color: #0e2529;
+    width: 60%;
+    border: 2px solid #031317;
+    text-shadow: none;
+}

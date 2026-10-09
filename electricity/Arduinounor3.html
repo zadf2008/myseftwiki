@@ -5,6 +5,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../decor.css">
+    <link rel="stylesheet" href="arduino.css">
     <link rel="icon" href="../images-removebg-preview.png" type="image/png">
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>Arduino</title>
@@ -15,6 +16,10 @@
     <div style="display: flex;">
         <nav>
             <p><a>Arduino</a></p>
+            <p><a href="ESP32.html">ESP32</a></p>
+            <p><a href="Resistor.html">Điện trở</a></p>
+            <p><a href="LED.html">LED</a></p>
+            <p><a href="HW-481_V0.2.0.html">HW-481 V0.2.0</a></p>
         </nav>
         <main>
             <h2>Thông tin sơ bộ về arduino:</h2>
@@ -27,7 +32,7 @@
                     <p>\(\bullet\) Vi điều khiển chính: ATmega328P (chip 8-bit của hãng Atmel/Microchip)</p>
                     <p>\(\bullet\) Chân Digital I/O: 14 chân, mỗi chân tối đa 20mA</p>
                     <p>\(\bullet\) Chân Analog Input: 6 chân (độ phân giải 10-bit, đọc giá trị từ 0 đến 1023)</p>
-                    <p>\(\bullet\) 32KB (trong đó 0.5 KB dùng cho Bootloader)</p>
+                    <p>\(\bullet\) ROM(dung lượng bộ nhớ): 32KB (trong đó 0.5 KB dùng cho Bootloader)</p>
                     <p>\(\bullet\) SRAM: 2KB</p>
                     <p>\(\bullet\) EEPROM(bộ nhớ không mất dữ liệu khi tắt nguồn): 1KB(mỗi byte đọc/ghi giao động khoảng
                         100.000 lần)</p>
@@ -61,21 +66,21 @@
                     href="https://docs.arduino.cc/software/ide/" target="_blank" rel="noopener noreferrer"
                     style="font-size: 120%; color: aliceblue;">IDE</a></p>
             <p>Cấu trúc code:</p>
-            <div style="background-color: #0e2529; width: 60%; border:2px solid #031317;">
-                <p><span style="text-shadow: 0 0 0; color: rgb(80, 80, 80);">// phần trên cùng để thư viện hoặc các hàm
+            <div class="arduinoIDEstyle">
+                <p><span class="comment">// phần trên cùng để thư viện hoặc các hàm
                         void, biến</span></p>
-                <p><span style="text-shadow: 0 0 0; color: rgb(25, 126, 111);">void</span> <span
-                        style="text-shadow: 0 0 0; color: rgb(224, 167, 22);">setup</span><span
+                <p><span class="blue">void</span> <span
+                        class="orange">setup</span><span
                         style="text-shadow: 0 0 0; color: rgb(255, 255, 255);">()</span> <span
                         style="text-shadow: 0 0 0; color: rgb(255, 255, 255);">{</span></p>
-                <p><span style="text-shadow: 0 0 0; color: rgb(80, 80, 80);">// hàm đặc biệt chỉnh in/out, các chân
+                <p><span class="comment">// hàm đặc biệt chỉnh in/out, các chân
                         digital hoặc analog, hoặc Serial</span></p>
                 <p><span style="text-shadow: 0 0 0; color: rgb(255, 255, 255);">}</span></p>
-                <p><span style="text-shadow: 0 0 0; color: rgb(25, 126, 111);">void</span> <span
-                        style="text-shadow: 0 0 0; color: rgb(224, 167, 22);">loop</span><span
+                <p><span class="blue">void</span> <span
+                        class="orange">loop</span><span
                         style="text-shadow: 0 0 0; color: rgb(255, 255, 255);">()</span> <span
                         style="text-shadow: 0 0 0; color: rgb(255, 255, 255);">{</span></p>
-                <p><span style="text-shadow: 0 0 0; color: rgb(80, 80, 80);">// hàm đặc biệt chạy các lệnh liên tục, như
+                <p><span class="comment">// hàm đặc biệt chạy các lệnh liên tục, như
                         while True của C++ ấy</span></p>
                 <p><span style="text-shadow: 0 0 0; color: rgb(255, 255, 255);">}</span></p>
             </div>
@@ -87,15 +92,13 @@
                 trở ngoài giúp mạch trong đỡ rối hơn, khi nút ở bình thường, chân sẽ trả về mức HIGH, và khi bấm(tức
                 mạch đóng) chân sẽ trả về mức LOW</p>
             <p>\(\bullet\) <code>digitalRead([tên chân digital])</code>: đọc điện áp của chân INPUT(0V thì chả về LOW
-                hoặc 0, và 5V
-                thì chả về HIGH hoặc số 1)</p>
+                hoặc 0, và 5V thì chả về HIGH hoặc số 1)</p>
             <p>\(\bullet\) <code>analogRead([tên chân analog])</code>: đọc điện áp analog(5V chia thành 1024 mức từ 0
                 đến 1023)</p>
             <p>\(\bullet\) <code>digitalWrite([tên chân đã output], HIGH/LOW)</code>: chỉnh điện áp đầu ra của chân
                 OUTPUT với HIGH
                 là mức 5V và LOW là mức 0V</p>
-            <p>\(\bullet\) <code>analogWrite([tên chân digital OUTPUT có dấu ~], 0-255)</code>: có tác dụng giả lập các
-                mức điện áp
+            <p>\(\bullet\) <code>analogWrite([tên chân digital OUTPUT có dấu ~], 0-255)</code>: có tác dụng giả lập các mức điện áp
                 khác nhau(5 Vôn chia đều cho 256 mức từ 0 đến 255), ví dụ <code>analogWrite(10, 127);</code>(chân 10 cho
                 ra điện áp
                 2,5 vôn), chỉ hoạt động với các chân digital có dấu ~, không cho các chân analog như cái tên lệnh của nó
@@ -158,22 +161,27 @@
                 đọc thông minh (như parseInt, readString), quá thời gian này mạch sẽ tự hủy lệnh để chạy tiếp nhằm tránh
                 bị treo (mặc định là 1000ms).</p>
             <p>Lệnh EEPROM:</p>
-            <p>\(\bullet\) <code>EEPROM.read([địa chỉ]);</code>: Đọc và trả về giá trị (1 byte từ 0-255) tại vị trí địa
+            <p>\(\bullet\) <code>EEPROM.read([địa chỉ])</code>: Đọc và trả về giá trị (1 byte từ 0-255) tại vị trí địa
                 chỉ được chỉ định.</p>
-            <p>\(\bullet\) <code>EEPROM.write([địa chỉ], [giá trị 0-255]);</code>: Ghi một giá trị vào vị trí địa chỉ
+            <p>\(\bullet\) <code>EEPROM.write([địa chỉ], [giá trị 0-255])</code>: Ghi một giá trị vào vị trí địa chỉ
                 được chỉ định, lưu ý lệnh này luôn thực hiện ghi đè dữ liệu bất kể ô nhớ đó đã có sẵn giá trị giống vậy
                 hay chưa.</p>
-            <p>\(\bullet\) <code>EEPROM.update([địa chỉ], [giá trị 0-255]);</code>: Chỉ ghi giá trị mới vào ô nhớ nếu
+            <p>\(\bullet\) <code>EEPROM.update([địa chỉ], [giá trị 0-255])</code>: Chỉ ghi giá trị mới vào ô nhớ nếu
                 giá trị đó khác với giá trị đang có sẵn, khuyên dùng lệnh này thay thế cho <code>EEPROM.write</code> để
                 tiết kiệm tối đa số lần ghi/xóa và tăng tuổi thọ cho chip.</p>
-            <p>\(\bullet\) <code>EEPROM.get([địa chỉ], [tên biến]);</code>: Đọc một kiểu dữ liệu bất kỳ (như số thập
+            <p>\(\bullet\) <code>EEPROM.get([địa chỉ], [tên biến])</code>: Đọc một kiểu dữ liệu bất kỳ (như số thập
                 phân float, số nguyên lớn int, hoặc cấu trúc struct chiếm nhiều byte) bắt đầu từ vị trí địa chỉ được chỉ
                 định và gán thẳng vào biến.</p>
-            <p>\(\bullet\) <code>EEPROM.put([địa chỉ], [tên biến]);</code>: Ghi một kiểu dữ liệu bất kỳ hoặc một cấu
+            <p>\(\bullet\) <code>EEPROM.put([địa chỉ], [tên biến])</code>: Ghi một kiểu dữ liệu bất kỳ hoặc một cấu
                 trúc dữ liệu phức tạp vào bộ nhớ bắt đầu từ vị trí địa chỉ được chỉ định, lệnh này tự động tích hợp tính
                 năng kiểm tra giống như hàm update để tránh ghi đè lãng phí.</p>
-            <p>\(\bullet\) <code>EEPROM.length();</code>: Trả về tổng dung lượng bộ nhớ EEPROM của bo mạch đang sử dụng
+            <p>\(\bullet\) <code>EEPROM.length()</code>: Trả về tổng dung lượng bộ nhớ EEPROM của bo mạch đang sử dụng
                 tính bằng byte (ví dụ mạch Uno R3 sẽ trả về số 1024).</p>
+            <p>Nâng cáo:</p>
+            <p>\(\bullet\) <code>DDRD = 0xFF</code>: Cấu hình chân Digital 0-7 là OUTPUT (pinMode)</p>
+            <p>\(\bullet\) <code>PORTD = 0xFF</code>: Cấu hình chân Digital 0-7 là HIGH (digitalWrite)</p>
+            <p>\(\bullet\) <code>DDRB = 0xFF</code>: Cấu hình chân Digital 8-13 là OUTPUT (pinMode)</p>
+            <p>\(\bullet\) <code>PORTB = 0xFF</code>: Cấu hình chân Digital 8-13 là HIGH (digitalWrite)</p>
         </main>
     </div>
 </body>

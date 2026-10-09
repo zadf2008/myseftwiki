@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../decor.css">
+    <link rel="icon" href="../images-removebg-preview.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Điện trở</title>
+</head>
+
+<body>
+    <header> <a href="electricitypage.html">Điện trở</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="Arduinounor3.html">Arduino</a></p>
+            <p><a href="ESP32.html">ESP32</a></p>
+            <p><a>Điện trở</a></p>
+            <p><a href="LED.html">LED</a></p>
+            <p><a href="HW-481_V0.2.0.html">HW-481 V0.2.0</a></p>
+        </nav>
+        <main>
+            <h2>Thông tin sơ bộ về Điện trở:</h2>
+            <div style="display: flex; justify-content: space-between; width: 100%;">
+                <div>
+                    <p>\(\bullet\) Không phân biệt cực dương cực âm</p>
+                    <p>\(\bullet\) Có tác dụng hạn chế dòng điện đi qua và biến dòng điện dư thừa thành nhiệt</p>
+                    <p>\(\bullet\) Trên thị trường có rất nhiều loại điện trở như biến trở, điện trở dán,...</p>
+                    <p>\(\bullet\) Đơn vị: 1M\(\Omega\) = 1.000k\(\Omega\) = 1.000.000\(\Omega\)</p>
+                </div>
+                <div style="width: 20%;justify-self: right;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Bảng điện trở</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="margin: 0px;padding: 0px;">
+                                    <img src="https://file.hstatic.net/200000568629/file/cach-doc-dien-tro-3_bebaf557467545d4a93698903128c50f.png"
+                                        style="margin: 0px; width: 100%; height: 100%;">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <h2>Điện trở 2 chân:</h2>
+            <p>\(\bullet\) Không có gì đặc biệt cả</p>
+            <p>\(\bullet\) Kí hiệu của điện trở:</p>
+            <canvas id="resistor" width="80" height="40"></canvas>
+            <h2>Điện trở dán:</h2>
+            <p>\(\bullet\) Không khác điện trở 2 chân là mấy, nhưng nhỏ hơn và gọn hơn nhiều, có thể thấy nhiều trên ngay con mạch arduino của bạn, hay trong các mạch tinh vi</p>
+            <p>\(\bullet\) Kí hiệu điện trở dán không khác điện trở 2 đầu</p>
+            <p>\(\bullet\) Hình dáng:</p>
+            <canvas id="stickresistor"  width="80" height="40"></canvas>
+            <p>\(\bullet\) Ý nghĩa của các số trên điện trở dán: tách 2 số đầu với số sau, điện trở minh họa có số 102 nên tách thành 10 và 2, và áp theo công thức R =A.\(10^b\), A bằng 2 số đầu, b là số cuối, ta sẽ được kết quả R = 10.\(10^2\) = 1000\(\Omega\)</p>
+        </main>
+    </div>
+</body>
+
+<script>
+    const canvas = document.getElementById('resistor');
+if (canvas) {
+    const ctx = canvas.getContext('2d');
+
+    // Cấu hình nét vẽ
+    ctx.strokeStyle = '#ffffff'; // Màu đen (bạn có thể đổi màu tùy ý)
+    ctx.lineWidth = 2;           // Độ dày nét vẽ
+    ctx.lineJoin = 'miter';      // Giữ các góc zigzag sắc nhọn
+    ctx.lineCap = 'round';       // Bo tròn hai đầu dây dẫn
+
+    ctx.beginPath();
+    
+    // 1. Dây dẫn bên trái (bắt đầu từ tọa độ x=10, y=20)
+    ctx.moveTo(10, 20);
+    ctx.lineTo(25, 20);
+    
+    // 2. Các đỉnh zigzag tạo nên ký hiệu điện trở
+    ctx.lineTo(27.5, 12);  // Lên đỉnh 1
+    ctx.lineTo(32.5, 28);  // Xuống đáy 2
+    ctx.lineTo(37.5, 12);  // Lên đỉnh 3
+    ctx.lineTo(42.5, 28);  // Xuống đáy 4
+    ctx.lineTo(47.5, 12);  // Lên đỉnh 5
+    ctx.lineTo(52.5, 28);  // Xuống đáy 6
+    ctx.lineTo(55, 20);    // Trở về trục giữa
+    
+    // 3. Dây dẫn bên phải
+    ctx.lineTo(70, 20);
+    
+    // Tiến hành vẽ đường đã đi qua
+    ctx.stroke();
+}
+const canvas1 = document.getElementById('stickresistor');
+if (canvas1) {
+    const ctx = canvas1.getContext('2d');
+
+    // --- 1. Vẽ đường dây dẫn 2 bên (Trục mạch) ---
+    ctx.strokeStyle = '#000000';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(10, 20); // Dây bên trái
+    ctx.lineTo(25, 20);
+    ctx.moveTo(55, 20); // Dây bên phải
+    ctx.lineTo(70, 20);
+    ctx.stroke();
+
+    // --- 2. Vẽ thân điện trở dán (Khối linh kiện) ---
+    // Cực hàn bên trái (Màu xám bạc)
+    ctx.fillStyle = '#B0B0B0'; 
+    ctx.fillRect(25, 13, 5, 14);
+
+    // Thân chính chứa lớp trở chất lượng cao (Màu đen bóng hoặc xanh đậm)
+    ctx.fillStyle = '#222222'; 
+    ctx.fillRect(30, 13, 20, 14);
+
+    // Cực hàn bên phải (Màu xám bạc)
+    ctx.fillStyle = '#A0A0A0'; 
+    ctx.fillRect(50, 13, 5, 14);
+
+    // --- 3. Ghi mã số siêu nhỏ lên lưng (Ví dụ mã 102 = 1000 Ohm) ---
+    ctx.fillStyle = '#FFFFFF'; // Chữ màu trắng in trên nền đen
+    ctx.font = 'bold 8px Courier New'; // Dùng font chữ đều kiểu công nghiệp
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('102', 40, 20); // Toạ độ (x=40, y=20) là tâm con trở
+}
+</script>
+</html>
