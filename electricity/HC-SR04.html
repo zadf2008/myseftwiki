@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../decor.css">
+    <link rel="icon" href="../images-removebg-preview.png" type="image/png">
+    <link rel="stylesheet" href="arduino.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>HC-SR04</title>
+</head>
+
+<body>
+    <header> <a href="electricitypage.html">HC-SR04</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="Arduinounor3.html">Arduino</a></p>
+            <p><a href="ESP32.html">ESP32</a></p>
+            <p><a href="Resistor.html">Điện trở</a></p>
+            <p><a href="LED.html">LED</a></p>
+            <p><a href="HW-481_V0.2.0.html">HW-481 V0.2.0</a></p>
+            <p><a href="28BYJ-48.html">28BYJ-48</a></p>
+            <p><a href="ServoSG90.html">SG90</a></p>
+            <P><a>HC-SR04</a></P>
+            <p><a href="Water_sensor.html">Water sensor</a></p>
+            <p><a href="MH-8.html">MH-8</a></p>
+            <p><a href="W104-187C.html">W104-187C</a></p>
+            <p><a href="3_CIr.html">3_CIr</a></p>
+        </nav>
+        <main>
+            <h2>Thông tin sơ bộ về HC-SR04:</h2>
+            <div style="display: flex; justify-content: space-between; width: 100%;">
+                <div>
+                    <p>Thông tin cơ bản:</p>
+                    <p>\(\bullet\) Đây là 1 con đo khoảng cách 1 vật thể bằng cách đo thời gian sóng âm dội về</p>
+                    <p>\(\bullet\) Điện áp hoạt động: 5V</p>
+                    <p>\(\bullet\) Không cần gắn thêm điện trở</p>
+                    <p>\(\bullet\) Sơ đồ nối chân cơ bản(giữa chân cảm biến-arduino)</p>
+                    <p>- chân Trig nối với chân 3(hoặc bất kì chân digital nào của arduino)</p>
+                    <p>- chân Echo nối với chân 4(hoặc bất kì chân digital nào của arduino)</p>
+                    <p>- Cực dương(VCC) nối với đầu 5V</p>
+                    <p>- Cực âm(GND) nối với đầu GND</p>
+                    <p>- Code mẫu:</p>
+                    <div class="arduinoIDEstyle" style="width: 100%;">
+                        <p><span class="comment">// Định nghĩa các chân kết nối cảm biến HC-SR04 trên Arduino</span></p>
+                        <p><span class="blue">const int </span>trigPin = <span class="blue">3</span>; <span
+                                class="comment">// Chân phát sóng (Trig) nối với chân Digital 3</span></p>
+                        <p><span class="blue">const int </span>echoPin = <span class="blue">4</span>; <span
+                                class="comment">// Chân nhận sóng (Echo) nối với chân Digital 4</span></p>
+                        <p><span class="comment">// Khai báo các biến lưu trữ thời gian và khoảng cách</span></p>
+                        <p><span class="blue">long </span>duration;</p>
+                        <p><span class="blue">int </span>distance;</p>
+                        <p><span class="blue">void</span> <span class="orange">setup</span>() <span
+                                class="white">{</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">pinMode</span>(trigPin, <span
+                                class="blue">OUTPUT</span>); <span class="comment">// Chân Trig cấu hình là Đầu
+                                Ra</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">pinMode</span>(echoPin, <span
+                                class="blue">INPUT</span>); <span class="comment">// Chân Echo cấu hình là Đầu
+                                Vào</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">Serial</span>.<span
+                                class="orange">begin</span>(<span class="blue">9600</span>); <span class="comment">// Mở
+                                cổng Serial Monitor xem kết quả</span></p>
+                        <p><span class="white">}</span></p>
+                        <p><span class="blue">void</span> <span class="orange">loop</span><span class="white">()</span>
+                            <span class="white">{</span></p>
+                        <p><span class="darkblue">__</span><span class="comment">// Xóa sạch chân trigPin trước khi phát
+                                xung</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">digitalWrite</span>(trigPin, <span
+                                class="blue">LOW</span>);</p>
+                        <p><span class="darkblue">__</span><span class="orange">delayMicroseconds</span>(<span
+                                class="blue">2</span>);</p>
+                        <p><span class="darkblue">__</span><span class="comment">// Kích hoạt chân trigPin phát xung
+                                siêu âm trong 10 micro giây</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">digitalWrite</span>(trigPin, <span
+                                class="blue">HIGH</span>);</p>
+                        <p><span class="darkblue">__</span><span class="orange">delayMicroseconds</span>(<span
+                                class="blue">10</span>);</p>
+                        <p><span class="darkblue">__</span><span class="orange">digitalWrite</span>(trigPin, <span
+                                class="blue">LOW</span>);</p>
+                        <p><span class="darkblue">__</span><span class="comment">// Đo thời gian (micro giây) sóng siêu
+                                âm phản hồi lại chân echoPin</span></p>
+                        <p><span class="darkblue">__</span>duration = <span class="orange">pulseIn</span>(echoPin, <span
+                                class="blue">HIGH</span>);</p>
+                        <p><span class="darkblue">__</span><span class="comment">// Tính toán khoảng cách đến vật cản
+                                (đơn vị: cm)</span></p>
+                        <p><span class="darkblue">__</span>distance = duration * <span class="blue">0.0343</span> /
+                            <span class="blue">2</span>;</p>
+                        <p><span class="darkblue">__</span><span class="comment">// In kết quả đo được lên Serial
+                                Monitor trên máy tính</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">Serial</span>.<span
+                                class="orange">print</span>(<span class="blue">"Khoang cach: "</span>);</p>
+                        <p><span class="darkblue">__</span><span class="orange">Serial</span>.<span
+                                class="orange">print</span>(distance);</p>
+                        <p><span class="darkblue">__</span><span class="orange">Serial</span>.<span
+                                class="orange">println</span>(<span class="blue">" cm"</span>);</p>
+                        <p><span class="darkblue">__</span><span class="orange">delay</span>(<span
+                                class="blue">500</span>); <span class="comment">// Đợi 0.5 giây trước khi đo lượt tiếp
+                                theo</span></p>
+                        <p><span class="darkblue">__</span><span class="comment">// Đo khá ổn định tầm 40-50cm</span></p>
+                        <p><span class="white">}</span></p>
+                    </div>
+                </div>
+                <div style="width: 20%;justify-self: right;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>HC-SR04</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="margin: 0px;padding: 0px;">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSV0vrhNVnPbwq2kNAYH6HnonQbcx2njNe6mnjmV-5OzIeIUlRzf3NTVA4&s=10"
+                                        style="margin: 0px; width: 100%; height: 100%;">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</body>

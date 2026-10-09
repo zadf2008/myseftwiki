@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../decor.css">
+    <link rel="icon" href="../images-removebg-preview.png" type="image/png">
+    <link rel="stylesheet" href="arduino.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>3_CIr</title>
+</head>
+
+<body>
+    <header> <a href="electricitypage.html">3_CIr</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="Arduinounor3.html">Arduino</a></p>
+            <p><a href="ESP32.html">ESP32</a></p>
+            <p><a href="Resistor.html">Điện trở</a></p>
+            <p><a href="LED.html">LED</a></p>
+            <p><a href="HW-481_V0.2.0.html">HW-481 V0.2.0</a></p>
+            <p><a href="28BYJ-48.html">28BYJ-48</a></p>
+            <p><a href="ServoSG90.html">SG90</a></p>
+            <P><a href="HC-SR04.html">HC-SR04</a></P>
+            <p><a href="Water_sensor.html">Water sensor</a></p>
+            <p><a href="MH-8.html">MH-8</a></p>
+            <p><a href="W104-187C.html">W104-187C</a></p>
+            <p><a>3_CIr</a></p>
+        </nav>
+        <main>
+            <h2>Thông tin sơ bộ về 3_CIr:</h2>
+            <div style="display: flex; justify-content: space-between; width: 100%;">
+                <div>
+                    <p>Thông tin cơ bản:</p>
+                    <p>\(\bullet\) Đây là 1 con đo khoảng cách 1 vật thể bằng cách đo thời gian sóng âm dội về</p>
+                    <p>\(\bullet\) Điện áp hoạt động: 5V</p>
+                    <p>\(\bullet\) Không cần gắn thêm điện trở</p>
+                    <p>\(\bullet\) Sơ đồ nối chân cơ bản(giữa chân cảm biến-arduino)</p>
+                    <p>- chân R nối với chân 9(hoặc bất kì con chân PWM hay chân digital có dấu ~ nào của arduino)</p>
+                    <p>- chân G nối với chân 10(hoặc bất kì con chân PWM hay chân digital có dấu ~ nào của arduino)</p>
+                    <p>- chân B nối với chân 11(hoặc bất kì con chân PWM hay chân digital có dấu ~ nào của arduino)</p>
+                    <p>- Cực âm(-) nối với đầu GND</p>
+                    <p>- Code mẫu:</p>
+                    <div class="arduinoIDEstyle" style="width: 100%;">
+                        <p><span class="comment">// Định nghĩa các chân điều khiển màu LED RGB (Yêu cầu chân PWM)</span>
+                        </p>
+                        <p><span class="blue">const int </span>redPin = <span class="blue">9</span>; <span
+                                class="comment">// Chân điều khiển màu Đỏ</span></p>
+                        <p><span class="blue">const int </span>greenPin = <span class="blue">10</span>; <span
+                                class="comment">// Chân điều khiển màu Xanh lá</span></p>
+                        <p><span class="blue">const int </span>bluePin = <span class="blue">11</span>; <span
+                                class="comment">// Chân điều khiển màu Xanh dương</span></p>
+                        <p><span class="blue">void</span> <span class="orange">setup</span>() <span
+                                class="white">{</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">pinMode</span>(redPin, <span
+                                class="blue">OUTPUT</span>);</p>
+                        <p><span class="darkblue">__</span><span class="orange">pinMode</span>(greenPin, <span
+                                class="blue">OUTPUT</span>);</p>
+                        <p><span class="darkblue">__</span><span class="orange">pinMode</span>(bluePin, <span
+                                class="blue">OUTPUT</span>);</p>
+                        <p><span class="white">}</span></p>
+                        <p><span class="blue">void</span> <span class="orange">loop</span><span class="white">()</span>
+                            <span class="white">{</span></p>
+                        <p><span class="darkblue">__</span><span class="comment">// Bật màu Đỏ đơn thuần</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">setColor</span>(<span
+                                class="blue">255</span>, <span class="blue">0</span>, <span class="blue">0</span>);
+                            <span class="comment">// Giá trị từ 0 đến 255</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">delay</span>(<span
+                                class="blue">1000</span>);</p>
+                        <p><span class="darkblue">__</span><span class="comment">// Bật màu Xanh lá đơn thuần</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">setColor</span>(<span
+                                class="blue">0</span>, <span class="blue">255</span>, <span class="blue">0</span>);</p>
+                        <p><span class="darkblue">__</span><span class="orange">delay</span>(<span
+                                class="blue">1000</span>);</p>
+                        <p><span class="darkblue">__</span><span class="comment">// Trộn Đỏ và Xanh dương để tạo ra màu
+                                Tím</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">setColor</span>(<span
+                                class="blue">150</span>, <span class="blue">0</span>, <span class="blue">255</span>);
+                        </p>
+                        <p><span class="darkblue">__</span><span class="orange">delay</span>(<span
+                                class="blue">1000</span>);</p>
+                        <p><span class="white">}</span></p>
+                        <p><span class="comment">// Hàm tự định nghĩa để xuất độ sáng cho 3 màu cơ bản</span></p>
+                        <p><span class="blue">void</span> <span class="orange">setColor</span>(<span
+                                class="blue">int</span> red, <span class="blue">int</span> green, <span
+                                class="blue">int</span> blue) <span class="white">{</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">analogWrite</span>(redPin, red);</p>
+                        <p><span class="darkblue">__</span><span class="orange">analogWrite</span>(greenPin, green);</p>
+                        <p><span class="darkblue">__</span><span class="orange">analogWrite</span>(bluePin, blue);</p>
+                        <p><span class="white">}</span></p>
+                    </div>
+                </div>
+                <div style="width: 20%;justify-self: right;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>3_CIr</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="margin: 0px;padding: 0px;">
+                                    <img src="https://www.flyrobo.in/image/cache/wp/gj/product2/20130610155721275-550x550.webp"
+                                        style="margin: 0px; width: 100%; height: 100%;">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</body>

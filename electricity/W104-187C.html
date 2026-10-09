@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../decor.css">
+    <link rel="icon" href="../images-removebg-preview.png" type="image/png">
+    <link rel="stylesheet" href="arduino.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>W104-187C</title>
+</head>
+
+<body>
+    <header> <a href="electricitypage.html">W104-187C</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="Arduinounor3.html">Arduino</a></p>
+            <p><a href="ESP32.html">ESP32</a></p>
+            <p><a href="Resistor.html">Điện trở</a></p>
+            <p><a href="LED.html">LED</a></p>
+            <p><a href="HW-481_V0.2.0.html">HW-481 V0.2.0</a></p>
+            <p><a href="28BYJ-48.html">28BYJ-48</a></p>
+            <p><a href="ServoSG90.html">SG90</a></p>
+            <P><a href="HC-SR04.html">HC-SR04</a></P>
+            <p><a href="Water_sensor.html">Water sensor</a></p>
+            <p><a href="MH-8.html">MH-8</a></p>
+            <p><a>W104-187C</a></p>
+            <p><a href="3_CIr.html">3_CIr</a></p>
+        </nav>
+        <main>
+            <h2>Thông tin sơ bộ về W104-187C:</h2>
+            <div style="display: flex; justify-content: space-between; width: 100%;">
+                <div>
+                    <p>Thông tin cơ bản:</p>
+                    <p>\(\bullet\) Đây là 1 con cảm biến phát hiện tiếng động và đo cường độ âm thanh</p>
+                    <p>\(\bullet\) Điện áp hoạt động: 5V</p>
+                    <p>\(\bullet\) Không cần gắn thêm điện trở</p>
+                    <p>\(\bullet\) Sơ đồ nối chân cơ bản(giữa chân cảm biến-arduino)</p>
+                    <p>- Chân A0 nối với chân A0(hoặc bất kì chân Analog nào của arduino)</p>
+                    <p>- Chân D0 nối với chân D7(hoặc bất kì chân Digital nào của arduino)</p>
+                    <p>- Cực dương(+) nối với đầu 5V</p>
+                    <p>- Cực âm(G) nối với đầu GND</p>
+                    <p>- Code mẫu:</p>
+                    <div class="arduinoIDEstyle" style="width: 100%;">
+                        <p><span class="comment">// Khai báo chân kết nối cảm biến âm thanh 4 chân</span></p>
+                        <p><span class="blue">const int </span>analogPin = <span class="blue">A0</span>; <span
+                                class="comment">// Chân A0 của cảm biến nối với Analog A0</span></p>
+                        <p><span class="blue">const int </span>digitalPin = <span class="blue">7</span>; <span
+                                class="comment">// Chân D0 của cảm biến nối với Digital 7</span></p>
+                        <p><span class="blue">int </span>soundValue = <span class="blue">0</span>; <span
+                                class="comment">// Biến lưu giá trị cường độ âm thanh thô</span></p>
+                        <p><span class="blue">int </span>soundStatus = <span class="blue">0</span>; <span
+                                class="comment">// Biến lưu trạng thái bật/tắt (0 hoặc 1)</span></p>
+                        <p><span class="blue">void</span> <span class="orange">setup</span>() <span
+                                class="white">{</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">pinMode</span>(digitalPin, <span
+                                class="blue">INPUT</span>); <span class="comment">// Cấu hình chân D0 là Đầu Vào</span>
+                        </p>
+                        <p><span class="darkblue">__</span><span class="orange">Serial</span>.<span
+                                class="orange">begin</span>(<span class="blue">9600</span>); <span class="comment">// Mở
+                                Serial Monitor để quan sát dữ liệu</span></p>
+                        <p><span class="white">}</span></p>
+                        <p><span class="blue">void</span> <span class="orange">loop</span><span class="white">()</span>
+                            <span class="white">{</span></p>
+                        <p><span class="darkblue">__</span><span class="comment">// Đọc dữ liệu từ cả 2 chân A0 và D0
+                                cùng lúc</span></p>
+                        <p><span class="darkblue">__</span>soundValue = <span
+                                class="orange">analogRead</span>(analogPin);</p>
+                        <p><span class="darkblue">__</span>soundStatus = <span
+                                class="orange">digitalRead</span>(digitalPin);</p>
+                        <p><span class="darkblue">__</span><span class="comment">// In giá trị cường độ âm thanh liên
+                                tục lên màn hình</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">Serial</span>.<span
+                                class="orange">print</span>(<span class="blue">"Cuong do am thanh: "</span>);</p>
+                        <p><span class="darkblue">__</span><span class="orange">Serial</span>.<span
+                                class="orange">print</span>(soundValue);</p>
+                        <p><span class="darkblue">__</span><span class="orange">Serial</span>.<span
+                                class="orange">print</span>(<span class="blue">" | "</span>);</p>
+                        <p><span class="darkblue">__</span><span class="comment">// Kiểm tra trạng thái kích hoạt từ
+                                chân D0</span></p>
+                        <p><span class="darkblue">__</span><span class="blue">if</span> (soundStatus == <span
+                                class="blue">LOW</span>) <span class="white">{</span> <span class="comment">// Khi âm
+                                thanh vượt ngưỡng, module kéo D0 xuống LOW</span></p>
+                        <p><span class="darkblue">____</span><span class="orange">Serial</span>.<span
+                                class="orange">println</span>(<span class="blue">"Trang thai: VUOT NGUONG AM
+                                THANH!"</span>);</p>
+                        <p><span class="darkblue">__</span><span class="white">}</span> <span class="blue">else</span>
+                            <span class="white">{</span></p>
+                        <p><span class="darkblue">____</span><span class="orange">Serial</span>.<span
+                                class="orange">println</span>(<span class="blue">"Trang thai: Yen tinh"</span>);</p>
+                        <p><span class="darkblue">__</span><span class="white">}</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">delay</span>(<span
+                                class="blue">100</span>); <span class="comment">// Đọc dữ liệu mỗi 0.1 giây để bắt kịp
+                                sóng âm</span></p>
+                        <p><span class="white">}</span></p>
+                    </div>
+                </div>
+                <div style="width: 20%;justify-self: right;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>W104-187C</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="margin: 0px;padding: 0px;">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwhD-5zSWiIls_TxgqTMlEyavwTWBnZ94HhmI1D_rYWMvdJuDjpAQs2qU&s=10"
+                                        style="margin: 0px; width: 100%; height: 100%;">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</body>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../decor.css">
+    <link rel="icon" href="../images-removebg-preview.png" type="image/png">
+    <link rel="stylesheet" href="arduino.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>SG90</title>
+</head>
+
+<body>
+    <header> <a href="electricitypage.html">SG90</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="Arduinounor3.html">Arduino</a></p>
+            <p><a href="ESP32.html">ESP32</a></p>
+            <p><a href="Resistor.html">Điện trở</a></p>
+            <p><a href="LED.html">LED</a></p>
+            <p><a href="HW-481_V0.2.0.html">HW-481 V0.2.0</a></p>
+            <p><a href="28BYJ-48.html">28BYJ-48</a></p>
+            <p><a>SG90</a></p>
+            <P><a href="HC-SR04.html">HC-SR04</a></P>
+            <p><a href="Water_sensor.html">Water sensor</a></p>
+            <p><a href="MH-8.html">MH-8</a></p>
+            <p><a href="W104-187C.html">W104-187C</a></p>
+            <p><a href="3_CIr.html">3_CIr</a></p>
+        </nav>
+        <main>
+            <h2>Thông tin sơ bộ về SG90:</h2>
+            <div style="display: flex; justify-content: space-between; width: 100%;">
+                <div>
+                    <p>Thông tin cơ bản:</p>
+                    <p>\(\bullet\) Điện áp hoạt động: 5V</p>
+                    <p>\(\bullet\) Không cần gắn thêm điện trở</p>
+                    <p>\(\bullet\) Sơ đồ nối chân cơ bản(giữa chân motor-arduino)</p>
+                    <p>- Cực âm(dây màu nâu) nối với chân GND của arduino</p>
+                    <p>- Cực dương(dây màu đỏ) nối với chân GND của arduino</p>
+                    <p>- Chân signal(dây màu vàng) nối với chân 9(hoặc bất kì chân PWM nào, tức chân digital có dấu ngã)
+                    </p>
+                    <p>- Tải thư viện: bấm vô Tools \(\rightarrow\) Manage Libraries \(\rightarrow\) tra thư viện tên
+                        "Servo" của tác giả "Michael" \(\rightarrow\) Install</p>
+                    <p>- Code mẫu:</p>
+                    <div class="arduinoIDEstyle" style="width: 100%;">
+                        <p><span class="purple">#include</span> <span class="blue">&lt;Servo.h&gt;</span></p>
+                        <p><span class="comment">// Khởi tạo đối tượng Servo để điều khiển</span></p>
+                        <p>Servo <span class="orange">myServo</span>;</p>
+                        <p><span class="comment">// Biến lưu vị trí góc quay của Servo</span></p>
+                        <p><span class="blue">int </span>pos = <span class="blue">0</span>;</p>
+                        <p><span class="blue">void</span> <span class="orange">setup</span>() <span
+                                class="white">{</span></p>
+                        <p><span class="darkblue">__</span><span class="comment">// Khai báo chân tín hiệu của Servo nối
+                                vào chân Digital 9 trên Arduino</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">myServo</span>.<span
+                                class="orange">attach</span>(<span class="blue">9</span>);</p>
+                        <p><span class="white">}</span></p>
+                        <p><span class="blue">void</span> <span class="orange">loop</span><span class="white">()</span>
+                            <span class="white">{</span></p>
+                        <p><span class="darkblue">__</span><span class="comment">// Cho Servo quay từ 0 độ đến 180
+                                độ</span></p>
+                        <p><span class="darkblue">__</span><span class="comment">// Không bắt buộc nhét vô for, cái này chỉ để nó quay từ tốn thôi</span></p>
+                        <p><span class="darkblue">__</span><span class="blue">for</span> (pos = <span
+                                class="blue">0</span>; pos &lt;= <span class="blue">180</span>; pos += <span
+                                class="blue">1</span>) <span class="white">{</span></p>
+                        <p><span class="darkblue">____</span><span class="orange">myServo</span>.<span
+                                class="orange">write</span>(pos);</p>
+                        <p><span class="darkblue">____</span><span class="orange">delay</span>(<span
+                                class="blue">15</span>);</p>
+                        <p><span class="darkblue">__</span><span class="white">}</span></p>
+                        <p><span class="darkblue">__</span><span class="comment">// Cho Servo quay ngược từ 180 độ về
+                                lại 0 độ</span></p>
+                        <p><span class="darkblue">__</span><span class="blue">for</span> (pos = <span
+                                class="blue">180</span>; pos &gt;= <span class="blue">0</span>; pos -= <span
+                                class="blue">1</span>) <span class="white">{</span></p>
+                        <p><span class="darkblue">____</span><span class="orange">myServo</span>.<span
+                                class="orange">write</span>(pos);</p>
+                        <p><span class="darkblue">____</span><span class="orange">delay</span>(<span
+                                class="blue">15</span>);</p>
+                        <p><span class="darkblue">__</span><span class="white">}</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">delay</span>(<span
+                                class="blue">1000</span>);</p>
+                        <p><span class="white">}</span></p>
+                    </div>
+                </div>
+                <div style="width: 20%;justify-self: right;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Servo SG90</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="margin: 0px;padding: 0px;">
+                                    <img src="https://static.cytron.io/image/cache/catalog/products/SG90/SG90_2-800x800.jpg"
+                                        style="margin: 0px; width: 100%; height: 100%;">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</body>
