@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../decor.css">
+    <link rel="icon" href="../images-removebg-preview.png" type="image/png">
+    <link rel="stylesheet" href="arduino.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>HW-504</title>
+</head>
+
+<body>
+    <header> <a href="electricitypage.html">HW-504</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="Arduinounor3.html">Arduino</a></p>
+            <p><a href="ESP32.html">ESP32</a></p>
+            <p><a href="Resistor.html">Điện trở</a></p>
+            <p><a href="LED.html">LED</a></p>
+            <p><a href="HW-481_V0.2.0.html">HW-481 V0.2.0</a></p>
+            <p><a href="V182.html">V182</a></p>
+            <p><a href="28BYJ-48.html">28BYJ-48</a></p>
+            <p><a href="ServoSG90.html">SG90</a></p>
+            <P><a href="HC-SR04.html">HC-SR04</a></P>
+            <p><a href="Water_sensor.html">Water sensor</a></p>
+            <p><a href="MH-8.html">MH-8</a></p>
+            <p><a href="W104-187C.html">W104-187C</a></p>
+            <p><a href="3_CIr.html">3_CIr</a></p>
+            <p><a href="LCD1602A-Ver5.5_I2C.html">LCD1602A Ver5.5/I2C</a></p>
+            <p><a href="HW-080.html">HW-080</a></p>
+            <p><a>HW-504</a></p>
+        </nav>
+        <main>
+            <h2>Thông tin sơ bộ về HW-504:</h2>
+            <div style="display: flex; justify-content: space-between; width: 100%;">
+                <div>
+                    <p>Thông tin cơ bản:</p>
+                    <p>\(\bullet\) Đây là 1 con nút tay cầm chơi game</p>
+                    <p>\(\bullet\) Điện áp hoạt động: 5V</p>
+                    <p>\(\bullet\) Không cần gắn thêm điện trở</p>
+                    <p>\(\bullet\) Sơ đồ nối chân cơ bản(giữa chân cảm biến-arduino)</p>
+                    <p>- Cực dương(+5V) nối với đầu 5V</p>
+                    <p>- Cực âm(GND) nối với đầu GND</p>
+                    <p>- Chân VRx nối với chân A0(hoặc bất kì chân analog nào của arduino)</p>
+                    <p>- Chân VRy nối với chân A1(hoặc bất kì chân analog nào của arduino)</p>
+                    <p>- Chân SW nối với chân 2(hoặc bất kì chân digital nào của arduino)</p>
+                    <p>- Code mẫu:</p>
+                    <div class="arduinoIDEstyle" style="width: 100%;">
+                        <p><span class="comment">// Định nghĩa các chân kết nối cảm biến Joystick HW-504</span></p>
+                        <p><span class="blue">const int </span>pinX = <span class="blue">A0</span>; <span
+                                class="comment">// Chân VRx nối với Analog A0</span></p>
+                        <p><span class="blue">const int </span>pinY = <span class="blue">A1</span>; <span
+                                class="comment">// Chân VRy nối với Analog A1</span></p>
+                        <p><span class="blue">const int </span>pinSW = <span class="blue">2</span>; <span
+                                class="comment">// Chân SW nối với Digital 2 (Hỗ trợ Ngắt hệ thống)</span></p>
+                        <p><span class="blue">void</span> <span class="orange">setup</span>() <span
+                                class="white">{</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">Serial</span>.<span
+                                class="orange">begin</span>(<span class="blue">9600</span>); <span class="comment">// Mở
+                                cổng Serial Monitor xem tọa độ di chuyển</span></p>
+                        <p><span class="darkblue">__</span><span class="comment">// Kích hoạt điện trở kéo lên nội vi
+                                cho chân nút nhấn để không cần gắn điện trở ngoài</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">pinMode</span>(pinSW, <span
+                                class="blue">INPUT_PULLUP</span>); </p>
+                        <p><span class="white">}</span></p>
+                        <p><span class="blue">void</span> <span class="orange">loop</span><span class="white">()</span>
+                            <span class="white">{</span></p>
+                        <p><span class="darkblue">__</span><span class="comment">// Đọc giá trị Analog của trục X và
+                                trục Y (giá trị từ 0 đến 1023)</span></p>
+                        <p><span class="darkblue">__</span><span class="blue">int</span> xVal = <span
+                                class="orange">analogRead</span>(pinX);</p>
+                        <p><span class="darkblue">__</span><span class="blue">int</span> yVal = <span
+                                class="orange">analogRead</span>(pinY);</p>
+                        <p><span class="darkblue">__</span><span class="comment">// Đọc trạng thái nút nhấn (Trả về LOW
+                                khi bị ấn xuống)</span></p>
+                        <p><span class="darkblue">__</span><span class="blue">int</span> btnState = <span
+                                class="orange">digitalRead</span>(pinSW);</p>
+                        <p><span class="darkblue">__</span><span class="comment">// In tọa độ và trạng thái nút bấm lên
+                                màn hình máy tính</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">Serial</span>.<span
+                                class="orange">print</span>(<span class="blue">"Trục X: "</span>); <span
+                                class="orange">Serial</span>.<span class="orange">print</span>(xVal);</p>
+                        <p><span class="darkblue">__</span><span class="orange">Serial</span>.<span
+                                class="orange">print</span>(<span class="blue">" | Trục Y: "</span>); <span
+                                class="orange">Serial</span>.<span class="orange">print</span>(yVal);</p>
+                        <p><span class="darkblue">__</span><span class="orange">Serial</span>.<span
+                                class="orange">print</span>(<span class="blue">" | Nút bấm: "</span>);</p>
+                        <p><span class="darkblue">__</span><span class="blue">if</span> (btnState == <span
+                                class="blue">LOW</span>) <span class="white">{</span></p>
+                        <p><span class="darkblue">____</span><span class="orange">Serial</span>.<span
+                                class="orange">println</span>(<span class="blue">"ĐANG ẤN"</span>);</p>
+                        <p><span class="darkblue">__</span><span class="white">}</span> <span class="blue">else</span>
+                            <span class="white">{</span></p>
+                        <p><span class="darkblue">____</span><span class="orange">Serial</span>.<span
+                                class="orange">println</span>(<span class="blue">"Thả tự do"</span>);</p>
+                        <p><span class="darkblue">__</span><span class="white">}</span></p>
+                        <p><span class="darkblue">__</span><span class="orange">delay</span>(<span
+                                class="blue">200</span>); <span class="comment">// Tránh tràn dữ liệu, cập nhật 5 lần
+                                mỗi giây</span></p>
+                        <p><span class="white">}</span></p>
+
+                    </div>
+                </div>
+                <div style="width: 20%;justify-self: right;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>HW-504</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="margin: 0px;padding: 0px;">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl4aCa8SgiiXCncyGw6IlXMGn-cfBIMdPWi5Kg5Xnw2B5zkgU8ns_OoU0&s=10"
+                                        style="margin: 0px; width: 100%; height: 100%;">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</body>
