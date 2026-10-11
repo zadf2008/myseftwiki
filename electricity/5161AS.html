@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../decor.css">
+    <link rel="icon" href="../images-removebg-preview.png" type="image/png">
+    <link rel="stylesheet" href="arduino.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>HC-SR04</title>
+</head>
+
+<body>
+    <header> <a href="electricitypage.html">HC-SR04</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="Arduinounor3.html">Arduino</a></p>
+            <p><a href="ESP32.html">ESP32</a></p>
+            <p><a href="Resistor.html">Điện trở</a></p>
+            <p><a href="LED.html">LED</a></p>
+            <p><a>5161AS</a></p>
+            <p><a href="HW-481_V0.2.0.html">HW-481 V0.2.0</a></p>
+            <p><a href="V182.html">V182</a></p>
+            <p><a href="28BYJ-48.html">28BYJ-48</a></p>
+            <p><a href="ServoSG90.html">SG90</a></p>
+            <P><a href="HC-SR04.html">HC-SR04</a></P>
+            <p><a href="Water_sensor.html">Water sensor</a></p>
+            <p><a href="MH-8.html">MH-8</a></p>
+            <p><a href="W104-187C.html">W104-187C</a></p>
+            <p><a href="3_CIr.html">3_CIr</a></p>
+            <p><a href="LCD1602A-Ver5.5_I2C.html">LCD1602A Ver5.5/I2C</a></p>
+            <p><a href="HW-080.html">HW-080</a></p>
+            <p><a href="HW-504.html">HW-504</a></p>
+        </nav>
+        <main>
+            <h2>Thông tin sơ bộ về HC-SR04:</h2>
+            <div style="display: flex; justify-content: space-between; width: 100%;">
+                <div>
+                    <p>Thông tin cơ bản:</p>
+                    <p>\(\bullet\) Đây là 1 con đo khoảng cách 1 vật thể bằng cách đo thời gian sóng âm dội về</p>
+                    <p>\(\bullet\) Điện áp hoạt động: 5V</p>
+                    <p>\(\bullet\) Không cần gắn thêm điện trở</p>
+                    <p>\(\bullet\) Sơ đồ nối chân cơ bản(giữa chân cảm biến-arduino)</p>
+                    <p>- chân a nối với điện trở 220\(\Omega\) nối với chân 2(hoặc bất kì chân digital nào của arduino)</p>
+                    <p>- chân b nối với điện trở 220\(\Omega\) nối với chân 3(hoặc bất kì chân digital nào của arduino)</p>
+                    <p>- chân c nối với điện trở 220\(\Omega\) nối với chân 4(hoặc bất kì chân digital nào của arduino)</p>
+                    <p>- chân d nối với điện trở 220\(\Omega\) nối với chân 5(hoặc bất kì chân digital nào của arduino)</p>
+                    <p>- chân e nối với điện trở 220\(\Omega\) nối với chân 6(hoặc bất kì chân digital nào của arduino)</p>
+                    <p>- chân f nối với điện trở 220\(\Omega\) nối với chân 7(hoặc bất kì chân digital nào của arduino)</p>
+                    <p>- chân g nối với điện trở 220\(\Omega\) nối với chân 8(hoặc bất kì chân digital nào của arduino)</p>
+                    <p>- Cực âm(cathode) nối với đầu GND</p>
+                    <p>- Code mẫu:</p>
+                    <div class="arduinoIDEstyle" style="width: 100%;">
+                        <p><span class="comment">// Khai báo các chân Arduino nối với các đoạn LED A, B, C, D, E, F,
+                                G</span></p>
+                        <p><span class="blue">const int </span>segmentPins[] = <span class="white">{</span><span
+                                class="blue">2</span>, <span class="blue">3</span>, <span class="blue">4</span>, <span
+                                class="blue">5</span>, <span class="blue">6</span>, <span class="blue">7</span>, <span
+                                class="blue">8</span><span class="white">};</span></p>
+                        <p><span class="darkblue">__</span></p>
+                        <p><span class="comment">// Mảng mã hóa các số từ 0-9 cho LED Âm Chung (1 là SÁNG, 0 là
+                                TẮT)</span></p>
+                        <p><span class="blue">const</span> <span class="white">byte</span> <span class="orange">numPatterns</span>[<span class="blue">10</span>] = <span class="white">{</span></p>
+                        <p><span class="darkblue">__</span><span class="blue">0b00111111</span>, <span
+                                class="comment">// Số 0 (Bật A,B,C,D,E,F)</span></p>
+                        <p><span class="darkblue">__</span><span class="blue">0b00000110</span>, <span
+                                class="comment">// Số 1 (Bật B,C)</span></p>
+                        <p><span class="darkblue">__</span><span class="blue">0b01011011</span>, <span
+                                class="comment">// Số 2 (Bật A,B,D,E,G)</span></p>
+                        <p><span class="darkblue">__</span><span class="blue">0b01001111</span>, <span
+                                class="comment">// Số 3 (Bật A,B,C,D,G)</span></p>
+                        <p><span class="darkblue">__</span><span class="blue">0b01100110</span>, <span
+                                class="comment">// Số 4 (Bật B,C,F,G)</span></p>
+                        <p><span class="darkblue">__</span><span class="blue">0b01101101</span>, <span
+                                class="comment">// Số 5 (Bật A,C,D,F,G)</span></p>
+                        <p><span class="darkblue">__</span><span class="blue">0b01111101</span>, <span
+                                class="comment">// Số 6 (Bật A,C,D,E,F,G)</span></p>
+                        <p><span class="darkblue">__</span><span class="blue">0b00000111</span>, <span
+                                class="comment">// Số 7 (Bật A,B,C)</span></p>
+                        <p><span class="darkblue">__</span><span class="blue">0b01111111</span>, <span
+                                class="comment">// Số 8 (Bật tất cả các nét)</span></p>
+                        <p><span class="darkblue">__</span><span class="blue">0b01101111</span> <span class="comment">//
+                                Số 9 (Bật A,B,C,D,F,G)</span></p>
+                        <p><span class="white">};</span></p>
+                        <p><span class="darkblue">__</span></p>
+                        <p><span class="blue">void</span> <span class="orange">setup</span>() <span
+                                class="white">{</span></p>
+                        <p><span class="darkblue">__</span><span class="comment">// Cấu hình tất cả các chân LED là
+                                OUTPUT</span></p>
+                        <p><span class="darkblue">__</span><span class="purple">for</span> (<span class="blue">int</span>
+                            i = <span class="blue">0</span>; i &lt; <span class="blue">7</span>; i++) <span
+                                class="white">{</span></p>
+                        <p><span class="darkblue">____</span><span class="orange">pinMode</span>(<span class="orange">segmentPins</span><span
+                                class="white">[i], OUTPUT</span>);</p>
+                        <p><span class="darkblue">__</span><span class="white">}</span></p>
+                        <p><span class="white">}</span></p>
+                        <p><span class="darkblue">__</span></p>
+                        <p><span class="blue">void</span> <span class="orange">loop</span><span class="white">()</span>
+                            <span class="white">{</span></p>
+                        <p><span class="darkblue">__</span><span class="comment">// Chạy vòng lặp hiển thị từ số 0 đến
+                                số 9</span></p>
+                        <p><span class="darkblue">__</span><span class="purple">for</span> (<span class="blue">int</span>
+                            num = <span class="blue">0</span>; num &lt; <span class="blue">10</span>; num++) <span
+                                class="white">{</span></p>
+                        <p><span class="darkblue">____</span><span class="orange">displayNumber</span>(num);</p>
+                        <p><span class="darkblue">____</span><span class="orange">delay</span>(<span
+                                class="blue">1000</span>); <span class="comment">// Chờ 1 giây rồi đổi số</span></p>
+                        <p><span class="darkblue">__</span><span class="white">}</span></p>
+                        <p><span class="white">}</span></p>
+                        <p><span class="darkblue">__</span></p>
+                        <p><span class="comment">// Hàm xuất tín hiệu ra các chân LED</span></p>
+                        <p><span class="blue">void</span> <span class="orange">displayNumber</span>(<span
+                                class="blue">int</span> num) <span class="white">{</span></p>
+                        <p><span class="darkblue">__</span><span class="white">byte pattern = </span><span class="orange">numPatterns</span>[num];
+                        </p>
+                        <p><span class="darkblue">__</span><span class="purple">for</span> (<span class="blue">int</span>
+                            i = <span class="blue">0</span>; i &lt; <span class="blue">7</span>; i++) <span
+                                class="white">{</span></p>
+                        <p><span class="darkblue">____</span><span class="comment">// Trích xuất từng bit trong mã để
+                                bật/tắt chân tương ứng</span></p>
+                        <p><span class="darkblue">____</span><span class="orange">digitalWrite</span>(<span class="orange">segmentPins</span>[i],
+                            <span class="orange">bitRead</span>(pattern, i));</p>
+                        <p><span class="darkblue">__</span><span class="white">}</span></p>
+                        <p><span class="white">}</span></p>
+                    </div>
+                </div>
+                <div style="width: 20%;justify-self: right;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>5161AS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="margin: 0px;padding: 0px;">
+                                    <img src="https://electro-robot.com/user/images/composants/5161as/5161as-pins.png"
+                                        style="margin: 0px; width: 100%; height: 100%;">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </main>
+    </div>
+</body>

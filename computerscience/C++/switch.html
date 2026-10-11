@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../decor.css">
+    <link rel="stylesheet" href="../decorcode.css">
+    <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>switch</title>
+</head>
+
+<body>
+    <header> <a href="cpp.html">switch</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="Datatypes.html">Data Types</a></p>
+            <p><a>switch</a></p>
+            <p><a href="if-else.html">if-else</a></p>
+        </nav>
+        <main>
+            <p>\(\bullet\) switch là cấu trúc rẽ nhánh</p>
+            <p>\(\bullet\) các kiểu giá trị nhận: các kiểu dữ liệu số nguyên, bool và char</p>
+            <p>\(\bullet\) Ưu điểm: rất nhanh khi có nhiều kết quả</p>
+            <p>\(\bullet\) Nhược điểm: kém linh hoạt</p>
+            <p>\(\bullet\) Cấu trúc:</p>
+            <div class="codebox">
+                <p><code><span class="purple">switch (</span>[giá trị đưa vô để kiểm tra]<span class="purple">) {</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="purple">case</span> [giá trị 1]<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="comment">//khối lệnh</span></code></p>
+                <p><code><span class="hidden">__</span><span class="purple">break</span><span class="white">;</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="purple">case</span> [giá trị 2]<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="comment">//khối lệnh</span></code></p>
+                <p><code><span class="hidden">__</span><span class="purple">break</span><span class="white">;</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="comment">...</span></code></p>
+                <p><code><span class="hidden">__</span><span class="purple">default</span><span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="comment">//khối lệnh</span></code></p>
+                <p><code><span class="hidden">__</span><span class="purple">break</span><span class="white">;</span></code>
+                </p>
+                <p><code><span class="purple">}</span></code></p>
+            </div>
+            <h2>Ví dụ:</h2>
+            <div class="codebox">
+                <p><code><span class="purple">#include</span> <span class="lightblue">&lt;iostream&gt;</span></code></p>
+                <p><code><span class="purple">using</span> <span class="orangered">namespace</span> <span class="cyan">std</span><span class="white">;</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="orangered">int</span> <span class="lightpurple">main</span><span class="yellow">() {</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="orangered">int</span> <span class="white">a;</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="white">cin</span> <span class="lightpurple">&gt;&gt;</span> <span class="white">a;</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="purple">switch (</span><span class="white">a</span><span class="purple">) {</span></code>
+                </p>
+                <p><code><span class="hidden">____</span><span class="purple">case</span> <span class="superlightgreen">1<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">______</span><span class="white">cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"ban nhap so 1"</span></code>
+                </p>
+                <p><code><span class="hidden">______</span><span class="purple">break</span><span class="white">;</span></code>
+                </p>
+                <p><code><span class="hidden">____</span><span class="purple">case</span> <span class="superlightgreen">2<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">______</span><span class="white">cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"ban nhap so 2"</span></code>
+                </p>
+                <p><code><span class="hidden">______</span><span class="purple">break</span><span class="white">;</span></code>
+                </p>
+                <p><code><span class="hidden">____</span><span class="purple">default</span><span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">______</span><span class="white">cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"so ban nhap chua duoc cap nhat"</span></code>
+                </p>
+                <p><code><span class="hidden">____</span><span class="purple">break</span><span class="white">;</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="purple">}</span></code></p>
+                <p><code><span class="yellow">}</span></code></p>
+            </div>
+            <div style="display: flex;">
+                <input type="text" placeholder="nhập số vô" class="inputbox" id="input" oninput="kiemTraSo()">
+                <p id="output" class="outputbox" ></p>
+            </div>
+        </main>
+    </div>
+</body>
+
+<script>
+    function kiemTraSo() {
+        let inputTag = document.getElementById("input");
+        let outputTag = document.getElementById("output");
+
+        // Nếu ô nhập bị trống (người dùng xóa hết chữ), xóa kết quả cũ và dừng lại
+        if (inputTag.value === "") {
+            outputTag.innerHTML = "";
+            return;
+        }
+
+        let soNguoiDungNhap = Number(inputTag.value);
+
+        if (soNguoiDungNhap === 1) {
+            outputTag.innerHTML = "ban nhap so 1";
+            outputTag.style.color = "white";
+        } 
+        else if (soNguoiDungNhap === 2) {
+            outputTag.innerHTML = "ban nhap so 2";
+            outputTag.style.color = "white";
+        }
+        else {
+            outputTag.innerHTML = "so ban nhap chua duoc cap nhat";
+            outputTag.style.color = "white";
+        }
+    }
+</script>
+
+</html>

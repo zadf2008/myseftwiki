@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../decor.css">
+    <link rel="stylesheet" href="../decorcode.css">
+    <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Data Types</title>
+</head>
+
+<body>
+<header> <a href="cpp.html">Data Types</a> </header>
+<div style="display: flex;">
+    <nav>
+        <p><a>Data Types</a></p>
+        <p><a href="switch.html">switch</a></p>
+        <p><a href="if-else.html">if-else</a></p>
+    </nav>
+    <main>
+        <p>Cách dùng [kiểu dữ liệu] [tên biến] = ...; sau đây là các kiểu dữ liệu trong c++:</p>
+        <p>\(\bullet\) <code>short</code>: kiểu dữ liệu số nguyên, kích thức 2 bytes(phạm vi từ -32,768 đến 32,767)</p>
+        <p>\(\bullet\) <code>unsigned short</code>: kiểu dữ liệu số nguyên dương, kích thước 2 bytes(phạm vu từ 0 đến 65,535)</p>
+        <p>\(\bullet\) <code>int</code>: kiểu dữ liệu số nguyên, kích thước 4 bytes(phạm vi từ -2,147,483,648 đến 2,147,483,647)</p>
+        <p>\(\bullet\) <code>unsigned int</code>: kiểu dữ liệu số nguyên dương, kích thước 4 bytes tương đương 32-bit(phạm vi từ 0 đến 4,294,967,295, hậu tố là U)</p>
+        <p>\(\bullet\) <code>long</code>: kiểu dữ liệu số nguyên:</p>
+        <p>- Window: kích thước 4 bytes(phạm vi từ -2,147,483,648 đến 2,147,483,647)</p>
+        <p>- Linux và macOS: kích thước 8 bytes bytes(phạm vi từ -9,223,372,036,854,775,808 đến 9,223,372,036,854,775,807)</p>
+        <p>\(\bullet\) <code>unsigned long</code>: kiểu dữ liệu số nguyên dương:</p>
+        <p>- Window: kích thước 4 bytes(phạm vi từ 0 đến 4,294,967,295)</p>
+        <p>- Linux và macOS: kích thước 8 bytes8 bytes(phạm vi từ 0 đến 18,446,744,073,709,551,615)</p>
+        <p>\(\bullet\) <code>long long</code> và <code>unsigned long long</code>: cũng là kiểu dữ liệu số nguyên, kích thước 8 bytes, phạm vi như trên(hậu tố của long long là LL và unsigned long long là ULL)</p>
+        <p>\(\bullet\) <code>float</code>: kiểu dữ liệu phân số, kích thước 4 bytes, chính xác đến 7 chữ số phía sau</p>
+        <p>- tuy nhiên C++ coi mọi phân số là double nên khi dùng float nên dùng hậu tố f, chẳng hạn float pi = 3.14f;</p>
+        <p>\(\bullet\) <code>double</code>: kiểu dữ liệu phân số, kích thước 8 bytes, chính xác đến 15 chữ số phía sau</p>
+        <p>\(\bullet\) <code>long double</code>: kiểu dữ liệu phân số, kích thước 8 bytes, 12 bytes hoặc 16 bytes chính xác đến 19 chữ số phía sau trở lên</p>
+        <p>- Tuy vậy hầu hết các máy tính hiện nay đều chỉ dừng lại mức 8 bytes như double vì độ chính xác 15 chữ số thập phân phía sau là quá đủ cho các công việc tính toán và tối ưu được tốc độ tính toán</p>
+        <p>- Hậu tố để ép số thực về dạng long double là L</p>
+        <p>\(\bullet\) <code>bool</code>: kiểu dữ liệu true/false</p>
+        <p>\(\bullet\) <code>char</code>: kiểu dữ liệu lưu duy nhất 1 ký tự, và để trong dấu ''(ví dụ char tu1 = 'a')</p>
+        <p>\(\bullet\) <code>const char*</code>: kiểu dữ liệu lưu 1 chuỗi ký tự, và để ""(ví dụ const char* doan1 = "caigido")</p>
+        <p>\(\bullet\) <code>auto</code>: kiểu tự nhận diện kiểu dữ liệu, phải gắn giá trị ngay trong dòng đó và không thể thay đổi kiểu dữ liệu</p>
+        <p>\(\bullet\) <code>struct</code>: kiểu tập hợp các kiểu dữ liệu, vd:</p>
+        <div class="codebox">
+            <p><code><span class="purple">#include</span> <span class="lightblue">&lt;iostream&gt;</span></code></p>
+            <p><code><span class="purple">using</span> <span class="orangered">namespace</span> <span class="cyan">std</span><span class="white">;</span></code></p>
+            <p><span class="hidden">____</span></p>
+            <p><code><span class="comment">// đặt struct ở bên ngoài để hàm nào cũng có thể dùng được</span></code></p>
+            <p><code><span class="orangered">struct</span> <span class="cyan">cpp</span> <span class="yellow">{</span></code></p>
+            <p><code><span class="hidden">__</span><span class="blue">const</span> <span class="orangered">int</span> <span class="white">a =</span> <span class="superlightgreen">10</span><span class="white">;</span><span class="hidden">__</span><span class="comment">//const có tác dụng cấm cho biến đó không thể thay đổi</span></code></p>
+            <p><code><span class="hidden">__</span><span class="blue">const</span> <span class="orangered">char</span><span class="blue">*</span> <span class="white">b =</span> <span class="lightblue">"zadf2008"</span><span class="white">;</span></code></p>
+            <p><code><span class="hidden">__</span><span class="orangered">int</span> <span class="white">c =</span> <span class="superlightgreen">11</span><span class="white">;</span></code></p>
+            <p><code class="yellow">}<span class="white">;</span></code></p>
+            <p><span class="hidden">____</span></p>
+            <p><code><span class="orangered">int</span> <span class="lightpurple">main</span><span class="yellow">() {</span></code></p>
+            <p><code><span class="hidden">__</span><span class="cyan">cpp</span> <span class="white">bien1;</span><span class="hidden">_____</span><span class="comment">//tạo một biến từ struct cpp</span></code></p>
+            <p><code><span class="hidden">__</span><span class="white">bien1.c = </span><span class="superlightgreen">12;</span><span class="hidden">__</span><span class="comment">//thay đổi giá trị biến trong struct</span></code></p>
+            <p><code><span class="hidden">__</span><span class="white">cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="white">bien1.a</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"</span><span class="lightorange">\n</span><span class="lightblue">"</span></code></p>
+            <p><code><span class="hidden">__</span><span class="white">cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="white">bien1.b</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"</span><span class="lightorange">\n</span><span class="lightblue">"</span></code></p>
+            <p><code><span class="hidden">__</span><span class="white">cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="white">bien1.c</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"</span><span class="lightorange">\n</span><span class="lightblue">"</span></code></p>
+            <p><span class="hidden">__</span></p>
+            <p><code><span class="hidden">__</span><span class="purple">return</span> <span class="superlightgreen">0</span><span class="white">;</span></code></p>
+            <p><code><span class="yellow">}</span></code></p>
+        </div>
+        <p>- kết quả in:</p>
+        <p>10</p>
+        <p>zadf2008</p>
+        <p>12</p>
+    </main>
+</div>
+</body>
+
+</html>

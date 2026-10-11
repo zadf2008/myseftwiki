@@ -1,11 +1,91 @@
 .codebox {
     text-shadow: 0 0 0;
     border: 0px;
-    background-color: #1f1f1f;
+    background-color: rgb(18, 19, 20);
     width: 50%;
     padding: 7px;
-    border-radius: 10px 10px 0px 0px;
     text-align: left;
+    border: 1px solid rgb(69, 69, 69);
+}
+
+.inputbox {
+    text-shadow: 0 0 0;
+    border: 0px;
+    background-color: rgb(18, 19, 20);
+    width: 50%;
+    padding: 3px;
+    text-align: left;
+    border: 1px solid rgb(69, 69, 69);
+    color: #ffffff;
+    margin-top: 10px;
+    border-radius: 10px;
+    width: 100px ;
+    height: 30px;
+}
+
+.outputbox {
+    text-shadow: 0 0 0;
+    border: 0px;
+    background-color: rgb(18, 19, 20);
+    width: 50%;
+    padding: 3px;
+    text-align: left;
+    border: 1px solid rgb(69, 69, 69);
+    color: #ffffff;
+    margin-top: 10px;
+    border-radius: 10px;
+    width: 500px ;
+    margin-left: 5px;
+    height: 30px;
+    justify-content: center;
+}
+
+.purple {
+    color: #C586B5;
+}
+
+.lightpurple {
+    color: #D29AC2;
+}
+
+.orangered {
+    color: #FF6C45;
+}
+
+.lightblue {
+    color: #84D6FF;
+}
+
+.comment {
+    color: #8B949E;
+}
+
+.superlightgreen {
+    color: #B5CE9A;
+}
+
+.yellow {
+    color: #FFD703;
+}
+
+.cyan {
+    color: #4EC98D;
+}
+
+.white {
+    color: #ffffff;
+}
+
+.blue {
+    color: #3E9CD6;
+}
+
+.lightorange {
+    color: #D7BA5F
+}
+
+.hidden {
+    color: rgb(18, 19, 20);
 }
 
 .answerbox {
@@ -24,4 +104,12 @@
 
 .moc {
     color: rgb(250, 250, 76);
+}
+
+main div p code {
+    margin: 0px;
+}
+
+main div p {
+    margin: 0px;
 }
