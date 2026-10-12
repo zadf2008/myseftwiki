@@ -18,6 +18,9 @@
         <p><a>Data Types</a></p>
         <p><a href="switch.html">switch</a></p>
         <p><a href="if-else.html">if-else</a></p>
+        <p><a href="function.html">function</a></p>
+        <p><a href="for.html">for</a></p>
+        <p><a href=class.html>class</a></p>
     </nav>
     <main>
         <p>Cách dùng [kiểu dữ liệu] [tên biến] = ...; sau đây là các kiểu dữ liệu trong c++:</p>
@@ -42,7 +45,7 @@
         <p>\(\bullet\) <code>char</code>: kiểu dữ liệu lưu duy nhất 1 ký tự, và để trong dấu ''(ví dụ char tu1 = 'a')</p>
         <p>\(\bullet\) <code>const char*</code>: kiểu dữ liệu lưu 1 chuỗi ký tự, và để ""(ví dụ const char* doan1 = "caigido")</p>
         <p>\(\bullet\) <code>auto</code>: kiểu tự nhận diện kiểu dữ liệu, phải gắn giá trị ngay trong dòng đó và không thể thay đổi kiểu dữ liệu</p>
-        <p>\(\bullet\) <code>struct</code>: kiểu tập hợp các kiểu dữ liệu, vd:</p>
+        <p>\(\bullet\) <code>struct</code>: kiểu tập hợp các kiểu dữ liệu(hay thậm chí là hàm), vd:</p>
         <div class="codebox">
             <p><code><span class="purple">#include</span> <span class="lightblue">&lt;iostream&gt;</span></code></p>
             <p><code><span class="purple">using</span> <span class="orangered">namespace</span> <span class="cyan">std</span><span class="white">;</span></code></p>
@@ -57,9 +60,9 @@
             <p><code><span class="orangered">int</span> <span class="lightpurple">main</span><span class="yellow">() {</span></code></p>
             <p><code><span class="hidden">__</span><span class="cyan">cpp</span> <span class="white">bien1;</span><span class="hidden">_____</span><span class="comment">//tạo một biến từ struct cpp</span></code></p>
             <p><code><span class="hidden">__</span><span class="white">bien1.c = </span><span class="superlightgreen">12;</span><span class="hidden">__</span><span class="comment">//thay đổi giá trị biến trong struct</span></code></p>
-            <p><code><span class="hidden">__</span><span class="white">cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="white">bien1.a</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"</span><span class="lightorange">\n</span><span class="lightblue">"</span></code></p>
-            <p><code><span class="hidden">__</span><span class="white">cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="white">bien1.b</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"</span><span class="lightorange">\n</span><span class="lightblue">"</span></code></p>
-            <p><code><span class="hidden">__</span><span class="white">cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="white">bien1.c</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"</span><span class="lightorange">\n</span><span class="lightblue">"</span></code></p>
+            <p><code><span class="hidden">__</span><span class="white">cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="white">bien1.a</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"</span><span class="lightorange">\n</span><span class="lightblue">"</span><span class="white">;</span></code></p>
+            <p><code><span class="hidden">__</span><span class="white">cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="white">bien1.b</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"</span><span class="lightorange">\n</span><span class="lightblue">"</span><span class="white">;</span></code></p>
+            <p><code><span class="hidden">__</span><span class="white">cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="white">bien1.c</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"</span><span class="lightorange">\n</span><span class="lightblue">"</span><span class="white">;</span></code></p>
             <p><span class="hidden">__</span></p>
             <p><code><span class="hidden">__</span><span class="purple">return</span> <span class="superlightgreen">0</span><span class="white">;</span></code></p>
             <p><code><span class="yellow">}</span></code></p>
