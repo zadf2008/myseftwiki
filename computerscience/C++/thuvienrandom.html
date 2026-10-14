@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../decor.css">
+    <link rel="stylesheet" href="../decorcode.css">
+    <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>thư viện random</title>
+</head>
+
+<body>
+    <header> <a href="cpp.html">thư viện random</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="Datatypes.html">Data Types</a></p>
+            <p><a href="switch.html">switch</a></p>
+            <p><a href="if-else.html">if-else</a></p>
+            <p><a href="function.html">function</a></p>
+            <p><a href="for.html">for</a></p>
+            <p><a href=class.html>class</a></p>
+            <p><a href="while.html">while</a></p>
+            <p><a>&lt;random&gt;</a></p>
+            <p><a href="thuvieniomanip.html">&lt;iomanip&gt;</a></p>
+        </nav>
+        <main>
+            <p>\(\bullet\) Thư viện tạo ra 1 số ngẫu nhiên</p>
+            <p>Ví dụ 1 (tạo ra 1 số nguyên):</p>
+            <div class="codebox" style="width: 80%;">
+                <p><code><span class="purple">#include</span> <span class="lightblue">&lt;iostream&gt;</span></code></p>
+                <p><code><span class="purple">#include</span> <span class="lightblue">&lt;random&gt;</span></code></p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="orangered">int</span> <span class="lightpurple">main</span><span class="yellow">() {</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::<span class="cyan">random_device</span> rd;</span><span class="hidden">__</span><span class="comment">//lấy một hạt giống từ phần cứng</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::<span class="cyan">mt19937</span> gen<span class="purple">(</span>rd<span class="blue">()</span><span class="purple">)</span>;</span><span class="hidden">__</span><span class="comment">//tạo một engine từ hạt giống</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::<span class="cyan">uniform_int_distribution</span>&lt;&gt; dis1<span class="purple">(</span></span><span class="superlightgreen">1</span><span class="white">, </span><span class="superlightgreen">100</span><span class="white"><span class="purple">)</span>;</span><span class="hidden">__</span><span class="comment">//ngẫu nhiên ra số nguyên</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="orangered">int</span> <span class="white">so_ngau_nhien = dis1<span class="purple">(</span>gen<span class="purple">)</span>;</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"So ngau nhien cua ban la: "</span> <span class="lightpurple">&lt;&lt;</span> <span class="white">so_ngau_nhien</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::</span><span class="lightpurple">endl</span><span class="white">;</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="purple">return</span> <span class="superlightgreen">0</span><span class="white">;</span></code>
+                </p>
+                <p><code><span class="yellow">}</span></code></p>
+            </div>
+            <p>Ví dụ 2(tạo ra 1 số thực):</p>
+            <div class="codebox" style="width: 80%;">
+                <p><code><span class="purple">#include</span> <span class="lightblue">&lt;iostream&gt;</span></code></p>
+                <p><code><span class="purple">#include</span> <span class="lightblue">&lt;random&gt;</span></code></p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="orangered">int</span> <span class="lightpurple">main</span><span class="yellow">() {</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::<span class="cyan">random_device</span> rd;</span><span class="hidden">__</span><span class="comment">//lấy một hạt giống từ phần cứng</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::<span class="cyan">mt19937</span> gen<span class="purple">(</span>rd<span class="blue">()</span><span class="purple">)</span>;</span><span class="hidden">__</span><span class="comment">//tạo engine sinh số ngẫu nhiên</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::<span class="cyan">uniform_real_distribution</span>&lt;&gt; dis2<span class="purple">(</span></span><span class="superlightgreen">1</span><span class="white">, </span><span class="superlightgreen">100</span><span class="white"><span class="purple">)</span>;</span><span class="hidden">__</span><span class="comment">//thiết lập khoảng số thực từ 1 đến dưới 100</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="orangered">double</span> <span class="white">so_thuc_ngau_nhien = dis2<span class="purple">(</span>gen<span class="purple">)</span>;</span><span class="hidden">__</span><span class="comment">//lấy một số thực ngẫu nhiên</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"So thuc ngau nhien cua ban la: "</span> <span class="lightpurple">&lt;&lt;</span> <span class="white">so_thuc_ngau_nhien</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::</span><span class="lightpurple">endl</span><span class="white">;</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="purple">return</span> <span class="superlightgreen">0</span><span class="white">;</span></code>
+                </p>
+                <p><code><span class="yellow">}</span></code></p>
+            </div>
+            <p>Ví dụ 3(ngẫu nhiên đúng sai):</p>
+            <div class="codebox" style="width: 80%;">
+                <p><code><span class="purple">#include</span> <span class="lightblue">&lt;iostream&gt;</span></code></p>
+                <p><code><span class="purple">#include</span> <span class="lightblue">&lt;random&gt;</span></code></p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="orangered">int</span> <span class="lightpurple">main</span><span class="yellow">() {</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::<span class="cyan">random_device</span> rd;</span><span class="hidden">__</span><span class="comment">//lấy một hạt giống từ phần cứng</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::<span class="cyan">mt19937</span> gen<span class="purple">(</span>rd<span class="blue">()</span><span class="purple">)</span>;</span><span class="hidden">__</span><span class="comment">//tạo engine sinh số ngẫu nhiên</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::<span class="cyan">bernoulli_distribution</span> dis3<span class="purple">(</span></span><span class="superlightgreen">0.3</span><span class="white"><span class="purple">)</span>;</span><span class="hidden">__</span><span class="comment">//30% true, 70% false</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="orangered">bool</span> <span class="white">thanh_cong = dis3<span class="purple">(</span>gen<span class="purple">)</span>;</span><span class="hidden">__</span><span class="comment">//lấy kết quả đúng hoặc sai</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"Co thanh cong khong: "</span> <span class="lightpurple">&lt;&lt;</span> <span class="white">thanh_cong</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::</span><span class="lightpurple">endl</span><span class="white">;</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="purple">return</span> <span class="superlightgreen">0</span><span class="white">;</span></code>
+                </p>
+                <p><code><span class="yellow">}</span></code></p>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

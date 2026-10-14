@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../decor.css">
+    <link rel="stylesheet" href="../decorcode.css">
+    <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>thư viện iomanip</title>
+</head>
+
+<body>
+    <header> <a href="cpp.html">thư viện iomanip</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="Datatypes.html">Data Types</a></p>
+            <p><a href="switch.html">switch</a></p>
+            <p><a href="if-else.html">if-else</a></p>
+            <p><a href="function.html">function</a></p>
+            <p><a href="for.html">for</a></p>
+            <p><a href=class.html>class</a></p>
+            <p><a href="while.html">while</a></p>
+            <p><a href="thuvienrandom.html">&lt;random&gt;</a></p>
+            <p><a>&lt;iomanip&gt;</a></p>
+        </nav>
+        <main>
+            <p>\(\bullet\) Thư viện chuyên xử lí định dạng, và kiểu dữ liệu</p>
+            <p>Ví dụ 1 (định dạng số, hệ cơ số, làm tròn, độ rộng):</p>
+            <div class="codebox" style="width: 80%;">
+                <p><code><span class="purple">#include</span> <span class="lightblue">&lt;iostream&gt;</span></code></p>
+                <p><code><span class="purple">#include</span> <span class="lightblue">&lt;iomanip&gt;</span></code></p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="orangered">int</span> <span class="lightpurple">main</span><span class="yellow">() {</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="orangered">double</span> <span class="white">pi = </span><span class="superlightgreen">3.1415926535</span><span class="white">;</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="orangered">int</span> <span class="white">x = </span><span class="superlightgreen">42</span><span class="white">;</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">setprecision</span><span class="purple">(</span></span><span class="superlightgreen">5</span><span class="white"><span class="purple">)</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="white">pi</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">endl</span>;</span><span class="hidden">__</span><span class="comment">//hiển thị 5 chữ số có nghĩa</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">fixed</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="cyan">setprecision</span><span class="purple">(</span></span><span class="superlightgreen">5</span><span class="white"><span class="purple">)</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="white">pi</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">endl</span>;</span><span class="hidden">__</span><span class="comment">//hiển thị 5 chữ số sau dấu thập phân</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">scientific</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="superlightgreen">75345.092384</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">endl</span>;</span><span class="hidden">__</span><span class="comment">//hiển thị số thực dưới dạng khoa học</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">setw</span><span class="purple">(</span></span><span class="superlightgreen">10</span><span class="white"><span class="purple">)</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">setfill</span><span class="purple">(</span></span><span class="lightblue">'*'</span><span class="white"><span class="purple">)</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">right</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="white">x</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"\n"</span><span class="white">;</span><span class="hidden">__</span><span class="comment">//độ rộng 10 kí tự, căn phải, lấp khoảng trống bằng *</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">setw</span><span class="purple">(</span></span><span class="superlightgreen">10</span><span class="white"><span class="purple">)</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">setfill</span><span class="purple">(</span></span><span class="lightblue">'.'</span><span class="white"><span class="purple">)</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">left</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="white">x</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"\n"</span><span class="white">;</span><span class="hidden">__</span><span class="comment">//độ rộng 10 kí tự, căn trái, lấp khoảng trống bằng .</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">setw</span><span class="purple">(</span></span><span class="superlightgreen">15</span><span class="white"><span class="purple">)</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">setfill</span><span class="purple">(</span></span><span class="lightblue">'.'</span><span class="white"><span class="purple">)</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"Hello world"</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"\n"</span><span class="white">;</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">setbase</span><span class="purple">(</span></span><span class="superlightgreen">10</span><span class="white"><span class="purple">)</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="superlightgreen">20</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"\n"</span><span class="white">;</span><span class="hidden">__</span><span class="comment">//chọn hệ cơ số 10</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="purple">return</span> <span class="superlightgreen">0</span><span class="white">;</span></code>
+                </p>
+                <p><code><span class="yellow">}</span></code></p>
+            </div>
+            <p>Ví dụ 2(ngày và giờ):</p>
+            <div class="codebox" style="width: 80%;">
+                <p><code><span class="purple">#include</span> <span class="lightblue">&lt;iostream&gt;</span></code></p>
+                <p><code><span class="purple">#include</span> <span class="lightblue">&lt;iomanip&gt;</span></code></p>
+                <p><code><span class="purple">#include</span> <span class="lightblue">&lt;ctime&gt;</span></code></p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="orangered">int</span> <span class="lightpurple">main</span><span class="yellow">() {</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::</span><span class="cyan">time_t</span> <span class="white">t = </span><span class="cyan">std</span><span class="white">::<span class="lightpurple">time</span><span class="purple">(</span></span><span class="lightblue">nullptr</span><span class="white"><span class="purple">)</span>;</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::<span class="cyan">tm</span></span> <span class="white">local = *</span><span class="cyan">std</span><span class="white">::<span class="lightpurple">localtime</span><span class="purple">(</span></span><span class="lightpurple">&amp;</span><span class="white">t</span><span class="white"><span class="purple">)</span>;</span><span class="hidden">__</span><span class="comment">//thời gian địa phương</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::<span class="cyan">tm</span></span> <span class="white">utc = *</span><span class="cyan">std</span><span class="white">::<span class="lightpurple">gmtime</span><span class="purple">(</span></span><span class="lightpurple">&amp;</span><span class="white">t</span><span class="white"><span class="purple">)</span>;</span><span class="hidden">__</span><span class="comment">//thời gian UTC</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"Bay gio la: "</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">put_time</span><span class="purple">(</span></span><span class="lightpurple">&amp;</span><span class="white">local</span><span class="white">, </span><span class="lightblue">"<span class="orangered">%d</span>/%m/%Y %H:%M:%S"</span><span class="white"><span class="purple">)</span>;</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"\n"</span><span class="white">;</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"Gio UTC: "</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">put_time</span><span class="purple">(</span></span><span class="lightpurple">&amp;</span><span class="white">utc</span><span class="white">, </span><span class="lightblue">"<span class="orangered">%d</span>/%m/%Y %H:%M:%S"</span><span class="white"><span class="purple">)</span>;</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"\n"</span><span class="white">;</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="cyan">std</span><span class="white">::<span class="cyan">tm</span></span> <span class="white">abc = {};</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"Nhap ngay/thang/nam: "</span><span class="white">;</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cin</span> <span class="lightpurple">&gt;&gt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">get_time</span><span class="purple">(</span></span><span class="lightpurple">&amp;</span><span class="white">abc</span><span class="white">, </span><span class="lightblue">"<span class="orangered">%d</span>/%m/%y"</span><span class="white"><span class="purple">)</span>;</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="purple">if</span> <span class="yellow">(</span><span class="cyan">std</span><span class="white">::cin</span><span class="yellow">) {</span></code>
+                </p>
+                <p><code><span class="hidden">____</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="white">abc.tm_mday</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"/"</span> <span class="lightpurple">&lt;&lt;</span> <span class="white">abc.tm_mon + </span><span class="superlightgreen">1</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"/"</span> <span class="lightpurple">&lt;&lt;</span> <span class="white">abc.tm_year + </span><span class="superlightgreen">1900</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">endl</span>;</span></code>
+                </p>
+                <p><code><span class="yellow">}</span></code></p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="purple">return</span> <span class="superlightgreen">0</span><span class="white">;</span></code>
+                </p>
+                <p><code><span class="yellow">}</span></code></p>
+            </div>
+            <p>Các thành viên của <code>std::tm</code>:</p>
+            <p><code>tm_sec</code>: giây (thường từ 0 đến 60, có thể có giây nhuận).</p>
+            <p><code>tm_min</code>: phút (từ 0 đến 59).</p>
+            <p><code>tm_hour</code>: giờ (từ 0 đến 23).</p>
+            <p><code>tm_mday</code>: ngày trong tháng (từ 1 đến 31).</p>
+            <p><code>tm_mon</code>: tháng (từ 0 đến 11; tháng 1 là 0, tháng 12 là 11).</p>
+            <p><code>tm_year</code>: số năm tính từ năm 1900 (năm 2026 có giá trị 126).</p>
+            <p><code>tm_wday</code>: thứ trong tuần (từ 0 là Chủ Nhật đến 6 là Thứ Bảy).</p>
+            <p><code>tm_yday</code>: ngày trong năm (từ 0 đến 365; ngày đầu năm là 0).</p>
+            <p><code>tm_isdst</code>: thông tin về giờ mùa hè; giá trị lớn hơn 0 nếu đang áp dụng, bằng 0 nếu không áp
+                dụng, nhỏ hơn 0 nếu không xác định.</p>
+            <p>Lưu ý: <code>tm_sec</code> có thể bằng 60 để biểu diễn giây nhuận trong những trường hợp phù hợp.</p>
+            <p>Ví dụ 3(cờ định dạng):</p>
+            <div class="codebox" style="width: 80%;">
+                <p><code><span class="purple">#include</span> <span class="lightblue">&lt;iostream&gt;</span></code></p>
+                <p><code><span class="purple">#include</span> <span class="lightblue">&lt;iomanip&gt;</span></code></p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="orangered">int</span> <span class="lightpurple">main</span><span class="yellow">() {</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::<span class="lightpurple">setiosflags</span><span class="purple">(</span></span><span class="cyan">std</span><span class="white">::<span class="cyan">ios_base</span>::<span class="lightpurple">showpos</span></span> <span class="lightpurple">|</span> <span class="cyan">std</span><span class="white">::<span class="cyan">ios_base</span>::<span class="lightpurple">uppercase</span></span><span class="white"><span class="purple">)</span>;</span><span class="hidden">__</span><span class="comment">//bật dấu + và chữ in hoa</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="superlightgreen">42</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">" "</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">hex</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="superlightgreen">255</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"\n"</span><span class="white">;</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::<span class="lightpurple">resetiosflags</span><span class="purple">(</span></span><span class="cyan">std</span><span class="white">::<span class="cyan">ios_base</span>::<span class="lightpurple">showpos</span></span> <span class="lightpurple">|</span> <span class="cyan">std</span><span class="white">::<span class="cyan">ios_base</span>::<span class="lightpurple">uppercase</span></span><span class="white"><span class="purple">)</span>;</span><span class="hidden">__</span><span class="comment">//tắt hai cờ trên</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">dec</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="superlightgreen">42</span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">" "</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">hex</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="superlightgreen">255</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">dec</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">"\n"</span><span class="white">;</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">showpos</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="superlightgreen">42</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">noshowpos</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">endl</span>;</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">uppercase</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">hex</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="superlightgreen">42</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">nouppercase</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">dec</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">endl</span>;</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">boolalpha</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="lightblue">true</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">noboolalpha</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">endl</span>;</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">showpoint</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="superlightgreen">42.0</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">noshowpoint</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">endl</span>;</span></code>
+                </p>
+                <p><code><span class="hidden">__</span><span class="cyan">std</span><span class="white">::cout</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">showbase</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">hex</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="superlightgreen">42</span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">noshowbase</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">dec</span></span> <span class="lightpurple">&lt;&lt;</span> <span class="cyan">std</span><span class="white">::<span class="lightpurple">endl</span>;</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="purple">return</span> <span class="superlightgreen">0</span><span class="white">;</span></code>
+                </p>
+                <p><code><span class="yellow">}</span></code></p>
+            </div>
+            <p>Các cờ định dạng của <code>std::ios_base</code> và <code>manipulator</code> tương ứng:</p>
+            <p><code>std::ios_base::showpos</code> tương ứng với <code>std::showpos</code>; tắt bằng
+                <code>std::noshowpos</code>.
+            </p>
+            <p><code>std::ios_base::showbase</code> tương ứng với <code>std::showbase</code>; tắt bằng
+                <code>std::noshowbase</code>.
+            </p>
+            <p><code>std::ios_base::showpoint</code> tương ứng với <code>std::showpoint</code>; tắt bằng
+                <code>std::noshowpoint</code>.
+            </p>
+            <p><code>std::ios_base::uppercase</code> tương ứng với <code>std::uppercase</code>; tắt bằng
+                <code>std::nouppercase</code>.
+            </p>
+            <p><code>std::ios_base::boolalpha</code> tương ứng với <code>std::boolalpha</code>; tắt bằng
+                <code>std::noboolalpha</code>.
+            </p>
+            <p><code>std::ios_base::skipws</code> tương ứng với <code>std::skipws</code>; tắt bằng
+                <code>std::noskipws</code>.
+            </p>
+            <p><code>std::ios_base::unitbuf</code> tương ứng với <code>std::unitbuf</code>; tắt bằng
+                <code>std::nounitbuf</code>.
+            </p>
+            <p><code>std::ios_base::adjustfield</code> là nhóm cờ căn chỉnh, gồm <code>std::left</code>,
+                <code>std::right</code> và <code>std::internal</code>.
+            </p>
+            <p><code>std::left</code>: căn trái; <code>std::right</code>: căn phải; <code>std::internal</code>: chèn ký
+                tự lấp vào giữa dấu của số và phần giá trị.</p>
+            <p><code>std::ios_base::floatfield</code> là nhóm cờ định dạng số thực, gồm <code>std::fixed</code> và
+                <code>std::scientific</code>.
+            </p>
+            <p><code>std::fixed</code>: hiển thị số thực theo dạng thập phân cố định.</p>
+            <p><code>std::scientific</code>: hiển thị số thực theo dạng ký hiệu khoa học.</p>
+            <p><code>std::hex</code> tương ứng với cờ cơ số <code>std::ios_base::hex</code>; <code>std::dec</code> tương
+                ứng với <code>std::ios_base::dec</code>.</p>
+            <p><code>std::oct</code> tương ứng với cờ cơ số <code>std::ios_base::oct</code>.</p>
+            <p><code>std::setbase(10)</code> tương đương với <code>std::dec</code> (Decimal - hệ 10).</p>
+            <p><code>std::setbase(16)</code> tương đương với <code>std::hex</code> (Hexadecimal - hệ 16).</p>
+            <p><code>std::setbase(8)</code> tương đương với <code>std::oct</code> (Octal - hệ 8).</p>
+            <p><code>std::setbase(0)</code>: khi nhập số nguyên, cho phép tự nhận diện cơ số theo tiền tố của dữ liệu;
+                khi xuất, không có tác dụng tương đương.</p>
+            <p><code>std::setprecision(n)</code>: đặt độ chính xác khi hiển thị số thực; ý nghĩa phụ thuộc vào chế độ
+                định dạng số thực.</p>
+            <p><code>std::setw(n)</code>: đặt độ rộng trường cho lần xuất hoặc nhập kế tiếp.</p>
+            <p><code>std::setfill(c)</code>: đặt ký tự dùng để lấp khoảng trống trong trường định dạng.</p>
+            <p><code>std::setiosflags(flags)</code>: bật các cờ định dạng được chỉ định.</p>
+            <p><code>std::resetiosflags(flags)</code>: tắt các cờ định dạng được chỉ định.</p>
+            <p><code>std::endl</code>: xuống dòng và đẩy dữ liệu trong bộ đệm ra luồng.</p>
+            <p>Lưu ý: <code>std::skipws</code> và <code>std::noskipws</code> chủ yếu ảnh hưởng đến thao tác nhập;
+                <code>std::unitbuf</code> bật việc đẩy bộ đệm sau mỗi thao tác xuất, còn <code>std::nounitbuf</code> tắt
+                chế độ này.
+            </p>
+        </main>
+    </div>
+</body>
+
+</html>
