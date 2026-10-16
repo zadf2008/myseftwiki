@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../decor.css">
+    <link rel="icon" href="../images-removebg-preview.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Chuỗi số</title>
+</head>
+
+<body>
+    <header> <a href="Pagemath.html">Chuỗi số</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="derivative.html">Đạo hàm</a></p>
+            <p><a href="limitoffunction.html">Giới hạn</a></p>
+            <p><a href="trigonometry.html">Lượng giác</a></p>
+            <p><a href="matrix.html">Ma trận</a></p>
+            <p><a href="laplace.html">Phép biến đổi laplace</a></p>
+            <p><a href="integral.html">Tích phân</a></p>
+            <p><a href="operators.html">Toán tử</a></p>
+            <p><a>Chuỗi số</a></p>
+        </nav>
+        <main>
+            <p>\(\bullet\) Chuỗi số là một chuỗi các số hạng số thực liên tiếp nhau</p>
+            <p>\(\bullet\) Dạng tổng quát: \(\sum\limits_{n=1}^{k} u_n\)</p>
+            <p>- k là một số nguyên dương khác 0</p>
+            <p>- \(u_n\) là số hạng thứ n của chuỗi số (giống như một hàm f(n) tại n vậy)</p>
+            <p>\(\bullet\) Chuỗi số được gọi là chuỗi số dương khi mọi \(u_n > 0\)</p>
+            <h2>Các tiêu chuẩn so sánh:</h2>
+            <p>\(\bullet\) Tiêu chuẩn so sánh Cauchy-Maclaurin</p>
+            <p>- \(\sum\limits_{n=1}^{k} f(n)\) hội tụ \(\Leftrightarrow \int_{1}^{\infty} f(x)\) hội tụ</p>
+            <p>\(\bullet\) Tiêu chuẩn so sánh 1:</p>
+            <p>Hai chuỗi số dương \(\sum\limits_{n=1}^{\infty} u_n\) và \(\sum\limits_{n=1}^{\infty} v_n\) cùng hội tụ khi \(v_n < u_n\)</p>
+            <p>\(\bullet\) Tiêu chuẩn so sánh 2:</p>
+            <p>- Hai chuỗi số dương \(\sum\limits_{n=1}^{\infty} u_n\) và \(\sum\limits_{n=1}^{\infty} v_n\), xét K = \(\underset{n \to +\infty}{\lim} \frac{u_n}{v_n}\)</p>
+            <p>+ K = 0 thì cả 2 chuỗi số hội tụ</p>
+            <p>+ 0 &lt; K &lt; \(\infty\) thì cả hai hoặc phân kỳ hoặc hội tụ</p>
+            <p>+ K = \(+\infty\) và \(\sum\limits_{n=1}^{\infty} v_n\) phân kỳ thì \(\sum\limits_{n=1}^{\infty} u_n\) cũng phân kỳ</p>
+            <p>\(\bullet\) Tiêu chuẩn d'Alembert:</p>
+            <p>- Cho chuỗi dương \(\sum\limits_{n=1}^{+\infty} u_n\) với \(\underset{n \to +\infty}{\lim} \frac{u_{n+1}}{u_n}\) = D</p>
+            <p>+ D &lt; 1 thì chuỗi hội tụ</p>
+            <p>+ D &gt; 1 thì chuỗi phân kỳ</p>
+            <p>\(\bullet\) Tiêu chuẩn Cauchy:</p>
+            <p>- Cho chuỗi dương \(\sum\limits_{n=1}^{+\infty} u_n\) với \(\underset{n \to +\infty}{\lim} \sqrt[n]{u_n}\) = C</p>
+            <p>+ C &lt; 1 thì chuỗi hội tụ</p>
+            <p>+ C &gt; 1 thì chuỗi phân kỳ</p>
+            <p>\(\bullet\) Tiêu chuẩn Leibniz:</p>
+            <p>- Cho chuỗi số đan xen \(\sum\limits_{n=1}^{+\infty} (-1)^{n+1}u_n\) và \(u_n\) tiến về 0 thì nó thỏa: \(u_1 - u_2 \leq S \leq u_1\)</p>
+            <p>\(\bullet\) Hội tụ tuyệt đối:</p>
+            <p>- Nếu \(\sum\limits_{n=1}^{+\infty} |u_n|\) hội tụ thì \(\sum\limits_{n=1}^{+\infty} u_n\) hội tụ và \(\sum\limits_{n=1}^{+\infty} |u_n| \leq \sum\limits_{n=1}^{+\infty} u_n\)</p>
+        </main>
+    </div>
+</body>
+
+</html>

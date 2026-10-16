@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../decor.css">
+    <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
+    <link rel="stylesheet" href="../decorcode.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>if-else</title>
+</head>
+
+<body>
+    <header> <a href="basic.html">if-else</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="bien.html">Gán</a></p>
+            <p><a href="for.html">for</a></p>
+            <p><a href="while.html">while</a></p>
+            <p><a>if-else</a></p>
+            <p><a href="list.html">list</a></p>
+            <p><a href="def.html">def</a></p>
+            <p><a href="class.html">class</a></p>
+        </nav>
+        <main>
+            <p>\(\bullet\) Kiểm tra điều kiện</p>
+            <p>\(\bullet\) Cấu trúc cơ bản:</p>
+            <div class="codebox">
+                <p><code><span class="purple">if <span class="comment">[điều kiện 1]<span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="comment">[khối lệnh 1]</span></code></p>
+                <p><code><span class="purple">elif <span class="comment">[điều kiện 2]<span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="comment">[khối lệnh 2]</span></code></p>
+                <p><code><span class="purple">elif <span class="comment">[điều kiện 3]<span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="comment">[khối lệnh 3]</span></code></p>
+                <p><code><span class="comment"># thêm elif vô đây nếu muốn</span></code></p>
+                <p><code><span class="purple">else <span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="comment">[khối lệnh cuối]</span></code></p>
+            </div>
+            <p>Ví dụ 1(kiểm tra tuần tự từ trên xuống):</p>
+            <div class="codebox">
+                <p><code><span class="white">score = <span class="superlightgreen">10</span></span></code></p>
+                <p><code><span class="purple">if <span class="yellow">(<span class="white">score &lt;= <span class="superlightgreen">50</span><span class="yellow">)</span><span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Yếu"<span class="yellow">)</span></code></p>
+                <p><code><span class="purple">elif <span class="yellow">(<span class="white">score &lt;= <span class="superlightgreen">70</span><span class="yellow">)</span><span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Trung bình"<span class="yellow">)</span></code></p>
+                <p><code><span class="purple">elif <span class="yellow">(<span class="white">score &lt;= <span class="superlightgreen">80</span><span class="yellow">)</span><span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Khá"<span class="yellow">)</span></code></p>
+                <p><code><span class="purple">elif <span class="yellow">(<span class="white">score &lt;= <span class="superlightgreen">90</span><span class="yellow">)</span><span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Giỏi"<span class="yellow">)</span></code></p>
+                <p><code><span class="purple">else<span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Xuất sắc"<span class="yellow">)</span></code></p>
+            </div>
+            <p>Ví dụ 2(kiểm tra toàn bộ các điều kiện):</p>
+            <div class="codebox">
+                <p><code><span class="white">score = <span class="superlightgreen">10</span></span></code></p>
+                <p><code><span class="purple">if <span class="yellow">(<span class="white">score &lt;= <span class="superlightgreen">50</span><span class="yellow">)</span><span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Thỏa điều kiện 1"<span class="yellow">)</span></code></p>
+                <p><code><span class="purple">if <span class="yellow">(<span class="white">score &lt;= <span class="superlightgreen">70</span><span class="yellow">)</span><span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Thỏa điều kiện 2"<span class="yellow">)</span></code></p>
+                <p><code><span class="purple">if <span class="yellow">(<span class="white">score &lt;= <span class="superlightgreen">80</span><span class="yellow">)</span><span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Thỏa điều kiện 3"<span class="yellow">)</span></code></p>
+                <p><code><span class="purple">if <span class="yellow">(<span class="white">score &lt;= <span class="superlightgreen">90</span><span class="yellow">)</span><span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Thỏa điều kiện 4"<span class="yellow">)</span></code></p>
+            </div>
+            <p>Ví dụ 3(so sánh và):</p>
+            <div class="codebox">
+                <p><code><span class="white">score1 = <span class="superlightgreen">10</span></span></code></p>
+                <p><code><span class="white">score2 = <span class="superlightgreen">20</span></span></code></p>
+                <p><code><span class="purple">if <span class="yellow">(<span class="white">score1 == <span class="superlightgreen">10</span><span class="yellow">)</span><span class="white"> <span class="blue">and <span class="yellow">(<span class="white">score2 == <span class="superlightgreen">20</span><span class="yellow">)</span></span><span class="white">:</span></span></code></p>
+                <p><code><span class="hidden">----<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Thỏa cả 2 điều kiện"<span class="yellow">)</span></code></p>
+            </div>
+            <p>Ví dụ 4(so sánh hoặc):</p>
+            <div class="codebox">
+                <p><code><span class="white">score1 = <span class="superlightgreen">10</span></span></code></p>
+                <p><code><span class="white">score2 = <span class="superlightgreen">30</span></span></code></p>
+                <p><code><span class="purple">if <span class="yellow">(<span class="white">score1 == <span class="superlightgreen">10</span><span class="yellow">)</span><span class="white"> <span class="blue">or <span class="yellow">(<span class="white">score2 == <span class="superlightgreen">20</span><span class="yellow">)</span></span><span class="white">:</span></span></code></p>
+                <p><code><span class="hidden">----<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Thỏa cả 2 điều kiện"<span class="yellow">)</span><span class="comment"> #vẫn thỏa</span></code></p>
+            </div>
+            <p>Ví dụ 5(so sánh not):</p>
+            <div class="codebox">
+                <p><code><span class="white">a = <span class="superlightgreen">10</span></span></code></p>
+                <p><code><span class="purple">if <span class="blue">not</span> <span class="white">a:</span></code></p>
+                <p><code><span class="hidden">----<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Thỏa cả 2 điều kiện"<span class="yellow">)</span></span></code></p>
+                <p><code><span class="purple">else<span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Không rỗng"<span class="yellow">)</span><span class="comment">#a = 10 nên thỏa cái này</span></code></p>
+            </div>
+            <p>Các trường hợp thỏa if:</p>
+            <p>- a = 0 hoặc 0,0 hoặc 0j</p>
+            <p>- a = "" hoặc [] hoặc None hoặc các tập rỗng</p>
+            <p>- a = False</p>
+            <p>Ví dụ 6(so sánh phần tử con):</p>
+            <div class="codebox" style="width: 65%;">
+                <p><code><span class="white">user_role = <span class="lightblue">"admin"</span></code></p>
+                <p><code><span class="white">allowed_roles = <span class="yellow">[<span class="lightblue">"admin"<span class="white">, <span class="lightblue">"moderator"<span class="wihte">, <span class="lightblue">"manager"<span class="yellow">]</span></code></p>
+                <p><span class="hidden">-----------</span></p>
+                <p><code><span class="purple">if <span class="white">user_role <span class="blue">in <span class="white">allowed_roles:</span></code></p>
+                <p><code><span class="hidden">----<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Quyền truy cập đã được cấp"<span class="yellow">)</span><span class="comment"> #thỏa do user_role có trong danh sách allowes_roles</span></code></p>
+            </div>
+            <p>Ví dụ 7(so sánh nhận dạng)</p>
+            <div class="codebox">
+                <p><code><span class="wihte">x = <span class="blue">None</span></code></p>
+                <p><span class="hidden">-----------</span></p>
+                <p><code><span class="purple">if <span class="white">x <span class="blue">is None</span></code></p>
+                <p><code><span class="hidden">----<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"biến x trống"<span class="yellow">)</span></code></p>
+            </div>
+            <p>is khác == vì nó không so sách hai giá trị mà nó so sánh 2 vị trí của 2 biến trong ram, vị trí ram khác nhàu thì is sẽ trả về False</p>
+        </main>
+    </div>
+</body>
+
+</html>
