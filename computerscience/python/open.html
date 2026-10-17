@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../decor.css">
+    <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
+    <link rel="stylesheet" href="../decorcode.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>open</title>
+</head>
+
+<body>
+    <header> <a href="basic.html">open</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="bien.html">Gán</a></p>
+            <p><a href="for.html">for</a></p>
+            <p><a href="while.html">while</a></p>
+            <p><a href="if-else.html">if-else</a></p>
+            <p><a href="list.html">list</a></p>
+            <p><a href="def.html">def</a></p>
+            <p><a href="class.html">class</a></p>
+            <p><a href="try-except.html">try-except</a></p>
+            <p><a>open</a></p>
+        </nav>
+        <main>
+            <p>\(\bullet\) Có tác dụng mở file và thao tác file</p>
+            <p>\(\bullet\) Có 4 chế độ cơ bản:</p>
+            <p>- r: có tác dụng đọc file, nếu không có file thì sẽ bị lỗi</p>
+            <p>- a: có tác dụng ghi thêm vô file</p>
+            <p>- w: có tác dụng ghi đè vô file, nếu không có file thì tự tạo file mới, nếu có file và trong file có nội dung thì file sẽ bị xóa và ghi lại</p>
+            <p>- x: tạo ra một file mới, nếu file tạo đã có thì sẽ bị lỗi</p>
+            <p>- r+: đọc và ghi</p>
+            <p>- w+: đọc và xóa đi ghi lại</p>
+            <p>- a+: đọc và ghi thêm</p>
+            <p>\(\bullet\) Các lệnh thao tác:</p>
+            <p>- read(size): đọc từ vị trí con trỏ chuột đến hết toàn bộ file, nếu chuyền thêm thông số size thì đọc theo số kí tự(hoặc số bytes) (cho chế độ: r, r+, w+, a+)</p>
+            <p>- readline(): chỉ đọc duy nhất một dòng tính từ vị trí con trỏ (cho chế độ: r, r+, w+, a+)</p>
+            <p>- readlines(): đọc toàn bộ file và chia các dòng thành một danh sách (cho chế độ: r, r+, w+, a+)</p>
+            <p>- write(string): ghi 1 chuỗi kí tự và không tự động xuống dòng, dùng "\n" để xuống dòng ( cho chế độ: a, x, w, a+, x+, w+)</p>
+            <p>- writelines([danh sách chuỗi]): ghi cả 1 danh sách các chuỗi kí tự và không tự động xuống dòng, dùng "\n" để xuống dòng ( cho chế độ: a, x, w, a+, x+, w+)</p>
+            <p>- tell(): trả về vị trí con trỏ</p>
+            <p>- seek([vị trí]): điều khiển vị trí con trỏ</p>
+            <p>\(\bullet\) Ví dụ:</p>
+            <div class="codebox">
+                <p><code><span class="purple">with <span class="lightpurple">open<span class="yellow">(<span class="lightblue">"text.txt"<span class="white">, <span class="lightblue">"w+"<span class="white">, <span class="orange">encoding<span class="white">=<span class="lightblue">"utf-8"<span class="yellow">) <span class="purple">as <span class="white">f:</span></code></p>
+                <p><code><span class="hidden">----<span class="white">f.<span class="lightpurple">write<span class="yellow">(<span class="lightblue">"Hello world!"<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----<span class="lightpurple">print<span class="yellow">(<span class="white">f.<span class="lightpurple">tall<span class="purple">()<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----<span class="white">f.<span class="lightpurple">seek<span class="yellow">(<span class="superlightgreen">0<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----<span class="white">read = f.<span class="lightpurple">read<span class="yellow">()</span></code></p>
+                <p><code><span class="hidden">----<span class="lightpurple">print<span class="yellow">(<span class="white">read<span class="yellow">)</span></code></p>
+                <p><code><span class="comment">#dùng with ... as [tên]: để đóng file khi chạy xong</span></code></p>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

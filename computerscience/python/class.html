@@ -22,9 +22,42 @@
             <p><a href="list.html">list</a></p>
             <p><a href="def.html">def</a></p>
             <p><a>class</a></p>
+            <p><a href="try-except.html">try-except</a></p>
+            <p><a href="open.html">open</a></p>
         </nav>
         <main>
-            
+            <p>\(\bullet\) Có tác dụng bọc lại các hàm và có thể dùng ở file python khác</p>
+            <p>\(\bullet\) Cách dùng class ở file python khác: from [tên file] import [tên class]</p>
+            <p>\(\bullet\) Hai kiểu dùng class phổ biến</p>
+            <p>Ví dụ kiểu 1:</p>
+            <div class="codebox" style="width: 65%;">
+                <p><code><span class="orangered">class <span class="cyan">Call<span class="yellow">()<span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__init__<span class="yellow">(<span class="white">self, <span class="orange">name<span class="white">, <span class="orange">age<span class="yellow">)<span class="white">:</span></code></p>
+                <p><code><span class="hidden">--------<span class="white">self.name = <span class="orange">name</span></code></p>
+                <p><code><span class="hidden">--------<span class="white">self.age = <span class="orange">age</span></code></p>
+                <p><code><span class="hidden">--------<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Hello <span class="purple">{<span class="white">self.name<span class="purple">}<span class="lightblue">"<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">--------<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Your age is <span class="purple">{<span class="white">self.age<span class="purple">}<span class="lightblue">"<span class="yellow">)</span></code></p>
+                <p><span class="hidden">----</span></p>
+                <p><code><span class="cyan">Call<span class="yellow">(<span class="lightpurple">input<span class="purple">(<span class="lightblue">"What's your name? My name is "<span class="purple">)<span class="white">, <span class="cyan">int<span class="purple">(<span class="lightpurple">input<span class="blue">(<span class="lightblue">"How old are you? My age is "<span class="blue">)<span class="purple">)<span class="yellow">)</span></code></p>
+                <p><code><span class="comment">#Cách dùng class loại 1</span></code></p>
+                <p><code><span class="comment">#Input có tác dụng nhận dữ liệu từ người gửi</span></code></p>
+                <p><code><span class="comment">#Int thì đảm bảo dữ liệu nhập vô là số</span></code></p>
+            </div>
+            <p>Ví dụ kiểu 2:</p>
+            <div class="codebox" style="width: 65%;">
+                <p><code><span class="orangered">class <span class="cyan">Call<span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightpurple">Callname<span class="yellow">(<span class="white">self, <span class="orange">name<span class="yellow">)<span class="white">:</span></code></p>
+                <p><code><span class="hidden">--------<span class="white">self.name = <span class="orange">name</span></code></p>
+                <p><code><span class="hidden">--------<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Hello <span class="purple">{<span class="white">self.name<span class="purple">}<span class="lightblue">"<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightpurple">Callage<span class="yellow">(<span class="white">self, <span class="orange">age<span class="yellow">)<span class="white">:</span></code></p>
+                <p><code><span class="hidden">--------<span class="white">self.age = <span class="orange">age</span></code></p>
+                <p><code><span class="hidden">--------<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Your age is <span class="purple">{<span class="white">self.age<span class="purple">}<span class="lightblue">"<span class="yellow">)</span></code></p>
+                <p class="hidden">----</p>
+                <p><code><span class="white">char1 = <span class="cyan">Call<span class="yellow">()</span></code></p>
+                <p><code class="white">char1.<span class="lightpurple">Callname<span class="yellow">(<span class="lightblue">"zadf2008"<span class="yellow">)</span></code></p>
+                <p><code class="white">char1.<span class="lightpurple">Callage<span class="yellow">(<span class="superlightgreen">20<span class="yellow">)</span></code></p>
+                <p><code><span class="comment">#Cách dùng class loại 2</span></code></p>
+            </div>
         </main>
     </div>
 </body>

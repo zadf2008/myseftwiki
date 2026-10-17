@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../decor.css">
+    <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
+    <link rel="stylesheet" href="../decorcode.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>try-except</title>
+</head>
+
+<body>
+    <header> <a href="basic.html">try-except</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="bien.html">Gán</a></p>
+            <p><a href="for.html">for</a></p>
+            <p><a href="while.html">while</a></p>
+            <p><a href="if-else.html">if-else</a></p>
+            <p><a href="list.html">list</a></p>
+            <p><a href="def.html">def</a></p>
+            <p><a href="class.html">class</a></p>
+            <p><a>try-except</a></p>
+            <p><a href="open.html">open</a></p>
+        </nav>
+        <main>
+            <p>\(\bullet\) Có tác dụng bắt các lỗi của 1 khối lệnh nhằm tránh crash</p>
+            <p>\(\bullet\) Cấu trúc chung:</p>
+            <div class="codebox">
+                <p><code><span class="purple">try<span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="comment">[khối lệnh]</span></code></p>
+                <p><code><span class="purple">except <span class="comment">[kiểu lỗi]<span class="white">:</span></code></p>
+                <P><code><span class="hidden">----<span class="comment">[khối lệnh chạy khi lỗi]</span></code></P>
+            </div>
+            <p>\(\bullet\) Các loại lỗi:</p>
+            <p>- ZeroDivisionError: chia một số cho 0</p>
+            <p>- ValueError: Nhập sai kiểu dữ liệu</p>
+            <p>- NameError: Sử dụng 1 biến hoặc 1 hàm chưa được định nghĩa</p>
+            <p>- TypeError: Thực hiện phép tính cho 2 kiểu dữ liệu khác nhau</p>
+            <p>- IndexError: Truy cập kiếm 1 phần tử con không tồn tại trong danh sách</p>
+            <p>- KeyError: Tìm một từ khóa không tồn tại trong từ điển</p>
+            <p>- FileNotFoundError: mở một tệp tin không tồn tại trong hệ thống</p>
+            <p>\(\bullet\) Ví dụ cơ bản:</p>
+            <div class="codebox">
+                <p><code><span class="purple">try<span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="cyan">int<span class="yellow">(<span class="lightpurple">input<span class="purple">(<span class="lightblue">"Nhập số vô: "<span class="purple">)<span class="yellow">)</span></code></p>
+                <p><code><span class="purple">except <span class="cyan">ValueError<span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="lightpurple">print<span class="yellow">(<span class="lightblue">"Nhập sai rồi"<span class="yellow">)</span></code></p>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
