@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../decor.css">
+    <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Lực momen</title>
+</head>
+
+<body>
+    <header> <a href="newton.html">Lực momen</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="gravity.html">Trọng lực</a></p>
+            <p><a>Lực momen</a></p>
+        </nav>
+        <main>
+            <div
+                style="display: flex; justify-content: space-between; width: 100%; gap: 20px; align-items: flex-start;">
+                <div style="width: 70%">
+                    <p>\(\bullet\) Tác dụng lực xoắn tại trục xoay của 1 thanh dài</p>
+                    <p>\(\bullet\) Công thức tính lực tại trục: M = d.F</p>
+                    <p>- M: là lực momen (đơn vị N.m)</p>
+                    <p>- d: Khoảng cách từ điểm tác dụng lực đến trục (đơn vị mét, kí hiệu m)</p>
+                    <p>- F: là lực tác dụng (đơn vị newton, kí hiệu N)</p>
+                </div>
+                <div style="width: 30%;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Minh họa lực momen</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="text-align: center; padding: 0px;">
+                                    <!-- Đặt kích thước pixel thực tế cho Canvas và dùng CSS để responsive -->
+                                    <canvas id="momenCanvas" width="300" height="220" style="width: 70%; height: 70%"></canvas>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+<script>
+    // 1. Khởi tạo canvas và ngữ cảnh vẽ 2D
+    const canvas = document.getElementById('momenCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Tọa độ các điểm chính (Đã được scale nhỏ lại tương ứng với kích thước 300x220)
+    const pivotX = 60;  // Tâm quay O dịch sang trái
+    const pivotY = 150; // Trục Y dịch xuống dưới để chừa không gian cho lực F
+    const forceX = 240; // Điểm đặt lực (Chiều dài thanh d = 180px)
+    const forceY = 150;
+
+    // --- VẼ CÁNH TAY ĐÒN (Thanh màu xám - Thu nhỏ độ dày) ---
+    ctx.lineWidth = 10;
+    ctx.strokeStyle = '#b0bec5';
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(pivotX, pivotY);
+    ctx.lineTo(forceX, forceY);
+    ctx.stroke();
+
+    // --- VẼ TÂM QUAY O ---
+    ctx.beginPath();
+    ctx.arc(pivotX, pivotY, 8, 0, Math.PI * 2);
+    ctx.fillStyle = '#37474f';
+    ctx.fill();
+    // Chấm nhỏ ở giữa tâm
+    ctx.beginPath();
+    ctx.arc(pivotX, pivotY, 2.5, 0, Math.PI * 2);
+    ctx.fillStyle = '#ffffff';
+    ctx.fill();
+
+    // --- VẼ VÉC-TƠ LỰC F (Thu nhỏ chiều dài lực thành 65px) ---
+    const arrowLength = 65;
+    const endY = forceY - arrowLength;
+
+    ctx.lineWidth = 3.5;
+    ctx.strokeStyle = '#e53935';
+    ctx.lineCap = 'butt';
+    ctx.beginPath();
+    ctx.moveTo(forceX, forceY);
+    ctx.lineTo(forceX, endY);
+    ctx.stroke();
+
+    // Đầu mũi tên lực (Thu nhỏ kích thước tam giác mũi tên)
+    ctx.fillStyle = '#e53935';
+    ctx.beginPath();
+    ctx.moveTo(forceX, endY - 5);
+    ctx.lineTo(forceX - 6, endY + 10);
+    ctx.lineTo(forceX + 6, endY + 10);
+    ctx.closePath();
+    ctx.fill();
+
+    // --- VẼ MŨI TÊN CHỈ CHIỀU QUAY (Mômen M - Bán kính nhỏ lại thành 25px) ---
+    const arcRadius = 25;
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = '#1e88e5';
+    ctx.beginPath();
+    ctx.arc(pivotX, pivotY, arcRadius, 0, -Math.PI / 2, true);
+    ctx.stroke();
+
+    // Đầu mũi tên của chiều quay (Hướng sang bên trái, vòng lên trên trục O)
+    ctx.fillStyle = '#1e88e5';
+    ctx.beginPath();
+    ctx.moveTo(pivotX, pivotY - arcRadius);
+    ctx.lineTo(pivotX + 8, pivotY - arcRadius - 5);
+    ctx.lineTo(pivotX + 6, pivotY - arcRadius + 5);
+    ctx.closePath();
+    ctx.fill();
+
+    // --- CHÈN CHỮ VÀ KÝ HIỆU (Hạ cỡ chữ xuống 12px - 14px để không đè nhau) ---
+    ctx.font = 'bold 12px Arial';
+
+    // Ký hiệu Tâm quay O
+    ctx.fillStyle = '#37474f';
+    ctx.fillText('O (Trục quay)', pivotX - 25, pivotY + 25);
+
+    // Ký hiệu Lực F
+    ctx.fillStyle = '#e53935';
+    ctx.fillText('Lực F', forceX + 8, endY + 12);
+
+    // Ký hiệu Cánh tay đòn d
+    ctx.fillStyle = '#546e7a';
+    ctx.font = 'italic 12px Arial';
+    ctx.fillText('Cánh tay đòn d', (pivotX + forceX) / 2 - 40, pivotY + 18);
+
+    // Ký hiệu Mômen M
+    ctx.fillStyle = '#1e88e5';
+    ctx.font = 'bold 14px Arial';
+    ctx.fillText('M', pivotX + 20, pivotY - 32);
+
+    // Xóa bỏ dòng chữ công thức vẽ đè ở góc trên để canvas gọn gàng hơn 
+    // vì bạn đã ghi công thức bằng MathJax/Latex ở phần văn bản bên trái rồi.
+
+</script>
+
+</html>

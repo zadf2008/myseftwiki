@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../decor.css">
+    <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Bài tập 3</title>
+</head>
+
+<body>
+    <header> <a href="exam.html">Bài tập 3</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="quiz1.html">Bài 1</a></p>
+            <p><a href="quiz2.html">Bài 2</a></p>
+            <p><a>Bài 3</a></p>
+        </nav>
+        <main>
+            <div style="display: flex;">
+                <div>
+                    <p>1. \(\int \frac{1}{(x+1)(x^2+1)} dx\)</p>
+                    <p>Tách phân thức: \(\frac{1}{(x+1)(x^2+1)} = \frac{1}{2(x+1)} - \frac{x-1}{2(x^2+1)}\)</p>
+                    <p>\(= \frac{1}{2(x+1)} - \frac{x}{2(x^2+1)} + \frac{1}{2(x^2+1)}\)</p>
+                    <p>Thế vô phương trình ta được kết quả:</p>
+                    <p>\(= \frac{1}{2}\ln|x+1| - \frac{1}{4}\ln(x^2+1) + \frac{1}{2}\arctan x + C\)</p>
+                </div>
+                <div style="margin-left: 20px;">
+                    <p>2. \(\int \frac{1}{x(x+1)(x^2+x+1)} dx\)</p>
+                    <p>Tách phân thức: \(\frac{1}{x(x+1)(x^2+x+1)} = \frac{1}{x} - \frac{1}{x+1} - \frac{1}{x^2+x+1}\)
+                    </p>
+                    <p>Biến đổi mẫu số cuối: \(x^2+x+1 = (x+\frac{1}{2})^2 + \frac{3}{4}\)</p>
+                    <p>Thế vô phương trình ta được kết quả:</p>
+                    <p>\(= \ln|x| - \ln|x+1| - \frac{2}{\sqrt{3}}\arctan(\frac{2x+1}{\sqrt{3}}) + C\)</p>
+                </div>
+                <div style="margin-left: 20px;">
+                    <p>3. \(\int \frac{1}{x(x-1)^2} dx\)</p>
+                    <p>Tách phân thức: \(\frac{1}{x(x-1)^2} = \frac{1}{x} - \frac{1}{x-1} + \frac{1}{(x-1)^2}\)</p>
+                    <p>Thế vô phương trình ta được I \(= \int \frac{1}{x}dx - \int \frac{1}{x-1}dx + \int (x-1)^{-2}dx\)
+                    </p>
+                    <p>\(= \ln|x| - \ln|x-1| - \frac{1}{x-1} + C\)</p>
+                    <p>\(= \ln|\frac{x}{x-1}| - \frac{1}{x-1} + C\)</p>
+                </div>
+            </div>
+            <div style="display: flex; margin-top: 20px;">
+                <div>
+                    <p>4. \(\int \frac{x}{x^2-5x+4} dx\)</p>
+                    <p>Phân tích mẫu: \(x^2-5x+4 = (x-1)(x-4)\)</p>
+                    <p>Tách phân thức: \(\frac{x}{(x-1)(x-4)} = -\frac{1}{3(x-1)} + \frac{4}{3(x-4)}\)</p>
+                    <p>Thế vô phương trình ta được kết quả:</p>
+                    <p>\(= -\frac{1}{3}\ln|x-1| + \frac{4}{3}\ln|x-4| + C\)</p>
+                </div>
+                <div style="margin-left: 20px;">
+                    <p>5. \(\int \frac{x+2}{(x^2+2x+3)^2} dx\)</p>
+                    <p>Tách tử số theo đạo hàm mẫu: \(x+2 = \frac{1}{2}(2x+2) + 1\)</p>
+                    <p>\(= \int \frac{2x+2}{2(x^2+2x+3)^2}dx + \int \frac{1}{[(x+1)^2+2]^2}dx\)</p>
+                    <p>Tính toán và tích phân từng phần đoạn sau thu được kết quả:</p>
+                    <p>\(= -\frac{x+3}{4(x^2+2x+3)} + \frac{1}{4\sqrt{2}}\arctan(\frac{x+1}{\sqrt{2}}) + C\)</p>
+                </div>
+                <div style="margin-left: 20px;">
+                    <p>6. \(\int \frac{1-x^4}{1+x^4} dx\)</p>
+                    <p>Chia đa thức: \(\frac{1-x^4}{1+x^4} = -1 + \frac{2}{1+x^4}\)</p>
+                    <p>Phân tích mẫu nâng cao: \(1+x^4 = (x^2-\sqrt{2}x+1)(x^2+\sqrt{2}x+1)\)</p>
+                    <p>Tách rồi thế vô phương trình ta được kết quả:</p>
+                    <p>\(= -x + \frac{1}{2\sqrt{2}}\ln|\frac{x^2+\sqrt{2}x+1}{x^2-\sqrt{2}x+1}| +
+                        \frac{1}{\sqrt{2}}\arctan(\sqrt{2}x+1) + \frac{1}{\sqrt{2}}\arctan(\sqrt{2}x-1) + C\)</p>
+                </div>
+            </div>
+            <div style="display: flex; margin-top: 20px;">
+                <div>
+                    <p>7. \(\int \frac{x-1}{x^2+x+1} dx\)</p>
+                    <p>Tách tử số theo đạo hàm mẫu: \(x-1 = \frac{1}{2}(2x+1) - \frac{3}{2}\)</p>
+                    <p>Phương trình biến thành: \(\frac{1}{2}\int \frac{2x+1}{x^2+x+1}dx - \frac{3}{2}\int
+                        \frac{1}{(x+\frac{1}{2})^2+\frac{3}{4}}dx\)</p>
+                    <p>Thế vô ta được kết quả:</p>
+                    <p>\(= \frac{1}{2}\ln(x^2+x+1) - \sqrt{3}\arctan(\frac{2x+1}{\sqrt{3}}) + C\)</p>
+                </div>
+                <div style="margin-left: 20px;">
+                    <p>8. \(\int \frac{x^2+2}{4x^5+4x^3+x} dx\)</p>
+                    <p>Phân tích mẫu: \(4x^5+4x^3+x = x(2x^2+1)^2\)</p>
+                    <p>Tách phân thức: \(\frac{x^2+2}{x(2x^2+1)^2} = \frac{2}{x} - \frac{4x}{2x^2+1} -
+                        \frac{3x}{(2x^2+1)^2}\)</p>
+                    <p>Thế vô phương trình ta được kết quả:</p>
+                    <p>\(= 2\ln|x| - \ln(2x^2+1) + \frac{3}{4(2x^2+1)} + C\)</p>
+                </div>
+                <div style="margin-left: 20px;">
+                    <p>9. \(\int \frac{x^4}{x^4+5x^2+4} dx\)</p>
+                    <p>Chia đa thức và tách mẫu: \(\frac{x^4}{(x^2+1)(x^2+4)} = 1 + \frac{1}{3(x^2+1)} -
+                        \frac{16}{3(x^2+4)}\)</p>
+                    <p>Thế vô phương trình ta được I \(= \int 1dx + \frac{1}{3}\int \frac{1}{x^2+1}dx - \frac{16}{3}\int
+                        \frac{1}{x^2+2^2}dx\)</p>
+                    <p>\(= x + \frac{1}{3}\arctan x - \frac{8}{3}\arctan(\frac{x}{2}) + C\)</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

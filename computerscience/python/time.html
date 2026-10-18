@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../decor.css">
+    <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
+    <link rel="stylesheet" href="../decorcode.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>def</title>
+</head>
+
+<body>
+    <header> <a href="basic.html">def</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="bien.html">Gán</a></p>
+            <p><a href="for.html">for</a></p>
+            <p><a href="while.html">while</a></p>
+            <p><a href="if-else.html">if-else</a></p>
+            <p><a href="list.html">list</a></p>
+            <p><a href="def.html">def</a></p>
+            <p><a href="class.html">class</a></p>
+            <p><a href="try-except.html">try-except</a></p>
+            <p><a href="open.html">open</a></p>
+            <p><a>thư viện time</a></p>
+            <p><a href="numpy.html">thư viện numpy</a></p>
+        </nav>
+        <main>
+            <p>\(\bullet\) Các hàm thuộc thư viện <code>time</code>:</p>
+            <p>- <code>time.time()</code>: trả về số giây kể từ Unix Epoch (00:00:00 UTC ngày 1/1/1970).</p>
+            <p>- <code>time.time_ns()</code>: tương tự <code>time.time()</code>, nhưng trả về số nguyên biểu diễn thời
+                gian theo nanosecond.</p>
+            <p>- <code>time.gmtime([giây])</code>: chuyển timestamp thành cấu trúc thời gian theo giờ UTC.</p>
+            <p>- <code>time.localtime([giây])</code>: chuyển timestamp thành cấu trúc thời gian theo múi giờ địa phương.
+            </p>
+            <p>- <code>time.mktime([cấu trúc thời gian])</code>: chuyển cấu trúc thời gian địa phương thành timestamp.
+            </p>
+            <p>- <code>time.asctime([cấu trúc thời gian])</code>: chuyển cấu trúc thời gian thành chuỗi ngày giờ dễ đọc.
+            </p>
+            <p>- <code>time.ctime([giây])</code>: chuyển timestamp thành chuỗi ngày giờ theo giờ địa phương.</p>
+            <p>- <code>time.sleep([số giây])</code>: tạm dừng luồng hiện tại trong một khoảng thời gian tính bằng giây.
+            </p>
+            <p>- <code>time.strftime([định dạng], [cấu trúc thời gian])</code>: chuyển cấu trúc thời gian thành chuỗi
+                theo định dạng tùy chọn.</p>
+            <p>- <code>time.strptime([chuỗi thời gian], [định dạng])</code>: phân tích chuỗi thời gian theo định dạng và
+                trả về cấu trúc thời gian.</p>
+            <p>- <code>time.get_clock_info([tên đồng hồ])</code>: trả về thông tin về đồng hồ thời gian, gồm cách triển
+                khai, độ phân giải và các đặc tính liên quan.</p>
+
+            <p>\(\bullet\) Các đồng hồ đo thời gian:</p>
+            <p>- <code>time.monotonic()</code>: trả về đồng hồ đơn điệu, không bị lùi do điều chỉnh đồng hồ hệ thống;
+                phù hợp để đo khoảng thời gian đã trôi qua.</p>
+            <p>- <code>time.monotonic_ns()</code>: tương tự <code>time.monotonic()</code>, nhưng trả về số nguyên theo
+                nanosecond.</p>
+            <p>- <code>time.perf_counter()</code>: đồng hồ có độ phân giải cao, phù hợp để đo thời gian thực hiện một
+                đoạn chương trình.</p>
+            <p>- <code>time.perf_counter_ns()</code>: tương tự <code>time.perf_counter()</code>, nhưng trả về số nguyên
+                theo nanosecond.</p>
+            <p>- <code>time.process_time()</code>: đo tổng thời gian CPU mà tiến trình đã sử dụng, không tính thời gian
+                chờ.</p>
+            <p>- <code>time.process_time_ns()</code>: tương tự <code>time.process_time()</code>, nhưng trả về số nguyên
+                theo nanosecond.</p>
+            <p>- <code>time.thread_time()</code>: đo thời gian CPU mà luồng hiện tại đã sử dụng, không tính thời gian
+                chờ.</p>
+            <p>- <code>time.thread_time_ns()</code>: tương tự <code>time.thread_time()</code>, nhưng trả về số nguyên
+                theo nanosecond.</p>
+
+            <p>\(\bullet\) Các mã định dạng thường dùng với <code>strftime()</code> và <code>strptime()</code>:</p>
+            <p>- <code>%d</code>: ngày trong tháng (01–31).</p>
+            <p>- <code>%m</code>: tháng (01–12).</p>
+            <p>- <code>%Y</code>: năm đầy đủ, ví dụ 2026.</p>
+            <p>- <code>%y</code>: năm gồm hai chữ số, ví dụ 26.</p>
+            <p>- <code>%H</code>: giờ theo hệ 24 giờ (00–23).</p>
+            <p>- <code>%M</code>: phút (00–59).</p>
+            <p>- <code>%S</code>: giây (00–61, tùy nền tảng và cách biểu diễn giây nhuận, thông thường vẫn là 0-59).</p>
+
+            <p>\(\bullet\) Lưu ý:</p>
+            <p>- Unix Epoch là mốc thời gian chuẩn để tính timestamp; timestamp thường biểu diễn thời gian theo UTC,
+                không phải số giây tính từ đầu ngày hiện tại.</p>
+            <p>- Đuôi <code>_ns</code> biểu thị giá trị trả về theo nanosecond (1 giây = 1.000.000.000 nanosecond); điều
+                này không có nghĩa đồng hồ luôn đạt độ chính xác thực tế đến từng nanosecond.</p>
+            <p>- <code>time.mktime()</code> nhận cấu trúc thời gian địa phương, không phải cấu trúc UTC từ
+                <code>time.gmtime()</code>. Muốn chuyển thời gian UTC sang timestamp, có thể dùng
+                <code>calendar.timegm()</code>.
+            </p>
+            <p>- <code>time.monotonic()</code>, <code>time.perf_counter()</code> và các hàm đo CPU không trả về thời
+                gian lịch kể từ năm 1970; nên lấy hiệu giữa giá trị kết thúc và bắt đầu để đo khoảng thời gian.</p>
+            <p>- <code>time.get_clock_info()</code> nhận tên đồng hồ như <code>"time"</code>, <code>"monotonic"</code>,
+                <code>"perf_counter"</code> hoặc <code>"process_time"</code>; <code>"thread_time"</code> được hỗ trợ
+                trên các nền tảng có đồng hồ tương ứng.
+            </p>
+            <p>\(\bullet\) Ví dụ 1:</p>
+            <div class="codebox">
+                <p><code><span class="white">info_perf = </span><span class="cyan">time</span><span class="white">.</span><span class="lightpurple">get_clock_info</span><span class="yellow">(</span><span class="lightblue">"perf_counter"</span><span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="lightpurple">print</span><span class="yellow">(</span><span class="lightblue">"=== THÔNG TIN CỦA time.perf_counter() ==="</span><span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="lightpurple">print</span><span class="yellow">(</span><span class="orangered">f</span><span class="lightblue">"Hàm hệ thống sử dụng: </span><span class="purple">{</span><span class="white">info_perf.implementation</span><span class="purple">}</span><span class="lightblue">"</span><span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="lightpurple">print</span><span class="yellow">(</span><span class="orangered">f</span><span class="lightblue">"Đảm bảo không chạy lùi: </span><span class="purple">{</span><span class="white">info_perf.monotonic</span><span class="purple">}</span><span class="lightblue">"</span><span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="lightpurple">print</span><span class="yellow">(</span><span class="orangered">f</span><span class="lightblue">"Hệ thống có tự chỉnh được không: </span><span class="purple">{</span><span class="white">info_perf.adjustable</span><span class="purple">}</span><span class="lightblue">"</span><span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="lightpurple">print</span><span class="yellow">(</span><span class="orangered">f</span><span class="lightblue">"Độ chính xác nhỏ nhất: </span><span class="purple">{</span><span class="white">info_perf.resolution</span><span class="purple">}</span><span class="lightblue"> giây"</span><span class="yellow">)</span></code>
+                </p>
+            </div>
+            <p>\(\bullet\) Ví dụ 2:</p>
+            <div class="codebox" style="width: fit-content;">
+                <p><code><span class="white">start_thread = </span><span class="cyan">time</span><span class="white">.</span><span class="lightpurple">thread_time</span><span class="yellow">()</span></code>
+                </p>
+                <p><code><span class="white">start_thread_ns = </span><span class="cyan">time</span><span class="white">.</span><span class="lightpurple">thread_time_ns</span><span class="yellow">()</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="purple">for </span><span class="white">i </span><span class="purple">in </span><span class="lightpurple">range</span><span class="yellow">(</span><span class="superlightgreen">0</span><span class="white">, </span><span class="superlightgreen">100000</span><span class="yellow">)</span><span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">____</span><span class="purple">pass</span></code></p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="white">end_thread = </span><span class="cyan">time</span><span class="white">.</span><span class="lightpurple">thread_time</span><span class="yellow">()</span></code>
+                </p>
+                <p><code><span class="white">end_thread_ns = </span><span class="cyan">time</span><span class="white">.</span><span class="lightpurple">thread_time_ns</span><span class="yellow">()</span></code>
+                </p>
+                <p><span class="hidden">____</span></p>
+                <p><code><span class="lightpurple">print</span><span class="yellow">(</span><span class="orangered">f</span><span class="lightblue">"Thời gian CPU thực sự làm việc cho luồng này: </span><span class="purple">{</span><span class="white">end_thread - start_thread:</span><span class="lightblue">.6f</span><span class="purple">}</span><span class="lightblue"> giây"</span><span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="lightpurple">print</span><span class="yellow">(</span><span class="orangered">f</span><span class="lightblue">"Đo bằng Nanosecond (Số nguyên): </span><span class="purple">{</span><span class="white">end_thread_ns - start_thread_ns</span><span class="purple">}</span><span class="lightblue"> ns"</span><span class="yellow">)</span></code>
+                </p>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

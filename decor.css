@@ -157,3 +157,15 @@ header a {
     color: aliceblue;
     text-decoration: none;
 }
+
+.buttonbaitap {
+    border-radius: 10px;
+    font-size: 200%;
+    padding: 5px;
+    background-color: #0f0f0f;
+    border: 2px solid rgb(13, 13, 13);
+    box-shadow: 0 0 2px black;
+    color: aliceblue;
+    text-shadow: aliceblue;
+    margin-top: 10px;
+}

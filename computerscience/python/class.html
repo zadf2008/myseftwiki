@@ -24,6 +24,8 @@
             <p><a>class</a></p>
             <p><a href="try-except.html">try-except</a></p>
             <p><a href="open.html">open</a></p>
+            <p><a href="time.html">thư viện time</a></p>
+            <p><a href="numpy.html">thư viện numpy</a></p>
         </nav>
         <main>
             <p>\(\bullet\) Có tác dụng bọc lại các hàm và có thể dùng ở file python khác</p>
@@ -31,14 +33,21 @@
             <p>\(\bullet\) Hai kiểu dùng class phổ biến</p>
             <p>Ví dụ kiểu 1:</p>
             <div class="codebox" style="width: 65%;">
-                <p><code><span class="orangered">class <span class="cyan">Call<span class="yellow">()<span class="white">:</span></code></p>
-                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__init__<span class="yellow">(<span class="white">self, <span class="orange">name<span class="white">, <span class="orange">age<span class="yellow">)<span class="white">:</span></code></p>
-                <p><code><span class="hidden">--------<span class="white">self.name = <span class="orange">name</span></code></p>
-                <p><code><span class="hidden">--------<span class="white">self.age = <span class="orange">age</span></code></p>
-                <p><code><span class="hidden">--------<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Hello <span class="purple">{<span class="white">self.name<span class="purple">}<span class="lightblue">"<span class="yellow">)</span></code></p>
-                <p><code><span class="hidden">--------<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Your age is <span class="purple">{<span class="white">self.age<span class="purple">}<span class="lightblue">"<span class="yellow">)</span></code></p>
+                <p><code><span class="orangered">class <span class="cyan">Call<span class="yellow">()<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__init__<span class="yellow">(<span class="white">self, <span class="orange">name<span class="white">, <span class="orange">age<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="white">self.name = <span class="orange">name</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="white">self.age = <span class="orange">age</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Hello <span class="purple">{<span class="white">self.name<span class="purple">}<span class="lightblue">"<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Your age is <span class="purple">{<span class="white">self.age<span class="purple">}<span class="lightblue">"<span class="yellow">)</span></code>
+                </p>
                 <p><span class="hidden">----</span></p>
-                <p><code><span class="cyan">Call<span class="yellow">(<span class="lightpurple">input<span class="purple">(<span class="lightblue">"What's your name? My name is "<span class="purple">)<span class="white">, <span class="cyan">int<span class="purple">(<span class="lightpurple">input<span class="blue">(<span class="lightblue">"How old are you? My age is "<span class="blue">)<span class="purple">)<span class="yellow">)</span></code></p>
+                <p><code><span class="cyan">Call<span class="yellow">(<span class="lightpurple">input<span class="purple">(<span class="lightblue">"What's your name? My name is "<span class="purple">)<span class="white">, <span class="cyan">int<span class="purple">(<span class="lightpurple">input<span class="blue">(<span class="lightblue">"How old are you? My age is "<span class="blue">)<span class="purple">)<span class="yellow">)</span></code>
+                </p>
                 <p><code><span class="comment">#Cách dùng class loại 1</span></code></p>
                 <p><code><span class="comment">#Input có tác dụng nhận dữ liệu từ người gửi</span></code></p>
                 <p><code><span class="comment">#Int thì đảm bảo dữ liệu nhập vô là số</span></code></p>
@@ -46,17 +55,246 @@
             <p>Ví dụ kiểu 2:</p>
             <div class="codebox" style="width: 65%;">
                 <p><code><span class="orangered">class <span class="cyan">Call<span class="white">:</span></code></p>
-                <p><code><span class="hidden">----<span class="orangered">def <span class="lightpurple">Callname<span class="yellow">(<span class="white">self, <span class="orange">name<span class="yellow">)<span class="white">:</span></code></p>
-                <p><code><span class="hidden">--------<span class="white">self.name = <span class="orange">name</span></code></p>
-                <p><code><span class="hidden">--------<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Hello <span class="purple">{<span class="white">self.name<span class="purple">}<span class="lightblue">"<span class="yellow">)</span></code></p>
-                <p><code><span class="hidden">----<span class="orangered">def <span class="lightpurple">Callage<span class="yellow">(<span class="white">self, <span class="orange">age<span class="yellow">)<span class="white">:</span></code></p>
-                <p><code><span class="hidden">--------<span class="white">self.age = <span class="orange">age</span></code></p>
-                <p><code><span class="hidden">--------<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Your age is <span class="purple">{<span class="white">self.age<span class="purple">}<span class="lightblue">"<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightpurple">Callname<span class="yellow">(<span class="white">self, <span class="orange">name<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="white">self.name = <span class="orange">name</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Hello <span class="purple">{<span class="white">self.name<span class="purple">}<span class="lightblue">"<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightpurple">Callage<span class="yellow">(<span class="white">self, <span class="orange">age<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="white">self.age = <span class="orange">age</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="lightpurple">print<span class="yellow">(<span class="orangered">f<span class="lightblue">"Your age is <span class="purple">{<span class="white">self.age<span class="purple">}<span class="lightblue">"<span class="yellow">)</span></code>
+                </p>
                 <p class="hidden">----</p>
                 <p><code><span class="white">char1 = <span class="cyan">Call<span class="yellow">()</span></code></p>
-                <p><code class="white">char1.<span class="lightpurple">Callname<span class="yellow">(<span class="lightblue">"zadf2008"<span class="yellow">)</span></code></p>
-                <p><code class="white">char1.<span class="lightpurple">Callage<span class="yellow">(<span class="superlightgreen">20<span class="yellow">)</span></code></p>
+                <p><code
+                        class="white">char1.<span class="lightpurple">Callname<span class="yellow">(<span class="lightblue">"zadf2008"<span class="yellow">)</span></code>
+                </p>
+                <p><code
+                        class="white">char1.<span class="lightpurple">Callage<span class="yellow">(<span class="superlightgreen">20<span class="yellow">)</span></code>
+                </p>
                 <p><code><span class="comment">#Cách dùng class loại 2</span></code></p>
+            </div>
+            <p>\(\bullet\) Một số hàm đặc biệt</p>
+            <p>Hàm __str__:</p>
+            <div class="codebox" style="width: 65%;">
+                <p><code><span class="orangered">class <span class="cyan">Player<span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__init__<span class="yellow">(<span class="white">self, <span class="orange">name<span class="white">, <span class="orange">level<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="white">self.name = <span class="orange">name</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="white">self.level = <span class="orange">level</span></code>
+                </p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__str__<span class="yellow">(<span class="white">self<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="purple">return <span class="orangered">f<span class="lightblue">"Player: <span class="purple">{<span class="white">self.name<span class="purple">}<span class="lightblue"> | Level: <span class="purple">{<span class="white">self.level<span class="purple">}<span class="lightblue">"</span></code>
+                </p>
+                <p><span class="hidden">----</span></p>
+                <p><code><span class="white">char1 = <span class="cyan">Player<span class="yellow">(<span class="lightblue">"zadf2008"<span class="white">, <span class="superlightgreen">20<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="lightpurple">print<span class="yellow">(<span class="white">char1<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="comment">#__str__ có tác dụng thay đổi nội dung khi print(object)</span></code>
+                </p>
+            </div>
+            <p>Hàm __len__:</p>
+            <div class="codebox" style="width: 65%;">
+                <p><code><span class="orangered">class <span class="cyan">Bag<span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__init__<span class="yellow">(<span class="white">self, <span class="orange">items<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="white">self.items = <span class="orange">items</span></code>
+                </p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__len__<span class="yellow">(<span class="white">self<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="purple">return <span class="lightpurple">len<span class="yellow">(<span class="white">self.items<span class="yellow">)</span></code>
+                </p>
+                <p><span class="hidden">----</span></p>
+                <p><code><span class="white">bag = <span class="cyan">Bag<span class="yellow">(<span class="white">[<span class="lightblue">"A"</span><span class="white">, </span><span class="lightblue">"B"</span><span class="white">, </span><span class="lightblue">"C"</span>]<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="lightpurple">print<span class="yellow">(<span class="lightpurple">len<span class="purple">(<span class="white">bag<span class="purple">)<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="comment">#__len__ có tác dụng thay đổi kết quả của len(object)</span></code></p>
+            </div>
+            <p>Hàm __call__:</p>
+            <div class="codebox" style="width: 65%;">
+                <p><code><span class="orangered">class <span class="cyan">Multiply<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__call__<span class="yellow">(<span class="white">self, <span class="orange">x<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="purple">return <span class="orange">x <span class="white">* </span><span class="superlightgreen">2</span></code>
+                </p>
+                <p><span class="hidden">----</span></p>
+                <p><code><span class="white">double = <span class="cyan">Multiply<span class="yellow">()</span></code>
+                </p>
+                <p><code><span class="lightpurple">print<span class="yellow">(<span class="white">double<span class="purple">(<span class="superlightgreen">5<span class="purple">)<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="comment">#__call__ có tác dụng gọi object như một hàm</span></code></p>
+            </div>
+            <p>Hàm __repr__:</p>
+            <div class="codebox" style="width: 65%;">
+                <p><code><span class="orangered">class <span class="cyan">Player<span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__init__<span class="yellow">(<span class="white">self, <span class="orange">name<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="white">self.name = <span class="orange">name</span></code>
+                </p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__repr__<span class="yellow">(<span class="white">self<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="purple">return <span class="orangered">f<span class="lightblue">"Player(name=<span class="purple">{<span class="white">self.name<span class="purple">}<span class="lightblue">)"</span></code>
+                </p>
+                <p><span class="hidden">----</span></p>
+                <p><code><span class="white">char1 = <span class="cyan">Player<span class="yellow">(<span class="lightblue">"zadf2008"<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="lightpurple">print<span class="yellow">(<span class="lightpurple">repr<span class="purple">(<span class="white">char1<span class="purple">)<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="comment">#__repr__ trả về chuỗi đại diện của object, thường dùng khi debug</span></code>
+                </p>
+            </div>
+            <p>Hàm __add__:</p>
+            <div class="codebox">
+                <p><code><span class="orangered">class <span class="cyan">Number<span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__init__<span class="yellow">(<span class="white">self, <span class="orange">value<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="white">self.value = <span class="orange">value</span></code>
+                </p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__add__<span class="yellow">(<span class="white">self, <span class="orange">other<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="purple">return <span class="cyan">Number<span class="yellow">(<span class="white">self.value + <span class="orange">other</span>.value<span class="yellow">)</span></code>
+                </p>
+                <p><span class="hidden">----</span></p>
+                <p><code><span class="white">a = <span class="cyan">Number<span class="yellow">(<span class="superlightgreen">10<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">b = <span class="cyan">Number<span class="yellow">(<span class="superlightgreen">5<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">c = a + b</span></code></p>
+                <p><code><span class="lightpurple">print<span class="yellow">(<span class="white">c.value<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="comment">#Phép cộng</span></code></p>
+            </div>
+            <p>Hàm __sub__:</p>
+            <div class="codebox">
+                <p><code><span class="orangered">class <span class="cyan">Number<span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__init__<span class="yellow">(<span class="white">self, <span class="orange">value<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="white">self.value = <span class="orange">value</span></code>
+                </p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__sub__<span class="yellow">(<span class="white">self, <span class="orange">other<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="purple">return <span class="cyan">Number<span class="yellow">(<span class="white">self.value - <span class="orange">other</span>.value<span class="yellow">)</span></code>
+                </p>
+                <p><span class="hidden">----</span></p>
+                <p><code><span class="white">a = <span class="cyan">Number<span class="yellow">(<span class="superlightgreen">10<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">b = <span class="cyan">Number<span class="yellow">(<span class="superlightgreen">5<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">c = a - b</span></code></p>
+                <p><code><span class="lightpurple">print<span class="yellow">(<span class="white">c.value<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="comment">#Phép trừ</span></code></p>
+            </div>
+            <p>Hàm __mul__:</p>
+            <div class="codebox">
+                <p><code><span class="orangered">class <span class="cyan">Number<span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__init__<span class="yellow">(<span class="white">self, <span class="orange">value<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="white">self.value = <span class="orange">value</span></code>
+                </p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__mul__<span class="yellow">(<span class="white">self, <span class="orange">other<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="purple">return <span class="cyan">Number<span class="yellow">(<span class="white">self.value * <span class="orange">other</span>.value<span class="yellow">)</span></code>
+                </p>
+                <p><span class="hidden">----</span></p>
+                <p><code><span class="white">a = <span class="cyan">Number<span class="yellow">(<span class="superlightgreen">10<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">b = <span class="cyan">Number<span class="yellow">(<span class="superlightgreen">5<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">c = a * b</span></code></p>
+                <p><code><span class="lightpurple">print<span class="yellow">(<span class="white">c.value<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="comment">#Phép nhân</span></code></p>
+            </div>
+            <p>Hàm __truediv__ và __floordiv__ và __mod__:</p>
+            <div class="codebox">
+                <p><code><span class="orangered">class <span class="cyan">Number<span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__init__<span class="yellow">(<span class="white">self, <span class="orange">value<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="white">self.value = <span class="orange">value</span></code>
+                </p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__truediv__<span class="yellow">(<span class="white">self, <span class="orange">other<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="purple">return <span class="cyan">Number<span class="yellow">(<span class="white">self.value / <span class="orange">other</span>.value<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__floordiv__<span class="yellow">(<span class="white">self, <span class="orange">other<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="purple">return <span class="cyan">Number<span class="yellow">(<span class="white">self.value // <span class="orange">other</span>.value<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__mod__<span class="yellow">(<span class="white">self, <span class="orange">other<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="purple">return <span class="cyan">Number<span class="yellow">(<span class="white">self.value % <span class="orange">other</span>.value<span class="yellow">)</span></code>
+                </p>
+                <p><code class="hidden">----</code></p>
+                <p><code><span class="white">a = <span class="cyan">Number<span class="yellow">(<span class="superlightgreen">10<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">b = <span class="cyan">Number<span class="yellow">(<span class="superlightgreen">3<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="lightpurple">print<span class="yellow">(<span class="purple">(</span><span class="white">a <span class="lightyellow">/</span> b<span class="purple">)</span><span class="white">.value<span class="yellow">)</span><span class="hidden">-----</span><span class="comment">#Phép chia bình thường</span></code>
+                </p>
+                <p><code><span class="lightpurple">print<span class="yellow">(<span class="purple">(</span><span class="white">a <span class="lightyellow">//</span> b<span class="purple">)</span><span class="white">.value<span class="yellow">)</span></span><span class="hidden">----</span><span class="comment">#Phép chia rồi làm tròn xuống</span></code>
+                </p>
+                <p><code><span class="lightpurple">print<span class="yellow">(<span class="purple">(</span><span class="white">a <span class="lightyellow">%</span> b<span class="purple">)</span><span class="white">.value<span class="yellow">)</span><span class="hidden">-----</span><span class="comment">#Phép chia rồi lấy phần dư</span></code>
+                </p>
+            </div>
+            <p>Hàm __pow__:</p>
+            <div class="codebox">
+                <p><code><span class="orangered">class <span class="cyan">Number<span class="white">:</span></code></p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__init__<span class="yellow">(<span class="white">self, <span class="orange">value<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="white">self.value = <span class="orange">value</span></code>
+                </p>
+                <p><code><span class="hidden">----<span class="orangered">def <span class="lightyellow">__pow__<span class="yellow">(<span class="white">self, <span class="orange">other<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------<span class="purple">return <span class="cyan">Number<span class="yellow">(<span class="white">self.value ** <span class="orange">other</span>.value<span class="yellow">)</span></code>
+                </p>
+                <p><span class="hidden">----</span></p>
+                <p><code><span class="white">a = <span class="cyan">Number<span class="yellow">(<span class="superlightgreen">10<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">b = <span class="cyan">Number<span class="yellow">(<span class="superlightgreen">3<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="lightpurple">print<span class="yellow">(<span class="purple">(</span><span class="white">a <span class="lightyellow">**</span> b<span class="purple">)</span><span class="white">.value<span class="yellow">) <span class="comment">#Phép lũy thừa</span></code>
+                </p>
+            </div>
+            <p>Hai phép nhận đặc biệt</p>
+            <div class="codebox" style="width: 65%;">
+                <p><code><span class="orangered">class</span> <span class="cyan">MayTinh</span><span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">----</span><span class="orangered">def</span> <span class="lightyellow">__call__</span><span class="yellow">(</span><span class="white">self, </span><span class="white">*</span><span class="orange">args</span><span class="white">, **</span><span class="orange">kwargs</span><span class="yellow">)</span><span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">--------</span><span class="purple">if</span> <span class="orange">args<span class="white">:</span><span class="comment"># nếu không trống thì thỏa</span></code>
+                </p>
+                <p><code><span class="hidden">------------</span><span class="white">tong = </span><span class="lightpurple">sum</span><span class="yellow">(</span><span class="orange">args</span><span class="yellow">)</span><span class="comment"> #tính tổng các số</span></code>
+                </p>
+                <p><code><span class="hidden">------------</span><span class="lightpurple">print</span><span class="yellow">(</span><span class="orangered">f</span><span class="lightblue">"Tổng các số: </span><span class="purple">{</span><span class="white">tong</span><span class="purple">}</span><span class="lightblue">"</span><span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="hidden">--------</span><span class="purple">if</span> <span class="orange">kwargs<span class="white">:</span></code></code>
+                </p>
+                <p><code><span class="hidden">------------</span><span class="lightpurple">print</span><span class="yellow">(</span><span class="lightblue">"Thông tin:"</span><span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="hidden">------------</span><span class="purple">for</span> <span class="white">ten, gia_tri </span><span class="purple">in</span> <span class="orange">kwargs</span><span class="white">.</span><span class="lightpurple">items</span><span class="yellow">()</span><span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">----------------</span><span class="lightpurple">print</span><span class="yellow">(</span><span class="orangered">f</span><span class="lightblue">"</span><span class="purple">{</span><span class="white">ten</span><span class="purple">}</span><span class="lightblue">: </span><span class="purple">{</span><span class="white">gia_tri</span><span class="purple">}</span><span class="lightblue">"</span><span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="comment"># *args có tác dụng nhận nhiều phần tử từ số, phân số và chuỗi, hoặc cả danh sách</span></code></p>
+                <p><code><span class="comment"># **kwargs có tác dụng nhận các biến</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="white">may_tinh = </span><span class="cyan">MayTinh</span><span class="yellow">()</span></code>
+                </p>
+                <p><code><span class="white">may_tinh</span><span class="yellow">(</span><span class="superlightgreen">10</span><span class="white">, </span><span class="superlightgreen">20</span><span class="white">, </span><span class="superlightgreen">30</span><span class="white">, </span><span class="superlightgreen">40</span><span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">may_tinh</span><span class="yellow">(</span><span class="white"><span class="orange">tuoi</span>=</span><span class="lightblue">"Robot"</span><span class="white">, <span class="orange">tuoi</span>=</span><span class="superlightgreen">2</span><span class="white">, <span class="orange">trang_thai<span class="white">=</span><span class="lightblue">"Hoạt động"</span><span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">may_tinh</span><span class="yellow">(</span><span class="superlightgreen">10</span><span class="white">, </span><span class="superlightgreen">20</span><span class="white">, <span class="orange">ten</span>=</span><span class="lightblue">"Robot"</span><span class="white">, <span class="orange">tuoi</span>=</span><span class="superlightgreen">2</span><span class="yellow">)</span></code>
+                </p>
             </div>
         </main>
     </div>

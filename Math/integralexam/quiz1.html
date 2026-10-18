@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../decor.css">
+    <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Bài tập 1</title>
+</head>
+
+<body>
+    <header> <a href="exam.html">Bài tập 1</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a>Bài 1</a></p>
+            <p><a href="quiz2.html">Bài 2</a></p>
+            <p><a href="quiz3.html">Bài 3</a></p>
+        </nav>
+        <main>
+            <div style="display: flex;">
+                <div>
+                    <p>1. \(\int \frac{x}{4+x^2}dx\)</p>
+                    <p>đặt t = \(4+x^2 \Rightarrow dt = 2x.dx \Rightarrow x.dx = \frac{1}{2}dt\)</p>
+                    <p>Thế vô phương trình ta được I = \(\int \frac{1}{t} \frac{1}{2}dt\)</p>
+                    <p>\(= \frac{1}{2} \ln (t) + C\)</p>
+                    <p>\(= \frac{1}{2} \ln (4+x^2) + C\)</p>
+                </div>
+                <div style="margin-left: 20px;">
+                    <p>2. \(\int \frac{x}{\sqrt{1-x^4}}dx\)</p>
+                    <p>\(= \int \frac{x}{\sqrt{1-(x^2)^2}}dx\)</p>
+                    <p>đặt t \(= x^2 \Rightarrow dt = 2x.dx \Rightarrow x.dx = \frac{1}{2}dt\)</p>
+                    <p>Thế vô phương trình ta được I \(= \int \frac{1}{2} \frac{1}{\sqrt{1-t^2}}dt\)</p>
+                    <p>\(= \frac{1}{2} \arcsin t + C = \frac{1}{2} \arcsin x^2+ C\)</p>
+                </div>
+                <div style="margin-left: 20px;">
+                    <p>3. \(\int 3^{4x} dx\)</p>
+                    <p>đặt t = \(4x \Rightarrow dt = 4.dx \Rightarrow dx = \frac{1}{4}dt\)</p>
+                    <p>Thế vô phương trình ta được I \(= \int 3^t \frac{1}{4}dt\)</p>
+                    <p>\(= \frac{1}{4} \frac{3^t}{\ln 3} + C\)</p>
+                    <p>\(= \frac{3^{4x}}{4\ln 3} + C\)</p>
+                </div>
+            </div>
+            <div style="display: flex; margin-top: 20px;">
+                <div>
+                    <p>4. \(\int \frac{1}{x \ln ^2 x} dx\)</p>
+                    <p>đặt t = \(\ln x \Rightarrow dt = \frac{1}{x}dx\)</p>
+                    <p>Thế vô phương trình ta được I \(= \int \frac{1}{t^2} dt = \int t^{-2} dt\)</p>
+                    <p>\(= \frac{t^{-1}}{-1} + C = -\frac{1}{t} + C\)</p>
+                    <p>\(= -\frac{1}{\ln x} + C\)</p>
+                </div>
+                <div style="margin-left: 20px;">
+                    <p>5. \(\int \frac{\sin x}{\sqrt{4+\cos^2x}} dx\)</p>
+                    <p>đặt t = \(\cos x \Rightarrow dt = -\sin x.dx \Rightarrow \sin x.dx = -dt\)</p>
+                    <p>Thế vô phương trình ta được I \(= \int \frac{-1}{\sqrt{4+t^2}} dt\)</p>
+                    <p>\(= -\ln(t + \sqrt{4+t^2}) + C\)</p>
+                    <p>\(= -\ln(\cos x + \sqrt{4+\cos^2x}) + C\)</p>
+                </div>
+                <div  style="margin-left: 20px;">
+                    <p>6. \(\int \frac{3x^2}{\sqrt{x^6+1}}dx\)</p>
+                    <p>\(= \int \frac{3x^2}{\sqrt{(x^3)^2+1}}dx\)</p>
+                    <p>đặt t = \(x^3 \Rightarrow dt = 3x^2.dx\)</p>
+                    <p>Thế vô phương trình ta được I \(= \int \frac{1}{\sqrt{t^2+1}} dt\)</p>
+                    <p>\(= \ln|t + \sqrt{t^2+1}| + C\)</p>
+                    <p>\(= \ln(x^3 + \sqrt{x^6+1}) + C\)</p>
+                </div>
+                <div style="margin-left: 20px;">
+                    <p>7. \(\int \frac{1}{4x^2+7}dx\)</p>
+                    <p>\(= \int \frac{1}{(2x)^2+(\sqrt{7})^2}dx\)</p>
+                    <p>đặt t = \(2x \Rightarrow dt = 2.dx \Rightarrow dx = \frac{1}{2}dt\)</p>
+                    <p>Thế vô phương trình ta được I \(= \int \frac{1}{t^2+(\sqrt{7})^2} \frac{12}dt\)</p>
+                    <p>\(= \frac{1}{2} \cdot \frac{1}{\sqrt{7}} \arctan(\frac{t}{\sqrt{7}}) + C = \frac{1}{2\sqrt{7}} \arctan(\frac{2x}{\sqrt{7}}) + C\)</p>
+                </div>
+            </div>
+            <div style="display: flex; margin-top: 20px;">
+                <div>
+                    <p>8. \(\int \frac{x}{4x^2+7} dx\)</p>
+                    <p>đặt t = \(4x^2+7 \Rightarrow dt = 8x.dx \Rightarrow x.dx = \frac{1}{8}dt\)</p>
+                    <p>Thế vô phương trình ta được I \(= \int \frac{1}{t} \frac{1}{8}dt\)</p>
+                    <p>\(= \frac{1}{8} \ln|t| + C\)</p>
+                    <p>\(= \frac{1}{8} \ln(4x^2+7) + C\)</p>
+                </div>
+                <div style="margin-left: 20px;">
+                    <p>9. \(\int \frac{e^x}{\sqrt{e^{2x}-1}} dx\)</p>
+                    <p>\(= \int \frac{e^x}{\sqrt{(e^x)^2-1}} dx\)</p>
+                    <p>đặt t = \(e^x \Rightarrow dt = e^x.dx\)</p>
+                    <p>Thế vô phương trình ta được I \(= \int \frac{1}{\sqrt{t^2-1}} dt\)</p>
+                    <p>\(= \ln|t + \sqrt{t^2-1}| + C = \ln(e^x + \sqrt{e^{2x}-1}) + C\)</p>
+                </div>
+                <div style="margin-left: 20px;">
+                    <p>10. \(\int \frac{1}{2^x+1} dx\)</p>
+                    <p>\(= \int \frac{2^x+1-2^x}{2^x+1} dx = \int (1 - \frac{2^x}{2^x+1}) dx\)</p>
+                    <p>đặt t = \(2^x+1 \Rightarrow dt = 2^x \ln 2.dx \Rightarrow 2^x.dx = \frac{dt}{\ln 2}\)</p>
+                    <p>Thế vô phương trình ta được I \(= x - \int \frac{1}{t} \frac{dt}{\ln 2}\)</p>
+                    <p>\(= x - \frac{1}{\ln 2} \ln|t| + C = x - \frac{\ln(2^x+1)}{\ln 2} + C\)</p>
+                </div>
+            </div>
+            <div style="display: flex; margin-top: 20px;">
+                <div>
+                    <p>11. \(\int \frac{1}{\sin x \cos x}dx\)</p>
+                    <p>\(= \int \frac{\sin^2x + \cos^2x}{\sin x \cos x}dx = \int (\frac{\sin x}{\cos x} + \frac{\cos x}{\sin x})dx\)</p>
+                    <p>\(= \int \tan x dx + \int \cot x dx\)</p>
+                    <p>\(= -\ln|\cos x| + \ln|\sin x| + C\)</p>
+                    <p>\(= \ln|\tan x| + C\)</p>
+                </div>
+                <div style="margin-left: 20px;">
+                    <p>12. \(\int \frac{1}{x+\sqrt{x}}dx\)</p>
+                    <p>\(= \int \frac{1}{\sqrt{x}(\sqrt{x}+1)}dx\)</p>
+                    <p>đặt t = \(\sqrt{x}+1 \Rightarrow dt = \frac{1}{2\sqrt{x}}dx \Rightarrow \frac{1}{\sqrt{x}}dx = 2dt\)</p>
+                    <p>Thế vô phương trình ta được I \(= \int \frac{1}{t} \cdot 2dt\)</p>
+                    <p>\(= 2\ln|t| + C = 2\ln(\sqrt{x}+1) + C\)</p>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
