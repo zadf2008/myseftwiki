@@ -3,22 +3,55 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" name="zadf2008">
     <link rel="stylesheet" href="../../decor.css">
+    <link rel="stylesheet" href="../decorcode.css">
     <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
     <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <title>HTML</title>
 </head>
 
 <body>
-<header> <a href="../pagecomputerscience.html">HTML</a> </header>
-<div style="display: flex;">
-    <nav>
-        <p><a href="mathjax.html">Mathjax</a></p>
-    </nav>
-    <main>
-    </main>
-</div>
+    <header> <a href="../pagecomputerscience.html">HTML</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="tags.html">Các thẻ</a></p>
+            <p><a href="mathjax.html">Mathjax</a></p>
+        </nav>
+        <main>
+            <p>Cấu trúc cơ bản cho mọi web:</p>
+            <div class="codebox">
+                <p><code><span class="comment">&lt;!<span class="orange">DOCTYPE</span> <span class="lightblue">html</span>&gt;</span></code>
+                </p>
+                <p><code><span class="comment">&lt;<span class="orange">html</span>&gt;</span></code></p>
+                <p><code><span class="hidden">----</span><span class="comment">&lt;<span class="orange">head</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">----<span class="comment">...</span></code></p>
+                <p><code><span class="hidden">----</span><span class="comment">&lt;/<span class="orange">head</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">----</span><span class="comment">&lt;<span class="orange">body</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">----<span class="comment">...</span></code></p>
+                <p><code><span class="hidden">----</span><span class="comment">&lt;/<span class="orange">body</span>&gt;</span></code>
+                </p>
+                <p><code><span class="comment">&lt;/<span class="orange">html</span>&gt;</span></code></p>
+            </div>
+            <h2>Các thẻ có thể để trong cặp thẻ &lt;head&gt;&lt;/head&gt;:</h2>
+            <p>\(\bullet\) &lt;meta&gt;</p>
+            <p>- charset="utf-8": bật UTF-8</p>
+            <p>- name="viewport": Thiết lập vùng hiển thị trên thiết bị.</p>
+            <p>- content="width=device-width, initial-scale=1.0": Giúp trang web hiển thị phù hợp với chiều rộng màn hình và tỷ lệ thu phóng ban đầu.</p>
+            <p>- name="description": Khai báo mô tả ngắn về nội dung trang web.</p>
+            <p>- name="keywords": Khai báo các từ khóa liên quan đến nội dung trang web.</p>
+            <p>- name="author": Khai báo tác giả của trang web.</p>
+            <p>\(\bullet\) &lt;link rel="stylesheet" href="..."&gt;</p>
+            <p>- ..\ :có tác dụng ra khỏi thư mục cha</p>
+            <p>\(\bullet\) &lt;title&gt;content&lt;\title&gt;: tiêu đề trang web</p>
+            <h2>Các thẻ trong cặp thẻ &lt;body&gt;...&lt;body&gt;:</h2>
+            <p>\(\bullet\) Đây là nơi chứa mọi loại thẻ có tác dụng hiển thị trên màng hình</p>
+            
+        </main>
+    </div>
 </body>
 
 </html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../decor.css">
+    <link rel="stylesheet" href="../decorcode.css">
+    <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Các thẻ</title>
+</head>
+
+<body>
+    <header> <a href="HTMLpage.html">Các thẻ</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a>Các thẻ</a></p>
+            <p><a href="mathjax.html">Mathjax</a></p>
+        </nav>
+        <main>
+            <h2>Các thẻ ghi:</h2>
+            <p>\(\bullet\) <code>&lt;p&gt;content&lt;\p&gt;</code></p>
+            <p style="margin: 2px;">\(\Rightarrow\) content</p>
+            <p>\(\bullet\) <code>&lt;h1&gt;content&lt;\h1&gt;</code></p>
+            <h1 style="margin: 2px;">\(\Rightarrow\) content</h1>
+            <p>\(\bullet\) <code>&lt;h2&gt;content&lt;\h2&gt;</code></p>
+            <h2 style="margin: 2px;">\(\Rightarrow\) content</h2>
+            <p>\(\bullet\) <code>&lt;h3&gt;content&lt;\h3&gt;</code></p>
+            <h3 style="margin: 2px;">\(\Rightarrow\) content</h3>
+            <p>\(\bullet\) <code>&lt;h4&gt;content&lt;\h4&gt;</code></p>
+            <h4 style="margin: 2px;">\(\Rightarrow\) content</h4>
+            <p>\(\bullet\) <code>&lt;h5&gt;content&lt;\h5&gt;</code></p>
+            <h5 style="margin: 2px;">\(\Rightarrow\) content</h5>
+            <p>\(\bullet\) <code>&lt;h6&gt;content&lt;\h6&gt;</code></p>
+            <h6 style="margin: 2px;">\(\Rightarrow\) content</h6>
+            <p>\(\bullet\)
+                <code>&lt;ul&gt;&lt;\ul&gt;: ghi ra danh sách không có số thứ tự (chỉ dùng được cho mỗi thẻ &lt;li&gt;&lt;/li&gt;)</code>
+            </p>
+            <p>- Cấu trúc cơ bản:</p>
+            <div style="display: flex;">
+                <div class="codebox">
+                    <p><code><span class="comment">&lt;<span class="orange">ul<span class="comment">&gt;</span></code>
+                    </p>
+                    <p><code><span class="hidden">----</span><span class="comment">&lt;<span class="orange">li<span class="comment">&gt;<span class="white">content 1<span class="comment">\&lt;<span class="orange">li<span class="comment">&gt;</span></code>
+                    </p>
+                    <p><code><span class="hidden">----</span><span class="comment">&lt;<span class="orange">li<span class="comment">&gt;<span class="white">content 2<span class="comment">\&lt;<span class="orange">li<span class="comment">&gt;</span></code>
+                    </p>
+                    <p><code><span class="hidden">----</span><span class="comment">&lt;<span class="orange">li<span class="comment">&gt;<span class="white">content 3<span class="comment">\&lt;<span class="orange">li<span class="comment">&gt;</span></code>
+                    </p>
+                    <p><code><span class="hidden">----</span><span class="comment">...</span></code></p>
+                    <p><code><span class="comment">&lt;<span class="orange">ul<span class="comment">&gt;</span></code>
+                    </p>
+                </div>
+                <div class="outputbox">
+                    <ul>
+                        <li>content 1</li>
+                        <li>content 2</li>
+                        <li>content 3</li>
+                    </ul>
+                </div>
+            </div>
+            <p>\(\bullet\)
+                <code>&lt;ol&gt;&lt;\ol&gt;: ghi ra danh sách có số thứ tự (chỉ dùng được cho mỗi thẻ &lt;li&gt;&lt;/li&gt;)</code>
+            </p>
+            <p>- Cấu trúc cơ bản:</p>
+            <div style="display: flex;">
+                <div class="codebox">
+                    <p><code><span class="comment">&lt;<span class="orange">ol<span class="comment">&gt;</span></code>
+                    </p>
+                    <p><code><span class="hidden">----</span><span class="comment">&lt;<span class="orange">li<span class="comment">&gt;<span class="white">content 1<span class="comment">\&lt;<span class="orange">li<span class="comment">&gt;</span></code>
+                    </p>
+                    <p><code><span class="hidden">----</span><span class="comment">&lt;<span class="orange">li<span class="comment">&gt;<span class="white">content 2<span class="comment">\&lt;<span class="orange">li<span class="comment">&gt;</span></code>
+                    </p>
+                    <p><code><span class="hidden">----</span><span class="comment">&lt;<span class="orange">li<span class="comment">&gt;<span class="white">content 3<span class="comment">\&lt;<span class="orange">li<span class="comment">&gt;</span></code>
+                    </p>
+                    <p><code><span class="hidden">----</span><span class="comment">...</span></code></p>
+                    <p><code><span class="comment">&lt;<span class="orange">ol<span class="comment">&gt;</span></code>
+                    </p>
+                </div>
+                <div class="outputbox">
+                    <ol>
+                        <li>content 1</li>
+                        <li>content 2</li>
+                        <li>content 3</li>
+                    </ol>
+                </div>
+            </div>
+            <h2>Các thẻ nội tuyến:</h2>
+            <p>\(\bullet\) <code>&lt;a&gt;content&lt;\a&gt;</code> \(\Rightarrow\) <a>content</a></p>
+            <p>- Cách dùng:</p>
+            <div class="codebox">
+                <p><code><span class="comment">&lt;<span class="orange">p<span class="comment">&gt;</span><span class="comment">&lt;<span class="orange">a href<span class="white">=<span class="lightblue">"link"<span class="comment">&gt;<span class="white">content</span>&lt;/<span class="orange">a<span class="comment">&gt;</span><span class="comment">&lt;/<span class="orange">p<span class="comment">&gt;</span></code>
+                </p>
+            </div>
+            <p>\(\bullet\) <code>&lt;strong&gt;content&lt;\strong&gt;</code> và <code>&lt;b&gt;content&lt;\b&gt;</code>
+                \(\Rightarrow\) <strong>content</strong></p>
+            <p>\(\bullet\) <code>&lt;em&gt;content&lt;\em&gt;</code> và <code>&lt;i&gt;content&lt;\i&gt;</code>
+                \(\Rightarrow\) <i>content</i></p>
+            <p>\(\bullet\) <code>&lt;canvas&gt;&lt;\canvas&gt;</code>: thẻ có tác dụng vẽ</p>
+            <p>\(\bullet\) <code>&lt;img&gt;</code>: thẻ có tác dụng hiện hình ảnh</p>
+            <h2>Bảng:</h2>
+            <div class="codebox">
+                <p><code><span class="hidden"></span><span class="comment">&lt;<span class="orange">table</span>&gt;</span><span class="hidden">-------------------------<span class="comment">&lt;!-- thẻ bảng --&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">----</span><span class="comment">&lt;<span class="orange">thead</span>&gt;</span><span class="hidden">---------------------<span class="comment">&lt;!-- đầu bảng --&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">--------</span><span class="comment">&lt;<span class="orange">tr</span>&gt;</span><span class="hidden">--------------------<span class="comment">&lt;!-- 1 hàng --&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">------------</span><span class="comment">&lt;<span class="orange">th</span>&gt;&lt;/<span class="orange">th</span>&gt;</span><span class="hidden">-----------<span class="comment">&lt;!-- 1 cột --&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">------------</span><span class="comment">...</span></code></p>
+                <p><code><span class="hidden">------------</span><span class="comment">&lt;<span class="orange">th</span>&gt;&lt;/<span class="orange">th</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">--------</span><span class="comment">&lt;/<span class="orange">tr</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">----</span><span class="comment">&lt;/<span class="orange">thead</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">----</span><span class="comment">&lt;<span class="orange">tbody</span>&gt;</span><span class="hidden">---------------------<span class="comment">&lt;!-- thân bảng --&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">--------</span><span class="comment">&lt;<span class="orange">tr</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">------------</span><span class="comment">&lt;<span class="orange">td</span>&gt;&lt;/<span class="orange">td</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">------------</span><span class="comment">...</span></code></p>
+                <p><code><span class="hidden">------------</span><span class="comment">&lt;<span class="orange">td</span>&gt;&lt;/<span class="orange">td</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">--------</span><span class="comment">&lt;/<span class="orange">tr</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">----</span><span class="comment">&lt;/<span class="orange">tbody</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden"></span><span class="comment">&lt;/<span class="orange">table</span>&gt;</span></code>
+                </p>
+            </div>
+            <p>VD: </p>
+            <div style="display:flex">
+            <div class="codebox">
+                <p><code><span class="hidden"></span><span class="comment">&lt;<span class="orange">table</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">----</span><span class="comment">&lt;<span class="orange">thead</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">--------</span><span class="comment">&lt;<span class="orange">tr</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">------------</span><span class="comment">&lt;<span class="orange">th</span>&gt;<span class="white">content 1</span>&lt;/<span class="orange">th</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">------------</span><span class="comment">&lt;<span class="orange">th</span>&gt;<span class="white">content 2</span>&lt;/<span class="orange">th</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">------------</span><span class="comment">&lt;<span class="orange">th</span>&gt;<span class="white">content 3</span>&lt;/<span class="orange">th</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">--------</span><span class="comment">&lt;/<span class="orange">tr</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">----</span><span class="comment">&lt;/<span class="orange">thead</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">----</span><span class="comment">&lt;<span class="orange">tbody</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">--------</span><span class="comment">&lt;<span class="orange">tr</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">------------</span><span class="comment">&lt;<span class="orange">td</span>&gt;<span class="white">content 4</span>&lt;/<span class="orange">td</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">------------</span><span class="comment">&lt;<span class="orange">td</span>&gt;<span class="white">content 5</span>&lt;/<span class="orange">td</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">------------</span><span class="comment">&lt;<span class="orange">td</span>&gt;<span class="white">content 6</span>&lt;/<span class="orange">td</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">--------</span><span class="comment">&lt;/<span class="orange">tr</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">--------</span><span class="comment">&lt;<span class="orange">tr</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">------------</span><span class="comment">&lt;<span class="orange">td</span>&gt;<span class="white">content 7</span>&lt;/<span class="orange">td</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">------------</span><span class="comment">&lt;<span class="orange">td</span>&gt;<span class="white">content 8</span>&lt;/<span class="orange">td</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">------------</span><span class="comment">&lt;<span class="orange">td</span>&gt;<span class="white">content 9</span>&lt;/<span class="orange">td</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">--------</span><span class="comment">&lt;/<span class="orange">tr</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden">----</span><span class="comment">&lt;/<span class="orange">tbody</span>&gt;</span></code>
+                </p>
+                <p><code><span class="hidden"></span><span class="comment">&lt;/<span class="orange">table</span>&gt;</span></code>
+                </p>
+            </div>
+            <div class="outputbox">
+                <table>
+                    <thead>
+                        <tr>
+                            <th style="background-color: rgb(10, 10, 10);">content 1</th>
+                            <th style="background-color: rgb(10, 10, 10);">content 2</th>
+                            <th style="background-color: rgb(10, 10, 10);">content 3</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>content 4</td>
+                            <td>content 5</td>
+                            <td>content 6</td>
+                        </tr>
+                        <tr>
+                            <td>content 7</td>
+                            <td>content 8</td>
+                            <td>content 9</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>
