@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../decor.css">
+    <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
+    <link rel="stylesheet" href="../decorcode.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>thư viện matplotlib.pyplot</title>
+</head>
+
+<body>
+    <header> <a href="basic.html">thư viện matplotlib.pyplot</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="bien.html">Gán</a></p>
+            <p><a href="for.html">for</a></p>
+            <p><a href="while.html">while</a></p>
+            <p><a href="if-else.html">if-else</a></p>
+            <p><a href="list.html">list</a></p>
+            <p><a href="def.html">def</a></p>
+            <p><a href="class.html">class</a></p>
+            <p><a href="try-except.html">try-except</a></p>
+            <p><a href="open.html">open</a></p>
+            <p><a href="time.html">thư viện time</a></p>
+            <p><a href="numpy.html">thư viện numpy</a></p>
+            <p><a href="os.html">thư viện os</a></p>
+            <p><a href="cv2.html">thư viện cv2</a></p>
+            <p><a href="turtle.html">thư viện turtle</a></p>
+            <p><a href="keyboard.html">thư viện keyboard</a></p>
+            <p><a>thư viện mp</a></p>
+            <p><a href="ma.html">thư viện ma</a></p>
+        </nav>
+        <main>
+            <p>\(\bullet\) Thư viện dùng để tạo biểu đồ</p>
+            <p>- Tải thư viện trước: pip install matplotlib</p>
+            <p>- Gọi thư viện:</p>
+            <div class="codebox">
+                <p><code><span class="purple">import <span class="cyan">matplotlib.pyplot <span class="purple">as <span class="cyan">ma <span class="hidden">--------<span class="comment">#as đổi tên thư viện</span></code>
+                </p>
+            </div>
+            <p>\(\bullet\) Biểu đồ zic-zac:</p>
+            <div class="codebox">
+                <p><code><span class="purple">import <span class="cyan">matplotlib.pyplot <span class="purple">as <span class="cyan">ma</span></code>
+                </p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="white">fig, <span class="yellow">(<span class="purple">(<span class="white">ax1, ax2<span class="purple">)<span class="white">, <span class="purple">(<span class="white">ax3, ax4<span class="purple">)<span class="yellow">) <span class="white">= <span class="cyan">ma<span class="white">.<span class="lightpurple">subplots<span class="yellow">(<span class="superlightgreen">2<span class="white">, <span class="superlightgreen">2, <span class="orange">sharex<span class="white">=<span class="blue">False<span class="white">, <span class="orange">figsize<span class="white">=<span class="purple">(<span class="superlightgreen">20<span class="white">, <span class="superlightgreen">12<span class="purple">)<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="comment">#khởi tạo 4 đồ thị chia làm 2 cột 2 hàng</span></code></p>
+                <p><code><span class="comment">#sharex có tác dụng ép các đồ thị con dùng chung 1 trục hoành</span></code>
+                </p>
+                <p><code><span class="comment">#sharey có tác dụng ép các đồ thị con dùng chung 1 trục tung</span></code>
+                </p>
+                <p><code><span class="comment">#figsize dùng để tinh chỉnh kích cỡ mỗi đồ thị</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="white">fig.canvas.manager.<span class="lightpurple">set_window_title<span class="yellow">(<span class="lightblue">"New function"<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="comment">#tiêu đề đồ thị(phần tiêu đề 1 ứng dụng)</span></code></p>
+                <p><code><span class="cyan">ma<span class="white">.<span class="lightpurple">suptitle<span class="yellow">(<span class="lightblue">"4 đồ thị"<span class="white">, <span class="orange">fontsize<span class="white">=<span class="superlightgreen">16<span class="white">, <span class="orange">fontweight<span class="white">=<span class="lightblue">'bold'<span class="yellow">)</span></code>
+                    </codw>
+                </p>
+                <p><code><span class="comment">#tiêu đề đồ thị(phần tiêu đề lớn)</span></code></p>
+                <p><code><span class="cyan">ma<span class="white">.<span class="lightblue">subplots_adjust<span class="yellow">(<span class="orange">wspace<span class="white">=<span class="superlightgreen">2<span class="white">, <span class="orange">hspace<span class="white">=<span class="superlightgreen">6<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="comment">#wspace dùng để căn khoảng cách với hàng ngang</span></code></p>
+                <p><code><span class="comment">#hspace dùng để căn khoảng cách với hàng dọc</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="white">ax1.plot<span class="yellow">(<span class="purple">[<span class="superlightgreen">2<span class="white">, <span class="superlightgreen">1<span class="white">, <span class="superlightgreen">4<span class="white">, <span class="superlightgreen">5<span class="white">, <span class="superlightgreen">6<span class="white">, <span class="superlightgreen">6<span class="white">, <span class="superlightgreen">9<span class="white">, <span class="superlightgreen">14<span class="white">, <span class="superlightgreen">12<span class="white">, <span class="superlightgreen">17<span class="white">, <span class="superlightgreen">16<span class="purple">]<span class="white">, <span class="orange">marker<span class="white">=<span class="lightblue">'x'<span class="white">, <span class="orange">color<span class="white">=<span class="lightblue">'r'<span class="white">, <span class="orange">linestyle<span class="white">=<span class="lightblue">'--'<span class="white">, <span class="orange">label<span class="white">=<span class="lightblue">'label 1'<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">ax2.plot<span class="yellow">(<span class="purple">[<span class="superlightgreen">2<span class="white">, <span class="superlightgreen">1<span class="white">, <span class="superlightgreen">4<span class="white">, <span class="superlightgreen">5<span class="white">, <span class="superlightgreen">6<span class="white">, <span class="superlightgreen">6<span class="white">, <span class="superlightgreen">9<span class="white">, <span class="superlightgreen">14<span class="white">, <span class="superlightgreen">12<span class="white">, <span class="superlightgreen">17<span class="white">, <span class="superlightgreen">16<span class="purple">]<span class="white">, <span class="orange">marker<span class="white">=<span class="lightblue">'*'<span class="white">, <span class="orange">color<span class="white">=<span class="lightblue">'g'<span class="white">, <span class="orange">linestyle<span class="white">=<span class="lightblue">':'<span class="white">, <span class="orange">label<span class="white">=<span class="lightblue">'label 2'<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">ax3.plot<span class="yellow">(<span class="purple">[<span class="superlightgreen">2<span class="white">, <span class="superlightgreen">1<span class="white">, <span class="superlightgreen">4<span class="white">, <span class="superlightgreen">5<span class="white">, <span class="superlightgreen">6<span class="white">, <span class="superlightgreen">6<span class="white">, <span class="superlightgreen">9<span class="white">, <span class="superlightgreen">14<span class="white">, <span class="superlightgreen">12<span class="white">, <span class="superlightgreen">17<span class="white">, <span class="superlightgreen">16<span class="purple">]<span class="white">, <span class="orange">marker<span class="white">=<span class="lightblue">'s'<span class="white">, <span class="orange">color<span class="white">=<span class="lightblue">'b'<span class="white">, <span class="orange">linestyle<span class="white">=<span class="lightblue">'-.'<span class="white">, <span class="orange">label<span class="white">=<span class="lightblue">'label 3'<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">ax4.plot<span class="yellow">(<span class="purple">[<span class="superlightgreen">2<span class="white">, <span class="superlightgreen">1<span class="white">, <span class="superlightgreen">4<span class="white">, <span class="superlightgreen">5<span class="white">, <span class="superlightgreen">6<span class="white">, <span class="superlightgreen">6<span class="white">, <span class="superlightgreen">9<span class="white">, <span class="superlightgreen">14<span class="white">, <span class="superlightgreen">12<span class="white">, <span class="superlightgreen">17<span class="white">, <span class="superlightgreen">16<span class="purple">]<span class="white">, <span class="orange">marker<span class="white">=<span class="lightblue">''<span class="white">, <span class="orange">color<span class="white">=<span class="lightblue">'y'<span class="white">, <span class="orange">linestyle<span class="white">=<span class="lightblue">'--'<span class="white">, <span class="orange">label<span class="white">=<span class="lightblue">'label 4'<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="comment">#color giúp tạo màu đường đồ thị</span></code></p>
+                <p><code><span class="comment">#linestyle là kiểu đường đồ thị</span></code></p>
+                <p><code><span class="comment">#label giúp thể hiện ý nghĩa mà đồ thị đó đại diện</span></code></p>
+                <p><code><span class="white">ax1.set_title<span class="yellow">(<span class="lightblue">"đồ thị 1"<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">ax2.set_title<span class="yellow">(<span class="lightblue">"đồ thị 2"<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">ax3.set_title<span class="yellow">(<span class="lightblue">"đồ thị 3"<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">ax4.set_title<span class="yellow">(<span class="lightblue">"đồ thị 4"<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="comment">#tiêu đề đồ thị</span></code></p>
+                <p><code><span class="white">ax3.set_xlabel<span class="yellow">(<span class="lightblue">"x-title"<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">ax3.set_ylabel<span class="yellow">(<span class="lightblue">"y-title"<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">ax1.grid<span class="yellow">(<span class="blue">True<span class="yellow">)<span class="hidden">------<span class="comment">#bật lưới</span></code>
+                </p>
+                <p><code><span class="white">ax2.grid<span class="yellow">(<span class="blue">True<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">ax3.grid<span class="yellow">(<span class="blue">True<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">ax4.grid<span class="yellow">(<span class="blue">True<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">ax1.legend<span class="yellow">(<span class="orange">loc<span class="white">=<span class="lightblue">"upper left"<span class="yellow">)<span class="hidden">-----<span class="comment">#cách đặt đồ thị</span></code>
+                </p>
+                <p><code><span class="white">ax2.legend<span class="yellow">(<span class="orange">loc<span class="white">=<span class="lightblue">"upper left"<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">ax3.legend<span class="yellow">(<span class="orange">loc<span class="white">=<span class="lightblue">"upper left"<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">ax4.legend<span class="yellow">(<span class="orange">loc<span class="white">=<span class="lightblue">"upper left"<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="purple">for <span class="white">ax <span class="purple">in <span class="yellow">(<span class="white">ax1, ax2, ax3, ax4<span class="yellow">)<span class="white">:</span></code>
+                </p>
+                <p><code><span class="hidden">----<span class="white">ax.set_autoscale_on<span class="yellow">(<span class="blue">True<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="hidden">----<span class="comment">#tự động điều chỉnh kích thước</span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax.autoscale_view<span class="yellow">(<span class="orange">scalex<span class="white">=<span class="blue">True<span class="white">, <span class="orange">scaley<span class="white">=<span class="blue">True<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="hidden">----<span class="comment">#tự động co giãn trục x và y theo số liệu</span></code>
+                </p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="cyan">ma<span class="white">.<span class="lightpurple">tight_layout<span class="yellow">()</span></code>
+                </p>
+                <p><code><span class="cyan">ma<span class="white">.<span class="lightpurple">show<span class="yellow">()</span></code>
+                </p>
+            </div>
+            <p>\(\bullet\) Biểu đồ cột:</p>
+            <div class="codebox">
+                <p><code><span class="purple">import <span class="cyan">matplotlib.pyplot <span class="purple">as <span class="cyan">plt</span></code>
+                </p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="white">fig, ax <span class="white">= <span class="cyan">plt<span class="white">.<span class="lightpurple">subplots<span class="yellow">(<span class="superlightgreen">1<span class="white">, <span class="orange">sharex<span class="white">=<span class="blue">False<span class="white">, <span class="orange">figsize<span class="white">=<span class="purple">(<span class="superlightgreen">20<span class="white">, <span class="superlightgreen">12<span class="purple">)<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">bar<span class="yellow">(<span class="purple">[<span class="lightblue">"Cột 1"<span class="white">, <span class="lightblue">"Cột 2"<span class="white">, <span class="lightblue">"Cột 3"<span class="white">, <span class="lightblue">"Cột 4"<span class="white">, <span class="lightblue">"Cột 5"<span class="white">, <span class="lightblue">"Cột 6"<span class="white">, <span class="lightblue">"Cột 7"<span class="white">, <span class="lightblue">"Cột 8"<span class="white">, <span class="lightblue">"Cột 9"<span class="white">, <span class="lightblue">"Cột 10"<span class="purple">]<span class="white">, <span class="purple">[<span class="superlightgreen">1<span class="white">, <span class="superlightgreen">2<span class="white">, <span class="superlightgreen">3<span class="white">, <span class="superlightgreen">4<span class="white">, <span class="superlightgreen">5<span class="white">, <span class="superlightgreen">6<span class="white">, <span class="superlightgreen">7<span class="white">, <span class="superlightgreen">8<span class="white">, <span class="superlightgreen">9<span class="white">, <span class="superlightgreen">10<span class="purple">]<span class="white">, <span class="orange">color<span class="white">=<span class="lightblue">'r'<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="cyan">plt<span class="white">.<span class="lightpurple">show<span class="yellow">()</span></code>
+                </p>
+            </div>
+            <p>\(\bullet\) Biểu đồ hình tròn:</p>
+            <div class="codebox">
+                <p><code><span class="purple">import <span class="cyan">matplotlib.pyplot <span class="purple">as <span class="cyan">plt</span></code>
+                </p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="white">fig, ax <span class="white">= <span class="cyan">plt<span class="white">.<span class="lightpurple">subplots<span class="yellow">(<span class="superlightgreen">1<span class="white">, <span class="orange">sharex<span class="white">=<span class="blue">False<span class="white">, <span class="orange">figsize<span class="white">=<span class="purple">(<span class="superlightgreen">20<span class="white">, <span class="superlightgreen">12<span class="purple">)<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">pie<span class="yellow">(<span class="purple">[<span class="superlightgreen">45<span class="white">, <span class="superlightgreen">35<span class="white">, <span class="superlightgreen">20<span class="purple">]<span class="white">, <span class="orange">labels<span class="white">=<span class="purple">[<span class="lightblue">"Vùng 1"<span class="white">, <span class="lightblue">"Vùng 2"<span class="white">, <span class="lightblue">"Vùng 3"<span class="purple">]<span class="white">, <span class="orange">autopct<span class="white">=<span class="lightblue">"%1.1f%%"<span class="yellow">)<span class="hidden">------<span class="comment">#biểu đồ hình tròn</span></code>
+                </p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="cyan">plt<span class="white">.<span class="lightpurple">show<span class="yellow">()</span></code>
+                </p>
+            </div>
+            <p>\(\bullet\) Véc-tơ:</p>
+            <div class="codebox">
+                <p><code><span class="purple">import <span class="cyan">matplotlib.pyplot <span class="purple">as <span class="cyan">plt</span></code>
+                </p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="white">fig, ax <span class="white">= <span class="cyan">plt<span class="white">.<span class="lightpurple">subplots<span class="yellow">(<span class="superlightgreen">1<span class="white">, <span class="orange">sharex<span class="white">=<span class="blue">False<span class="white">, <span class="orange">figsize<span class="white">=<span class="purple">(<span class="superlightgreen">20<span class="white">, <span class="superlightgreen">12<span class="purple">)<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">quiver<span class="yellow">(<span class="superlightgreen">0<span class="white">, <span class="superlightgreen">0<span class="white">, <span class="superlightgreen">3<span class="white">, <span class="superlightgreen">4<span class="white">, <span class="orange">angles<span class="white">=<span class="lightblue">'xy'<span class="white">, <span class="orange">scale_units<span class="white">=<span class="lightblue">'xy'<span class="white">, <span class="orange">scale<span class="white">=<span class="superlightgreen">1<span class="white">, <span class="orange">color<span class="white">=<span class="lightblue">'r'<span class="white">, <span class="orange">label<span class="white">=<span class="lightblue">'Véc-tơ A'<span class="yellow">)<span class="hidden">------<span class="comment">#véc tơ</span></code>
+                </p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">quiver<span class="yellow">(<span class="superlightgreen">3<span class="white">, <span class="superlightgreen">4<span class="white">, <span class="superlightgreen">6<span class="white">, <span class="superlightgreen">10<span class="white">, <span class="orange">angles<span class="white">=<span class="lightblue">'xy'<span class="white">, <span class="orange">scale_units<span class="white">=<span class="lightblue">'xy'<span class="white">, <span class="orange">scale<span class="white">=<span class="superlightgreen">1<span class="white">, <span class="orange">color<span class="white">=<span class="lightblue">'b'<span class="white">, <span class="orange">label<span class="white">=<span class="lightblue">'Véc-tơ B'<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="comment"># bắt đầu từ điểm A(x1, y1) đến điếm B(x2, y2)</span></code></p>
+                <p><code><span class="comment"># angles='xy', scale_units='xy', scale=1 là 3 tham số bắt buộc để mũi tên không bị méo tỷ lệ</span></code>
+                </p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="comment"># Cài đặt giới hạn trục để nhìn thấy mũi tên</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">set_xlim<span class="yellow">(<span class="superlightgreen">-1<span class="white">, <span class="superlightgreen">11<span class="yellow">)<span class="hidden">------<span class="comment">#giới hạn trục hoành</span></code>
+                </p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">set_ylim<span class="yellow">(<span class="superlightgreen">-1<span class="white">, <span class="superlightgreen">11<span class="yellow">)<span class="hidden">------<span class="comment">#giới hạn trục tung</span></code>
+                </p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">grid<span class="yellow">(<span class="blue">True<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">legend<span class="yellow">()</span></code>
+                </p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="cyan">plt<span class="white">.<span class="lightpurple">show<span class="yellow">()</span></code>
+                </p>
+            </div>
+            <p>\(\bullet\) Đồ thị đỉnh:</p>
+            <div class="codebox">
+                <p><code><span class="purple">import <span class="cyan">matplotlib.pyplot <span class="purple">as <span class="cyan">plt</span></code>
+                </p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="white">fig, ax <span class="white">= <span class="cyan">plt<span class="white">.<span class="lightpurple">subplots<span class="yellow">(<span class="superlightgreen">1<span class="white">, <span class="orange">sharex<span class="white">=<span class="blue">False<span class="white">, <span class="orange">figsize<span class="white">=<span class="purple">(<span class="superlightgreen">20<span class="white">, <span class="superlightgreen">12<span class="purple">)<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="white">x <span class="white">= <span class="purple">[<span class="superlightgreen">1<span class="white">, <span class="superlightgreen">2<span class="white">, <span class="superlightgreen">3<span class="white">, <span class="superlightgreen">4<span class="white">, <span class="superlightgreen">5<span class="purple">]</span></code>
+                </p>
+                <p><code><span class="white">y <span class="white">= <span class="purple">[<span class="superlightgreen">2<span class="white">, <span class="superlightgreen">8<span class="white">, <span class="superlightgreen">3<span class="white">, <span class="superlightgreen">7<span class="white">, <span class="superlightgreen">4<span class="purple">]</span></code>
+                </p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">plot<span class="yellow">(<span class="white">x<span class="white">, <span class="white">y<span class="white">, <span class="orange">marker<span class="white">=<span class="lightblue">'o'<span class="white">, <span class="orange">color<span class="white">=<span class="lightblue">'gray'<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="comment"># 2. Cắm mũi tên chú thích vào điểm cao nhất (2, 8)</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">annotate<span class="yellow">(</span></code>
+                </p>
+                <p><code><span class="hidden">----</span><span class="lightblue">"Đỉnh cao nhất ở đây!"<span class="white">, <span class="hidden">-----</span><span class="comment"># 1. Nội dung chữ chú thích</span></code>
+                </p>
+                <p><code><span class="hidden">----</span><span class="orange">xy<span class="white">=<span class="purple">(<span class="superlightgreen">2<span class="white">, <span class="superlightgreen">8<span class="purple">)<span class="white">, <span class="hidden">-----</span><span class="comment"># 2. Tọa độ cái ĐẦU mũi tên nhọn chỉ vào</span></code>
+                </p>
+                <p><code><span class="hidden">----</span><span class="orange">xytext<span class="white">=<span class="purple">(<span class="superlightgreen">3.5<span class="white">, <span class="superlightgreen">9<span class="purple">)<span class="white">, <span class="hidden">-----</span><span class="comment"># 3. Tọa độ cái NƠI ĐẶT CHỮ chú thích</span></code>
+                </p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="hidden">----</span><span class="comment"># 4. arrowprops: Cấu hình hình dáng, màu sắc của mũi tên</span></code>
+                </p>
+                <p><code><span class="hidden">----</span><span class="orange">arrowprops<span class="white">=<span class="lightpurple">dict<span class="yellow">(</span></code>
+                </p>
+                <p><code><span class="hidden">--------</span><span class="orange">facecolor<span class="white">=<span class="lightblue">'red'<span class="white">, <span class="hidden">------</span><span class="comment"># Màu bên trong mũi tên</span></code>
+                </p>
+                <p><code><span class="hidden">--------</span><span class="orange">edgecolor<span class="white">=<span class="lightblue">'black'<span class="white">, <span class="hidden">----<span class="comment"># Màu viền của mũi tên</span></code>
+                </p>
+                <p><code><span class="hidden">--------</span><span class="orange">arrowstyle<span class="white">=<span class="lightblue">'->'<span class="white">, <span class="hidden">--------<span class="comment"># Kiểu đầu mũi tên ('->', '-|>', 'fancy')</span></code>
+                </p>
+                <p><code><span class="hidden">--------</span><span class="white">lw<span class="white">=<span class="superlightgreen">2 <span class="hidden">----------------<span class="comment"># Độ dày của thân mũi tên (Line Width)</span></code>
+                </p>
+                <p><code><span class="hidden">----</span><span class="yellow">)</span><span class="white">,</span></code>
+                </p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="hidden">----</span><span class="comment"># Tiện ích bổ sung cho Chữ (Không bắt buộc)</span></code>
+                </p>
+                <p><code><span class="hidden">----</span><span class="orange">fontsize<span class="white">=<span class="superlightgreen">12<span class="white">, <span class="hidden">----------------<span class="comment"># Cỡ chữ</span></code>
+                </p>
+                <p><code><span class="hidden">----</span><span class="orange">color<span class="white">=<span class="lightblue">'blue'<span class="white">, <span class="hidden">---------------<span class="comment"># Màu chữ</span></code>
+                </p>
+                <p><code><span class="hidden">----</span><span class="orange">fontweight<span class="white">=<span class="lightblue">'bold' <span class="hidden">------------<span class="comment"># Chữ in đậm</span></code>
+                </p>
+                <p><code><span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="comment"># Giới hạn trục để đồ thị thoáng, dễ nhìn chữ</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">set_ylim<span class="yellow">(<span class="superlightgreen">0<span class="white">, <span class="superlightgreen">11<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">grid<span class="yellow">(<span class="blue">True<span class="yellow">)</span></code>
+                </p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="cyan">plt<span class="white">.<span class="lightpurple">show<span class="yellow">()</span></code>
+                </p>
+            </div>
+            <p>\(\bullet\) Biểu diễn trong không gian 3 chiều:</p>
+            <div class="codebox">
+                <p><code><span class="purple">import <span class="cyan">matplotlib.pyplot <span class="purple">as <span class="cyan">plt</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="white">fig <span class="white">= <span class="cyan">plt<span class="white">.<span class="lightpurple">figure<span class="yellow">(<span class="orange">figsize<span class="white">=<span class="purple">(<span class="superlightgreen">10<span class="white">, <span class="superlightgreen">7<span class="purple">)<span class="yellow">)</span></code></p>
+                <p><code><span class="white">ax <span class="white">= <span class="white">fig<span class="white">.<span class="lightpurple">add_subplot<span class="yellow">(<span class="superlightgreen">111<span class="white">, <span class="orange">projection<span class="white">=<span class="lightblue">'3d'<span class="yellow">)</span></code></p>
+                <p><code><span class="comment">#tạo ra 1 không gian 3D</span></code></p>
+                <p><code><span class="comment"># 111 có nghĩa là tạo 1 ô đồ thị duy nhất</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="comment"># 2. Tạo dữ liệu cho 3 trục Oxyz (Dạng các List số)</span></code></p>
+                <p><code><span class="comment"># Giả sử ta tạo các điểm chạy tiến dần trong không gian</span></code></p>
+                <p><code><span class="white">x <span class="white">= <span class="purple">[<span class="superlightgreen">0<span class="white">, <span class="superlightgreen">4<span class="purple">]</span></code></p>
+                <p><code><span class="white">y <span class="white">= <span class="purple">[<span class="superlightgreen">0<span class="white">, <span class="superlightgreen">4<span class="purple">]</span></code></p>
+                <p><code><span class="white">z <span class="white">= <span class="purple">[<span class="superlightgreen">0<span class="white">, <span class="superlightgreen">4<span class="purple">] <span class="hidden">------</span><span class="comment"># Trục Z quyết định độ cao/chiều sâu</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="comment"># 3. Lệnh vẽ đường 3D: Thay vì .plot() thông thường, ta truyền cả 3 tọa độ (x, y, z)</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">plot<span class="yellow">(<span class="white">x<span class="white">, <span class="white">y<span class="white">, <span class="white">z<span class="white">, <span class="orange">marker<span class="white">=<span class="lightblue">''<span class="white">, <span class="orange">color<span class="white">=<span class="lightblue">'purple'<span class="white">, <span class="orange">linestyle<span class="white">=<span class="lightblue">'-'<span class="white">, <span class="orange">label<span class="white">=<span class="lightblue">'Đường bay 3D'<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="comment"># minh họa trục Ox Oy Oz</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">quiver<span class="yellow">(<span class="superlightgreen">0<span class="white">, <span class="superlightgreen">0<span class="white">, <span class="superlightgreen">0<span class="white">, <span class="superlightgreen">10<span class="white">, <span class="superlightgreen">0<span class="white">, <span class="superlightgreen">0<span class="white">, <span class="orange">linewidth<span class="white">=<span class="superlightgreen">1<span class="white">, <span class="orange">color<span class="white">=<span class="lightblue">'r'<span class="yellow">)</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">quiver<span class="yellow">(<span class="superlightgreen">0<span class="white">, <span class="superlightgreen">0<span class="white">, <span class="superlightgreen">0<span class="white">, <span class="superlightgreen">0<span class="white">, <span class="superlightgreen">10<span class="white">, <span class="superlightgreen">0<span class="white">, <span class="orange">linewidth<span class="white">=<span class="superlightgreen">1<span class="white">, <span class="orange">color<span class="white">=<span class="lightblue">'g'<span class="yellow">)</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">quiver<span class="yellow">(<span class="superlightgreen">0<span class="white">, <span class="superlightgreen">0<span class="white">, <span class="superlightgreen">0<span class="white">, <span class="superlightgreen">0<span class="white">, <span class="superlightgreen">0<span class="white">, <span class="superlightgreen">10<span class="white">, <span class="orange">linewidth<span class="white">=<span class="superlightgreen">1<span class="white">, <span class="orange">color<span class="white">=<span class="lightblue">'b'<span class="yellow">)</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">set_xlabel<span class="yellow">(<span class="lightblue">'Trục OX'<span class="yellow">)</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">set_ylabel<span class="yellow">(<span class="lightblue">'Trục OY'<span class="yellow">)</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">set_zlabel<span class="yellow">(<span class="lightblue">'Trục OZ'<span class="yellow">) <span class="hidden">------</span><span class="comment"># Hàm này chỉ xuất hiện khi bật chế độ 3D</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">set_xlim<span class="yellow">(<span class="superlightgreen">0<span class="white">, <span class="superlightgreen">20<span class="yellow">)</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">set_ylim<span class="yellow">(<span class="superlightgreen">0<span class="white">, <span class="superlightgreen">20<span class="yellow">)</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">set_zlim<span class="yellow">(<span class="superlightgreen">0<span class="white">, <span class="superlightgreen">20<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="comment"># Tự đặt tiêu đề và hiển thị chú thích</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">set_title<span class="yellow">(<span class="lightblue">"Đồ thị Không gian 3D Oxyz"<span class="white">, <span class="orange">fontsize<span class="white">=<span class="superlightgreen">14<span class="white">, <span class="orange">fontweight<span class="white">=<span class="lightblue">'bold'<span class="yellow">)</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">legend<span class="yellow">()</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="cyan">plt<span class="white">.<span class="lightpurple">show<span class="yellow">()</span></code></p>
+            </div>
+            <p>\(\bullet\) Vẽ một hình bằng hàm:</p>
+            <div class="codebox">
+                <p><code><span class="purple">import</span> <span class="cyan">numpy</span> <span class="purple">as</span> <span class="cyan">np</span></code></p>
+                <p><code><span class="purple">import</span> <span class="cyan">matplotlib.pyplot</span> <span class="purple">as</span> <span class="cyan">plt</span></code></p>
+                <p><code></code></p>
+                <p><code><span class="comment"># 1. Tạo dữ liệu cho góc quay Theta (từ 0 đến 2*pi)</span></code></p>
+                <p><code><span class="hidden">----</span><span class="white">theta</span> <span class="white">=</span> <span class="cyan">np</span><span class="white">.</span><span class="lightpurple">linspace</span><span class="yellow">(</span><span class="superlightgreen">0</span><span class="white">,</span> <span class="superlightgreen">2</span> <span class="white">*</span> <span class="cyan">np</span><span class="white">.</span><span class="white">pi</span><span class="white">,</span> <span class="superlightgreen">500</span><span class="yellow">)</span></code></p>
+                <p><code></code></p>
+                <p><code><span class="comment"># 2. Tạo dữ liệu cho bán kính r (Công thức tạo hình bông hoa 3 cánh)</span></code></p>
+                <p><code><span class="hidden">----</span><span class="white">r</span> <span class="white">=</span> <span class="cyan">np</span><span class="white">.</span><span class="lightpurple">sin</span><span class="yellow">(</span><span class="superlightgreen">3</span> <span class="white">*</span> <span class="white">theta</span><span class="yellow">)</span></code></p>
+                <p><code></code></p>
+                <p><code><span class="comment"># 3. Khởi tạo biểu đồ với cấu hình cực (subplot_kw={'projection': 'polar'})</span></code></p>
+                <p><code><span class="hidden">----</span><span class="white">fig</span><span class="white">,</span> <span class="white">ax</span> <span class="white">=</span> <span class="cyan">plt</span><span class="white">.</span><span class="lightpurple">subplots</span><span class="yellow">(</span><span class="orange">subplot_kw</span><span class="white">=</span><span class="yellow">{</span><span class="lightblue">"projection"</span><span class="white">:</span> <span class="lightblue">"polar"</span><span class="yellow">}</span><span class="white">,</span> <span class="orange">figsize</span><span class="white">=</span><span class="yellow">(</span><span class="superlightgreen">6</span><span class="white">,</span> <span class="superlightgreen">6</span><span class="yellow">))</span></code></p>
+                <p><code></code></p>
+                <p><code><span class="comment"># 4. Vẽ đường cong lên biểu đồ cực</span></code></p>
+                <p><code><span class="hidden">----</span><span class="white">ax</span><span class="white">.</span><span class="lightpurple">plot</span><span class="yellow">(</span><span class="white">theta</span><span class="white">,</span> <span class="white">r</span><span class="white">,</span> <span class="orange">color</span><span class="white">=</span><span class="lightblue">"purple"</span><span class="white">,</span> <span class="orange">linewidth</span><span class="white">=</span><span class="superlightgreen">2.5</span><span class="white">,</span> <span class="orange">label</span><span class="white">=</span><span class="lightblue">"Bông hoa 3 cánh"</span><span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="comment"># 5. Tô màu bên trong cánh hoa cho đẹp mắt (tùy chọn)</span></code></p>
+                <p><code><span class="hidden">----</span><span class="white">ax</span><span class="white">.</span><span class="lightpurple">fill</span><span class="yellow">(</span><span class="white">theta</span><span class="white">,</span> <span class="white">r</span><span class="white">,</span> <span class="orange">color</span><span class="white">=</span><span class="lightblue">"pink"</span><span class="white">,</span> <span class="orange">alpha</span><span class="white">=</span><span class="superlightgreen">0.5</span><span class="yellow">)</span></code></p>
+                <p><code class="hidden">----</code></p>
+                <p><code><span class="comment"># 6. Tinh chỉnh hiển thị (tùy chọn)</span></code></p>
+                <p><code><span class="hidden">----</span><span class="white">ax</span><span class="white">.</span><span class="lightpurple">set_rmax</span><span class="yellow">(</span><span class="superlightgreen">1.2</span><span class="yellow">)</span>  <span class="comment"># Giới hạn bán kính lớn nhất hiển thị trên vòng tròn</span></code></p>
+                <p><code><span class="hidden">----</span><span class="white">ax</span><span class="white">.</span><span class="lightpurple">set_rticks</span><span class="yellow">([</span><span class="superlightgreen">0.5</span><span class="white">,</span> <span class="superlightgreen">1.0</span><span class="yellow">])</span>  <span class="comment"># Vẽ các đường tròn đồng tâm tại r = 0.5 và r = 1.0</span></code></p>
+                <p><code><span class="hidden">----</span><span class="white">ax</span><span class="white">.</span><span class="lightpurple">set_rlabel_position</span><span class="yellow">(</span><span class="white">-</span><span class="superlightgreen">22.5</span><span class="yellow">)</span>  <span class="comment"># Góc để hiển thị nhãn của bán kính</span></code></p>
+                <p><code><span class="hidden">----</span><span class="white">ax</span><span class="white">.</span><span class="lightpurple">grid</span><span class="yellow">(</span><span class="blue">True</span><span class="yellow">)</span>  <span class="comment"># Hiển thị lưới tọa độ tròn</span></code></p>
+                <p><code></code></p>
+                <p><code><span class="cyan">plt</span><span class="white">.</span><span class="lightpurple">title</span><span class="yellow">(</span><span class="lightblue">"Ví dụ về Biểu đồ Tọa độ Cực (Polar Plot)"</span><span class="white">,</span> <span class="orange">va</span><span class="white">=</span><span class="lightblue">"bottom"</span><span class="white">,</span> <span class="orange">fontsize</span><span class="white">=</span><span class="superlightgreen">14</span><span class="yellow">)</span></code></p>
+                <p><code><span class="cyan">plt</span><span class="white">.</span><span class="lightpurple">show</span><span class="yellow">()</span></code></p>
+            </div>
+            <p>\(\bullet\) Đồ thị tuần suất</p>
+            <div class="codebox">
+                <p><code><span class="purple">import <span class="cyan">matplotlib.pyplot <span class="purple">as <span class="cyan">plt</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="comment"># 1. Tạo dữ liệu giả lập: Mốc thời gian xảy ra lỗi trên 3 Server</span></code></p>
+                <p><code><span class="comment"># Mỗi danh sách con đại diện cho các mốc thời gian lỗi của một Server</span></code></p>
+                <p><code><span class="white">server_A <span class="white">= <span class="purple">[<span class="superlightgreen">12<span class="white">, <span class="superlightgreen">15<span class="white">, <span class="superlightgreen">34<span class="white">, <span class="superlightgreen">55<span class="white">, <span class="superlightgreen">78<span class="white">, <span class="superlightgreen">90<span class="purple">]</span> <span class="comment"># Server A lỗi vào giây thứ 12, 15...</span></code></p>
+                <p><code><span class="white">server_B <span class="white">= <span class="purple">[<span class="superlightgreen">5<span class="white">, <span class="superlightgreen">22<span class="white">, <span class="superlightgreen">23<span class="white">, <span class="superlightgreen">24<span class="white">, <span class="superlightgreen">60<span class="white">, <span class="superlightgreen">85<span class="white">, <span class="superlightgreen">95<span class="purple">]</span> <span class="comment"># Server B lỗi dồn dập ở giây 22-24</span></code></p>
+                <p><code><span class="white">server_C <span class="white">= <span class="purple">[<span class="superlightgreen">40<span class="white">, <span class="superlightgreen">42<span class="white">, <span class="superlightgreen">45<span class="white">, <span class="superlightgreen">50<span class="white">, <span class="superlightgreen">88<span class="purple">]</span> <span class="comment"># Server C lỗi chủ yếu ở giữa chu kỳ</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="white">tat_ca_su_kien <span class="white">= <span class="purple">[<span class="white">server_A, server_B, server_C<span class="purple">]</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="comment"># 2. Khởi tạo khung vẽ</span></code></p>
+                <p><code><span class="white">fig, ax <span class="white">= <span class="cyan">plt<span class="white">.<span class="lightpurple">subplots<span class="yellow">(<span class="orange">figsize<span class="white">=<span class="purple">(<span class="superlightgreen">10<span class="white">, <span class="superlightgreen">4<span class="purple">)<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="comment"># 3. Vẽ biểu đồ sự kiện bằng hàm plt.eventplot()</span></code></p>
+                <p><code><span class="comment"># orientation="horizontal" nghĩa là các vạch sự kiện xếp theo hàng ngang</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">eventplot<span class="yellow">(<span class="white">tat_ca_su_kien, <span class="orange">orientation<span class="white">=<span class="lightblue">"horizontal"<span class="white">, <span class="orange">colors<span class="white">=<span class="purple">[<span class="lightblue">"red"<span class="white">, <span class="lightblue">"blue"<span class="white">, <span class="lightblue">"green"<span class="purple">]<span class="white">, <span class="orange">lineoffsets<span class="white">=<span class="superlightgreen">1<span class="white">, <span class="orange">linelengths<span class="white">=<span class="superlightgreen">0.6<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="comment"># 4. Trang trí biểu đồ cho dễ đọc</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">set_title<span class="yellow">(<span class="lightblue">"Nhật Ký Sự Kiện Lỗi Trên Các Máy Chủ"<span class="white">, <span class="orange">fontsize<span class="white">=<span class="superlightgreen">14<span class="white">, <span class="orange">fontweight<span class="white">=<span class="lightblue">"bold"<span class="yellow">)</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">set_xlabel<span class="yellow">(<span class="lightblue">"Thời gian (Giây)"<span class="white">, <span class="orange">fontsize<span class="white">=<span class="superlightgreen">12<span class="yellow">)</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">set_ylabel<span class="yellow">(<span class="lightblue">"Danh sách Máy chủ"<span class="white">, <span class="orange">fontsize<span class="white">=<span class="superlightgreen">12<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="comment"># Thay thế các số 0, 1, 2 mặc định trên trục Y thành tên Server cụ thể</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">set_yticks<span class="yellow">(<span class="purple">[<span class="superlightgreen">0<span class="white">, <span class="superlightgreen">1<span class="white">, <span class="superlightgreen">2<span class="purple">]<span class="yellow">)</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">set_yticklabels<span class="yellow">(<span class="purple">[<span class="lightblue">"Server A"<span class="white">, <span class="lightblue">"Server B"<span class="white">, <span class="lightblue">"Server C"<span class="purple">]<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="white">ax<span class="white">.<span class="lightpurple">grid<span class="yellow">(<span class="blue">True<span class="white">, <span class="orange">axis<span class="white">=<span class="lightblue">"x"<span class="white">, <span class="orange">linestyle<span class="white">=<span class="lightblue">"--"<span class="white">, <span class="orange">alpha<span class="white">=<span class="superlightgreen">0.5<span class="yellow">)</span> <span class="comment"># Bật lưới dọc để dễ gióng thời gian</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="cyan">plt<span class="white">.<span class="lightpurple">tight_layout<span class="yellow">()</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="cyan">plt<span class="white">.<span class="lightpurple">show<span class="yellow">()</span></code></p>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

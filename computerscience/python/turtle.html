@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../decor.css">
+    <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
+    <link rel="stylesheet" href="../decorcode.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>thư viện turtle</title>
+</head>
+
+<body>
+    <header> <a href="basic.html">thư viện turtle</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="bien.html">Gán</a></p>
+            <p><a href="for.html">for</a></p>
+            <p><a href="while.html">while</a></p>
+            <p><a href="if-else.html">if-else</a></p>
+            <p><a href="list.html">list</a></p>
+            <p><a href="def.html">def</a></p>
+            <p><a href="class.html">class</a></p>
+            <p><a href="try-except.html">try-except</a></p>
+            <p><a href="open.html">open</a></p>
+            <p><a href="time.html">thư viện time</a></p>
+            <p><a href="numpy.html">thư viện numpy</a></p>
+            <p><a href="os.html">thư viện os</a></p>
+            <p><a href="cv2.html">thư viện cv2</a></p>
+            <p><a>thư viện turtle</a></p>
+            <p><a href="keyboard.html">thư viện keyboard</a></p>
+            <p><a href="mp.html">thư viện mp</a></p>
+            <p><a href="ma.html">thư viện ma</a></p>
+        </nav>
+        <main>
+            <p>Thư viện có chức năng vẽ từ lệnh điều khiển đường đi của con "rùa", là 1 thư viện có sẵn.</p>
+            <p>\(\bullet\) <code>turtle.Turtle()</code>: Tạo một đối tượng rùa dùng để điều khiển việc vẽ.</p>
+            <p>\(\bullet\) <code>turtle.Screen()</code>: Tạo hoặc truy cập cửa sổ đồ họa để hiển thị hình vẽ.</p>
+            <p>\(\bullet\) <code>turtle.bgcolor()</code>: Thiết lập màu nền</p>
+            <p>\(\bullet\) <code>forward(distance)</code>: Di chuyển về phía trước một khoảng cách xác định.</p>
+            <p>\(\bullet\) <code>backward(distance)</code>: Di chuyển lùi một khoảng cách xác định.</p>
+            <p>\(\bullet\) <code>right(angle)</code>: Xoay sang phải một góc xác định, tính bằng độ.</p>
+            <p>\(\bullet\) <code>left(angle)</code>: Xoay sang trái một góc xác định, tính bằng độ.</p>
+            <p>\(\bullet\) <code>goto(x, y)</code>: Di chuyển đến tọa độ \((x,y)\).</p>
+            <p>\(\bullet\) <code>setheading(angle)</code>: Đặt hướng di chuyển theo một góc xác định.</p>
+            <p>\(\bullet\) <code>penup()</code>: Nhấc bút lên để di chuyển mà không vẽ đường.</p>
+            <p>\(\bullet\) <code>pendown()</code>: Hạ bút xuống để tiếp tục vẽ khi di chuyển.</p>
+            <p>\(\bullet\) <code>pencolor(color)</code>: Thiết lập màu nét vẽ.</p>
+            <p>\(\bullet\) <code>fillcolor(color)</code>: Thiết lập màu tô bên trong hình.</p>
+            <p>\(\bullet\) <code>begin_fill()</code>: Bắt đầu ghi nhận vùng cần tô màu.</p>
+            <p>\(\bullet\) <code>end_fill()</code>: Kết thúc việc ghi nhận vùng và tô màu cho hình.</p>
+            <p>\(\bullet\) <code>pensize(width)</code>: Thiết lập độ dày của nét vẽ.</p>
+            <p>\(\bullet\) <code>speed(value)</code>: Điều chỉnh tốc độ hoạt động của rùa (số 0 cho ra tốc ddooju nhanh nhất).</p>
+            <p>\(\bullet\) <code>circle(radius, extent)</code>: Vẽ đường tròn hoặc một cung tròn theo bán kính và góc quét.</p>
+            <p>\(\bullet\) <code>dot(size, color)</code>: Vẽ một chấm tròn với kích thước và màu sắc xác định.</p>
+            <p>\(\bullet\) <code>clear()</code>: Xóa các nét vẽ của đối tượng rùa hiện tại.</p>
+            <p>\(\bullet\) <code>reset()</code>: Xóa hình vẽ và đưa đối tượng rùa về trạng thái ban đầu.</p>
+            <p>\(\bullet\) <code>hideturtle()</code>: Ẩn hình dạng con rùa trên màn hình.</p>
+            <p>\(\bullet\) <code>showturtle()</code>: Hiển thị lại hình dạng con rùa.</p>
+            <p>\(\bullet\) <code>turtle.done()</code>: Duy trì cửa sổ đồ họa và chờ các thao tác của người dùng.</p>
+            <h2>Ví dụ:</h2>
+            <div class="codebox">
+                <p><code><span class="purple">import</span> <span class="cyan">turtle</span></code></p>
+                <p><code></code></p>
+                <p><code><span class="comment"># Khởi tạo đối tượng vẽ</span></code></p>
+                <p><code><span class="white">t</span> <span class="white">=</span> <span class="cyan">turtle</span><span class="white">.</span><span class="lightpurple">Turtle</span><span class="yellow">()</span></code></p>
+                <p><code><span class="white">t</span><span class="white">.</span><span class="lightpurple">speed</span><span class="yellow">(</span><span class="superlightgreen">3</span><span class="yellow">)</span></code></p>
+                <p><code><span class="white">t</span><span class="white">.</span><span class="lightpurple">pencolor</span><span class="yellow">(</span><span class="lightblue">"red"</span><span class="yellow">)</span></code></p>
+                <p><code><span class="white">t</span><span class="white">.</span><span class="lightpurple">fillcolor</span><span class="yellow">(</span><span class="lightblue">"red"</span><span class="yellow">)</span></code></p>
+                <p><code></code></p>
+                <p><code><span class="comment"># Bắt đầu tô màu hình vẽ</span></code></p>
+                <p><code><span class="white">t</span><span class="white">.</span><span class="lightpurple">begin_fill</span><span class="yellow">()</span></code></p>
+                <p><code></code></p>
+                <p><code><span class="comment"># Vẽ hai cung tròn phía trên trái tim</span></code></p>
+                <p><code><span class="white">t</span><span class="white">.</span><span class="lightpurple">left</span><span class="yellow">(</span><span class="superlightgreen">140</span><span class="yellow">)</span></code></p>
+                <p><code><span class="white">t</span><span class="white">.</span><span class="lightpurple">forward</span><span class="yellow">(</span><span class="superlightgreen">111</span><span class="yellow">)</span></code></p>
+                <p><code><span class="white">t</span><span class="white">.</span><span class="lightpurple">circle</span><span class="yellow">(</span><span class="white">-</span><span class="superlightgreen">50</span><span class="white">,</span> <span class="superlightgreen">200</span><span class="yellow">)</span></code></p>
+                <p><code><span class="white">t</span><span class="white">.</span><span class="lightpurple">left</span><span class="yellow">(</span><span class="superlightgreen">120</span><span class="yellow">)</span></code></p>
+                <p><code><span class="white">t</span><span class="white">.</span><span class="lightpurple">circle</span><span class="yellow">(</span><span class="white">-</span><span class="superlightgreen">50</span><span class="white">,</span> <span class="superlightgreen">200</span><span class="yellow">)</span></code></p>
+                <p><code><span class="white">t</span><span class="white">.</span><span class="lightpurple">forward</span><span class="yellow">(</span><span class="superlightgreen">111</span><span class="yellow">)</span></code></p>
+                <p><code></code></p>
+                <p><code><span class="comment"># Kết thúc và hoàn tất việc tô màu</span></code></p>
+                <p><code><span class="white">t</span><span class="white">.</span><span class="lightpurple">end_fill</span><span class="yellow">()</span></code></p>
+                <p><code></code></p>
+                <p><code><span class="comment"># Ẩn rùa và giữ cửa sổ mở</span></code></p>
+                <p><code><span class="white">t</span><span class="white">.</span><span class="lightpurple">hideturtle</span><span class="yellow">()</span></code></p>
+                <p><code><span class="cyan">turtle</span><span class="white">.</span><span class="white">done</span><span class="yellow">()</span></code></p>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

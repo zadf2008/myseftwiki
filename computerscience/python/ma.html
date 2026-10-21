@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../decor.css">
+    <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
+    <link rel="stylesheet" href="../decorcode.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>thư viện matplotlib.animation</title>
+</head>
+
+<body>
+    <header> <a href="basic.html">thư viện matplotlib.animation</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="bien.html">Gán</a></p>
+            <p><a href="for.html">for</a></p>
+            <p><a href="while.html">while</a></p>
+            <p><a href="if-else.html">if-else</a></p>
+            <p><a href="list.html">list</a></p>
+            <p><a href="def.html">def</a></p>
+            <p><a href="class.html">class</a></p>
+            <p><a href="try-except.html">try-except</a></p>
+            <p><a href="open.html">open</a></p>
+            <p><a href="time.html">thư viện time</a></p>
+            <p><a href="numpy.html">thư viện numpy</a></p>
+            <p><a href="os.html">thư viện os</a></p>
+            <p><a href="cv2.html">thư viện cv2</a></p>
+            <p><a href="turtle.html">thư viện turtle</a></p>
+            <p><a href="keyboard.html">thư viện keyboard</a></p>
+            <p><a href="mp.html">thư viện mp</a></p>
+            <p><a>thư viện ma</a></p>
+        </nav>
+        <main>
+            <p>\(\bullet\) Thư viện bổ trợ cho thư viện mayplotlib.pyplot có tác dụng giúp biểu đồ thay đổi theo số liệu</p>
+            <p>- Lệnh tải trên terminal: python -m pip install matplotlib (lệnh này bao gồm cả tải luôn thư viện matplotlib.pyplot)</p>
+            <p>\(\bullet\) Đồ thị zic-zac:</p>
+            <div class="codebox">
+                <p><code><span class="purple">import <span class="cyan">random</span></span></code></p>
+                <p><code><span class="purple">import <span class="cyan">matplotlib.animation <span class="purple">as <span class="cyan">ani</span></span></span></span></code></p>
+                <p><code><span class="purple">import <span class="cyan">matplotlib.pyplot <span class="purple">as <span class="cyan">plt</span></span></span></span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="cyan">plt<span class="white">.<span class="lightpurple">style<span class="white">.<span class="lightpurple">use<span class="yellow">(<span class="lightblue">"dark_background"<span class="yellow">)</span> <span class="comment"># đổi màu hình nền</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="comment"># 1. Khởi tạo đồ thị</span></code></p>
+                <p><code><span class="white">fig, <span class="yellow">(<span class="purple">(</span><span class="white">ax1, ax2<span class="yellow"><span class="purple">)</span><span class="white">,</span> <span class="purple">(</span><span class="white">ax3, ax4<span class="yellow"><span class="purple">)</span>) <span class="white">= <span class="cyan">plt<span class="white">.<span class="lightpurple">subplots<span class="yellow">(<span class="superlightgreen">2<span class="white">, <span class="superlightgreen">2<span class="white">, <span class="orange">sharex<span class="white">=<span class="blue">False<span class="white">, <span class="orange">figsize<span class="white">=<span class="purple">(<span class="superlightgreen">15<span class="white">, <span class="superlightgreen">9<span class="purple">)<span class="yellow">)</span></code></p>
+                <p><code><span class="comment"># khởi tạo một figure chứa các đồ thị tọa độ Oxy</span></code></p>
+                <p><code><span class="comment"># tạo 2 cột và 2 hàng đồ thị</span></code></p>
+                <p><code><span class="comment"># sharex ép các đồ thị con dùng chung một trục hoành</span></code></p>
+                <p><code><span class="comment"># sharey ép các đồ thị con dùng chung một trục tung</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="white">fig<span class="white">.<span class="white">canvas<span class="white">.<span class="white">manager<span class="white">.<span class="lightpurple">set_window_title<span class="yellow">(<span class="lightblue">"Làm quen thư viện"<span class="yellow">)</span> <span class="comment"># tên cửa sổ ứng dụng</span></code></p>
+                <p><code><span class="cyan">plt<span class="white">.<span class="lightpurple">suptitle<span class="yellow">(<span class="lightblue">"TIÊU ĐỀ LỚN: ĐỒ THỊ ĐỘNG REAL-TIME"<span class="white">, <span class="orange">fontsize<span class="white">=<span class="superlightgreen">16<span class="white">, <span class="orange">fontweight<span class="white">=<span class="lightblue">"bold"<span class="yellow">)</span> <span class="comment"># tiêu đề lớn</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="white">b <span class="white">= <span class="purple">[] <span class="comment"># danh sách chứa dữ liệu</span></span></span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="comment"># 2. Hàm cập nhật đồ thị (FuncAnimation sẽ gọi hàm liên tục)</span></code></p>
+                <p><code><span class="purple">def <span class="lightpurple">dothi<span class="yellow">(<span style="color: #ff925765;">frame<span class="yellow">):</span></code></p>
+                <p><code><span class="hidden">----<span class="comment"># mỗi lần gọi hàm thì bổ sung một giá trị ngẫu nhiên</span></span></code></p>
+                <p><code><span class="hidden">----<span class="white">b<span class="white">.<span class="lightpurple">append<span class="yellow">(<span class="cyan">random<span class="white">.<span class="lightpurple">randint<span class="yellow">(<span class="superlightgreen">0<span class="white">, <span class="superlightgreen">20<span class="yellow">))</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="hidden">----<span class="comment"># xóa nội dung đồ thị cũ trước khi vẽ lại</span></span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax1<span class="white">.<span class="lightpurple">clear<span class="yellow">()</span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax2<span class="white">.<span class="lightpurple">clear<span class="yellow">()</span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax3<span class="white">.<span class="lightpurple">clear<span class="yellow">()</span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax4<span class="white">.<span class="lightpurple">clear<span class="yellow">()</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="hidden">----<span class="comment"># tạo các đồ thị từ tối đa 20 giá trị gần nhất</span></span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax1<span class="white">.<span class="lightpurple">plot<span class="yellow">(<span class="white">b<span class="purple">[<span class="white">-<span class="superlightgreen">20<span class="purple">:<span class="purple">]<span class="white">, <span class="orange">marker<span class="white">=<span class="lightblue">"x"<span class="white">, <span class="orange">color<span class="white">=<span class="lightblue">"r"<span class="white">, <span class="orange">linestyle<span class="white">=<span class="lightblue">"--"<span class="white">, <span class="orange">label<span class="white">=<span class="lightblue">"A"<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax2<span class="white">.<span class="lightpurple">plot<span class="yellow">(<span class="white">b<span class="purple">[<span class="white">-<span class="superlightgreen">20<span class="purple">:<span class="purple">]<span class="white">, <span class="orange">marker<span class="white">=<span class="lightblue">"*"<span class="white">, <span class="orange">color<span class="white">=<span class="lightblue">"g"<span class="white">, <span class="orange">linestyle<span class="white">=<span class="lightblue">":"<span class="white">, <span class="orange">label<span class="white">=<span class="lightblue">"B"<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax3<span class="white">.<span class="lightpurple">plot<span class="yellow">(<span class="white">b<span class="purple">[<span class="white">-<span class="superlightgreen">20<span class="purple">:<span class="purple">]<span class="white">, <span class="orange">marker<span class="white">=<span class="lightblue">"s"<span class="white">, <span class="orange">color<span class="white">=<span class="lightblue">"b"<span class="white">, <span class="orange">linestyle<span class="white">=<span class="lightblue">"-."<span class="white">, <span class="orange">label<span class="white">=<span class="lightblue">"C"<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax4<span class="white">.<span class="lightpurple">plot<span class="yellow">(<span class="white">b<span class="purple">[<span class="white">-<span class="superlightgreen">20<span class="purple">:<span class="purple">]<span class="white">, <span class="orange">marker<span class="white">=<span class="lightblue">""<span class="white">, <span class="orange">color<span class="white">=<span class="lightblue">"y"<span class="white">, <span class="orange">label<span class="white">=<span class="lightblue">"D"<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="hidden">----<span class="comment"># thiết lập lại thuộc tính sau khi dùng clear()</span></span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax1<span class="white">.<span class="lightpurple">set_title<span class="yellow">(<span class="lightblue">"đồ thị 1"<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax2<span class="white">.<span class="lightpurple">set_title<span class="yellow">(<span class="lightblue">"đồ thị 2"<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax3<span class="white">.<span class="lightpurple">set_title<span class="yellow">(<span class="lightblue">"đồ thị 3"<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax4<span class="white">.<span class="lightpurple">set_title<span class="yellow">(<span class="lightblue">"đồ thị 4"<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax3<span class="white">.<span class="lightpurple">set_xlabel<span class="yellow">(<span class="lightblue">"giây"<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax3<span class="white">.<span class="lightpurple">set_ylabel<span class="yellow">(<span class="lightblue">"biểu diễn"<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="hidden">----<span class="comment"># bật lưới tọa độ</span></span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax1<span class="white">.<span class="lightpurple">grid<span class="yellow">(<span class="blue">True<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax2<span class="white">.<span class="lightpurple">grid<span class="yellow">(<span class="blue">True<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax3<span class="white">.<span class="lightpurple">grid<span class="yellow">(<span class="blue">True<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax4<span class="white">.<span class="lightpurple">grid<span class="yellow">(<span class="blue">True<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="hidden">----<span class="comment"># đặt vị trí chú giải ở góc trên bên trái</span></span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax1<span class="white">.<span class="lightpurple">legend<span class="yellow">(<span class="orange">loc<span class="white">=<span class="lightblue">"upper left"<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax2<span class="white">.<span class="lightpurple">legend<span class="yellow">(<span class="orange">loc<span class="white">=<span class="lightblue">"upper left"<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax3<span class="white">.<span class="lightpurple">legend<span class="yellow">(<span class="orange">loc<span class="white">=<span class="lightblue">"upper left"<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----<span class="white">ax4<span class="white">.<span class="lightpurple">legend<span class="yellow">(<span class="orange">loc<span class="white">=<span class="lightblue">"upper left"<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="hidden">----<span class="comment"># cố định giới hạn hai trục cho các đồ thị</span></span></code></p>
+                <p><code><span class="hidden">----<span class="purple">for <span class="white">ax <span class="purple">in <span class="yellow">(<span class="white">ax1, ax2, ax3, ax4<span class="yellow">):</span></code></p>
+                <p><code><span class="hidden">--------<span class="white">ax<span class="white">.<span class="lightpurple">set_xlim<span class="yellow">(<span class="superlightgreen">0<span class="white">, <span class="superlightgreen">20<span class="yellow">)</span> <span class="comment"># cố định trục hoành</span></code></p>
+                <p><code><span class="hidden">--------<span class="white">ax<span class="white">.<span class="lightpurple">set_ylim<span class="yellow">(<span class="white">-<span class="superlightgreen">1<span class="white">, <span class="superlightgreen">22<span class="yellow">)</span> <span class="comment"># cố định trục tung</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="hidden">----<span class="purple">if <span class="lightpurple">len<span class="yellow">(<span class="white">b<span class="yellow">) <span class="white">> <span class="superlightgreen">20:</span></code></p>
+                <p><code><span class="hidden">--------<span class="white">b<span class="white">.<span class="lightpurple">remove<span class="yellow">(<span class="white">b<span class="purple">[<span class="superlightgreen">0<span class="purple">]<span class="yellow">)</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="comment"># 3. Kích hoạt animation bằng FuncAnimation</span></code></p>
+                <p><code><span class="comment"># truyền dothi (không có dấu ngoặc) để hàm được gọi khi cập nhật</span></code></p>
+                <p><code><span class="white">a <span class="white">= <span class="cyan">ani<span class="white">.<span class="lightpurple">FuncAnimation<span class="yellow">(<span class="white">fig, <span class="lightpurple">dothi</span>, <span class="orange">interval<span class="white">=<span class="superlightgreen">1000<span class="white">, <span class="orange">cache_frame_data<span class="white">=<span class="blue">False<span class="yellow">)</span></code></p>
+                <p><code><span class="comment"># interval thiết lập khoảng thời gian giữa các lần cập nhật (ms)</span></code></p>
+                <p><code><span class="comment"># cache_frame_data điều khiển việc lưu dữ liệu frame vào bộ nhớ đệm</span></code></p>
+                <p><code><span class="cyan">ani<span class="white">.<span class="cyan">HTMLWriter</span></code></p>
+                <p><code><span class="hidden">----</span></code></p>
+                <p><code><span class="cyan">plt<span class="white">.<span class="lightpurple">tight_layout<span class="yellow">()</span> <span class="comment"># tránh các thành phần đồ thị đè lên nhau</span></code></p>
+                <p><code><span class="cyan">plt<span class="white">.<span class="lightpurple">show<span class="yellow">()</span> <span class="comment"># hiển thị đồ thị</span></code></p>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

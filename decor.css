@@ -41,37 +41,6 @@ header {
     margin-bottom: 20px;
 }
 
-div nav {
-    border-radius: 20px;
-    background-color: #1f1f1f;
-    border: 2px solid rgb(60, 60, 60);
-    padding: 10px;
-    margin-right: 25px;
-    width: 180px;
-    font-size: 150%;
-    box-shadow: 4px 4px 10px rgb(60, 60, 60);
-    height: fit-content;
-    max-height: 600px;
-    overflow-y: auto;
-}
-
-.navouty {
-    border-radius: 20px 5px 5px 20px;
-}
-
-div nav p a {
-    color: white;
-    transition: all 0.2s ease;
-    text-decoration: none;
-}
-
-div nav p a:hover {
-    font-size: 110%;
-    text-shadow: 0 0 10px aliceblue;
-    color: aliceblue;
-    cursor: pointer;
-}
-
 div main {
     border-radius: 10px;
     background-color: #1f1f1f;
@@ -79,7 +48,7 @@ div main {
     padding: 10px;
     box-shadow: 4px 4px 10px rgb(60, 60, 60);
     font-size: 110%;
-    width: 1250px;
+    width: 1270px;
     height: 600px;
     overflow-y: auto;
 }
@@ -107,30 +76,54 @@ div main::-webkit-scrollbar-thumb {
     /* Tạo một khoảng trống nhỏ xung quanh cục lăn bằng cách giả lập viền trùng màu nền */
 }
 
+/* nav */
+div nav {
+    border-radius: 20px;
+    background-color: #1f1f1f;
+    border: 2px solid rgb(60, 60, 60);
+    padding: 10px;
+    margin-right: 25px;
+    width: 180px;
+    font-size: 150%;
+    box-shadow: 4px 4px 10px rgb(60, 60, 60);
+    height: fit-content;
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.navouty {
+    border-radius: 20px 5px 5px 20px;
+}
+
+div nav p a {
+    color: white;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+div nav p a:hover {
+    font-size: 110%;
+    text-shadow: 0 0 10px aliceblue;
+    color: aliceblue;
+    cursor: pointer;
+}
+
 div nav::-webkit-scrollbar {
     width: 10px;
-    /* Độ rộng của thanh cuộn dọc */
 }
 
-/* 2. Định dạng phần nền bên dưới của thanh cuộn */
 div nav::-webkit-scrollbar-track {
     background: #1f1f1f;
-    /* Màu nền trùng với màu của thẻ main */
     border-radius: 0 20px 20px 0;
-    /* Bo tròn góc bên phải để khớp với border-radius: 20px của main */
 }
 
-/* 3. Định dạng "cục lăn" (Cục để người dùng kéo) */
 div nav::-webkit-scrollbar-thumb {
     background-color: rgb(80, 80, 80);
-    /* Màu của cục lăn (sáng hơn nền một chút để dễ thấy) */
     border-radius: 10px;
-    /* Bo tròn cục lăn cho mềm mại */
     border: 2px solid #1f1f1f;
-    /* Tạo một khoảng trống nhỏ xung quanh cục lăn bằng cách giả lập viền trùng màu nền */
 }
 
-/* 4. Hiệu ứng khi di chuột vào cục lăn (Đổi màu đậm hơn một chút) */
 div nav::-webkit-scrollbar-thumb:hover {
     background-color: rgb(110, 110, 110);
 }
