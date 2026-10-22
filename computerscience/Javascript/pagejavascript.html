@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../decor.css">
+    <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
+    <link rel="stylesheet" href="../decorcode.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>Javascript</title>
+</head>
+
+<body>
+    <header> <a href="../pagecomputerscience.html">Javascript</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a href="ID.html">ID</a></p>
+            <p><a href="array.html">Mảng</a></p>
+            <p><a href="canvas.html">Vẽ canvas</a></p>
+        </nav>
+        <main>
+            <p>\(\bullet\) Các lệnh javascript có thể được dùng trong &lt;script&gt;&lt;/script&gt; hoặc trong file .js
+                và được để trong &lt;script src="file.js"&gt;&lt;/script&gt;</p>
+            <p>\(\bullet\) Thông thường nên để ở cuối thẻ body ngay sau thẻ đóng để lệnh dễ bắt lấy được sự kiện hơn</p>
+            <p>Khái niệm về hàm:</p>
+            <p>\(\bullet\) const là hàm không thể thay đổi</p>
+            <p>\(\bullet\) let là hàm có thể thay đổi</p>
+            <p>Ví dụ: <button onclick="chaylenh()" style="background-color: rgb(10, 10, 10); color: aliceblue; border-radius: 5px;">hàm alert</button></p>
+            <div class="codebox">
+                <p><code><span class="orangered">const <span class="whiteblue">admin <span class="white">= <span class="yellow">{ <span class="white">name<span class="lightblue">: "zadf2008"<span class="white">, age<span class="lightblue">: <span class="superlightgreen">18 <span class="yellow">}<span class="white">;</span></code>
+                </p>
+                <p><code class="hidden">----</code></p>
+                <p><code><span class="whiteblue">admin <span class="white">= <span class="yellow">{ <span class="white">name<span class="lightblue">: "zadf2007"<span class="white">, age<span class="lightblue">: <span class="superlightgreen">17 <span class="yellow">}<span class="white">;<span class="hidden">-----<span class="comment">// lỗi nên khi để ở đây chỉ để minh họa, không nên đưa vào</span></code>
+                </p>
+                <p><code class="hidden">----</code></p>
+                <p><code><span class="whiteblue">admin<span class="white">.age = <span class="superlightgreen">20<span class="white">;<span class="hidden">----------------------------<span class="comment">// hợp lệ</span></code>
+                </p>
+                <p><code><span class="lightyellow">alert</span><span class="yellow">(<span class="whiteblue">admin<span class="white">.age<span class="yellow">)<span class="white">;<span class="hidden">--------------------------<span class="comment">// in ra 20</span></code>
+                </p>
+            </div>
+            <p>Ví dụ trên chỉ là code mẫu, để lệnh thật sự chạy, phải có lệnh gọi hàm, đây là code dùng để chạy:</p>
+            <div class="codebox">
+                <p><code><span class="comment">&lt;<span class="orange">button onclick<span class="white">=<span class="lightblue">"<span class="lightpurple">chaylenh<span class="yellow">()<span class="lightblue">"<span class="comment">&gt;<span class="white">content<span class="comment">&lt;/<span class="orange">button<span class="comment">&gt;</span></code></p>
+                <p><code><span class="comment">&lt;<span class="orange">script<span class="comment">&gt;</span></code></p>
+                <p><code><span class="hidden">----<span class="orangered">function <span class="lightpurple">chaylenh<span class="yellow">() {</span></code></p>
+                <p><code><span class="hidden">--------<span class="orangered">const <span class="whiteblue">admin <span class="white">= <span class="purple">{ <span class="white">name<span class="lightblue">: "zadf2008"<span class="white">, age<span class="lightblue">: <span class="superlightgreen">18 <span class="purple">}<span class="white">;</span></code></p>
+                <p><code class="hidden">----</code></p>
+                <p><code><span class="hidden">--------<span class="whiteblue">admin <span class="white">= <span class="purple">{ <span class="white">name<span class="lightblue">: "zadf2007"<span class="white">, age<span class="lightblue">: <span class="superlightgreen">17 <span class="purple">}<span class="white">;<span class="hidden">-----<span class="comment">// lỗi nên khi để ở đây chỉ để minh họa, không nên đưa vào</span></code></p>
+                <p><code class="hidden">----</code></p>
+                <p><code><span class="hidden">--------<span class="whiteblue">admin<span class="white">.age = <span class="superlightgreen">20<span class="white">;<span class="hidden">----------------------------<span class="comment">// hợp lệ</span></code></p>
+                <p><code><span class="hidden">--------<span class="lightyellow">alert</span><span class="purple">(<span class="whiteblue">admin<span class="white">.age<span class="purple">)<span class="white">;<span class="hidden">--------------------------<span class="comment">// in ra 20</span></code></p>  
+                <p><code><span class="hidden">----<span class="yellow">}</span></code></p>
+                <p><code><span class="comment">&lt;/<span class="orange">script<span class="comment">&gt;</span></code></p>
+            </div>
+        </main>
+    </div>
+<script>
+    function chaylenh() {
+        const admin = { name: "zadf2008", age: 18 };
+
+        admin.age = 20;
+
+        alert(admin.age);
+    }
+</script>
+</body>
+
+</html>

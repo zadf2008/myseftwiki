@@ -88,23 +88,21 @@
                 a_{ij} \cdot \det(M_{ij})\)<br>
                 <em>(Trong đó \(M_{ij}\) là ma trận con cấp \(n-1\) có được bằng cách xóa đi hàng \(i\) và cột \(j\) của
                     ma trận \(A\)).</em>
-                <button id="openBtn"
-                    style="padding: 5px 10px; font-size: 16px; border-radius: 18px; cursor: pointer; background-color: #222;">Video
-                    minh họa:</button>
+                <button id="openBtn" class="btvd">Video minh họa</button>
 
                 <!-- 2. Khung màn hình mờ phủ toàn bộ trang (Mặc định ẩn) -->
             <div id="videoModal"
                 style="display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); backdrop-filter: blur(8px); justify-content: center; align-items: center;">
                 <!-- 3. Chiếc Box chứa Video bên trong -->
                 <div
-                    style="position: relative; background: #222; padding: 20px; border-radius: 12px; width: 60%; max-width: 800px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                    style="position: relative; background: #222; padding: 20px; border-radius: 12px; width: fit-content; max-width: 800px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); border:1px solid grey ;">
                     <!-- Nút đóng (X) nằm ở góc phải của Box -->
                     <span id="closeBtn"
                         style="position: absolute; top: 10px; right: 15px; color: #aaa; font-size: 28px; font-weight: bold; cursor: pointer;">&times;</span>
                     <!-- Thẻ video của bạn (Đã chỉnh width 100% để vừa khít chiếc Box) -->
                     <video id="myVideo" controls
-                        style="width: 50%; border-radius: 8px; display: block; margin-top: 15px;">
-                        <source src="Download.mp4" type="video/mp4">
+                        style="width: 60%; border-radius: 8px; display: block; margin-top: 15px;">
+                        <source src="matrix.mp4" type="video/mp4">
                         Trình duyệt của bạn không hỗ trợ xem video trực tiếp.
                     </video>
                 </div>

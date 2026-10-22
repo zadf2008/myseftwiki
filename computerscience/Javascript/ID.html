@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../decor.css">
+    <link rel="icon" href="../../images-removebg-preview.png" type="image/png">
+    <link rel="stylesheet" href="../decorcode.css">
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <title>ID</title>
+</head>
+
+<body>
+    <header> <a href="pagejavascript.html">ID</a> </header>
+    <div style="display: flex;">
+        <nav>
+            <p><a>ID</a></p>
+            <p><a href="array.html">Mảng</a></p>
+            <p><a href="canvas.html">Vẽ canvas</a></p>
+        </nav>
+        <main>
+            <p>Bắt lấy id để thao tác bước đầu gắn id, ta chỉ cần ghi id="idkey" vô thẻ là được, chẳng hạn:</p>
+            <p>- <code>&lt;p id="text"&gt;</code></p>
+            <p>\(\bullet\) document.getElementById("idkey"): lệnh lấy id</p>
+            <p>\(\bullet\) innerText: thay đổi nội dung</p>
+            <p>\(\bullet\) style.[kiểu style]: thay đổi định dạng</p>
+            <p>\(\bullet\) Thay đổi nội dung trong thẻ: <button class="btvd" onclick="text()">text</button></p>
+            <p id="text" style="width: fit-content; padding: 2px; border-radius: 2px; border: 1px solid grey;">Nội dung trước khi thay đổi</p>
+            <p>-Code:</p>
+            <div class="codebox">
+                <p><code><span class="comment">&lt;<span class="orange">button <span class="white">class<span class="lightblue">="btvd" <span class="white">onclick<span class="lightblue">="<span class="lightpurple">text<span class="yellow">()<span class="lightblue">"<span class="comment">&gt;<span class="white">text<span class="comment">&lt;/<span class="orange">button<span class="comment">&gt;</span></code></p>
+                <p><code><span class="comment">&lt;<span class="orange">p <span class="white">id<span class="lightblue">="<span class="whiteblue">text<span class="lightblue">" <span class="white">style<span class="lightblue">="width: fit-content; padding: 2px; border-radius: 2px; border: 1px solid grey;"<span class="comment">&gt;<span class="white">Nội dung trước khi thay đổi<span class="comment">&lt;/<span class="orange">p<span class="comment">&gt;</span></code></p>
+                <p><code><span class="comment">&lt;<span class="orange">script<span class="comment">&gt;</span></code></p>
+                <p><code><span class="hidden">----<span class="orangered">let <span class="white">change = <span class="whiteblue">document<span class="white">.<span class="lightpurple">getElementById<span class="yellow">(<span class="lightblue">"text"<span class="yellow">)<span class="white">;</span></code></p>
+                <p><code class="hidden">----</code></p>
+                <p><code><span class="hidden">----<span class="orangered">function <span class="lightpurple">text<span class="yellow">() {</span></code></p>
+                <p><code><span class="hidden">--------<span class="white">change.<span class="whiteblue">innerText <span class="white">= <span class="lightblue">"nội dung đã thay đổi"<span class="white">;</span></code></p>
+                <p><code><span class="hidden">--------<span class="white">change.<span class="whiteblue">style.backgroundColor <span class="white">= <span class="lightblue">"green"<span class="white">;</span></code></p>
+                <p><code><span class="hidden">----</span><span class="yellow">}</span></code></p>
+                <p><code><span class="comment">&lt;/<span class="orange">script<span class="comment">&gt;</span></code></p>
+            </div>
+            <p>\(\bullet\) value: lấy giá trị từ ô input</p>
+            <input placeholder="enter" class="btvd" oninput="nhapdulieu()" id="nhapten">
+            <p id="callname" class="btvd">Welcome to my web</p>
+            <p>- Code:</p>
+            <div class="codebox">
+                <p><code><span class="comment">&lt;<span class="orange">input placeholder<span class="white">=<span class="lightblue">"enter" <span class="orange">class<span class="white">=<span class="lightblue">"btvd" <span class="orange">oninput<span class="white">=<span class="lightblue">"<span class="lightpurple">nhapdulieu<span class="yellow">()<span class="lightblue">" <span class="orange">id<span class="white">=<span class="lightblue">"<span class="whiteblue">nhapten<span class="lightblue">"<span class="comment">&gt;</span></code></p>
+                <p><code><span class="comment">&lt;<span class="orange">p <span class="orange">id<span class="white">=<span class="lightblue">"call" <span class="orange">class<span class="white">=<span class="lightblue">"btvd"<span class="comment">&gt;<span class="white">Welcome to my web<span class="comment">&lt;/<span class="orange">p<span class="comment">&gt;</span></code></p>
+                <p><code class="hidden">----</code></p>
+                <p><code><span class="comment">&lt;<span class="orange">script<span class="comment">&gt;</span></code></p>
+                <p><code><span class="hidden">----<span class="orangered">let <span class="white">call = <span class="whiteblue">document<span class="white">.<span class="lightpurple">getElementById<span class="yellow">(<span class="lightblue">"call"<span class="yellow">)<span class="white">;</span></code></p>
+                <p><code class="hidden">----</code></p>
+                <p><code><span class="hidden">----<span class="orangered">function <span class="lightpurple">nhapdulieu<span class="yellow">(</span><span class="orange">named <span class="white">= <span class="whiteblue">document<span class="white">.<span class="lightpurple">getElementById<span class="purple">(<span class="lightblue">"nhapten"<span class="purple">)<span class="white">.value<span class="yellow">) {</span></code></p>
+                <p><code><span class="hidden">--------<span class="white">call.<span class="whiteblue">innerText <span class="white">= <span class="lightblue">"hello " <span class="white">+ <span class="orange">named<span class="white">;</span></code></p>
+                <p><code><span class="hidden">--------<span class="purple">if(</span><span class="orange">named <span class="white">=== <span class="lightblue">""<span class="purple">) {</span></code></p>
+                <p><code><span class="hidden">------------<span class="white">call.<span class="whiteblue">innerText <span class="white">= <span class="lightblue">"Welcome to my web"<span class="white">;</span></code></p>
+                <p><code><span class="hidden">--------<span class="purple">}</span></code></p>
+                <p><code><span class="hidden">----</span><span class="yellow">}</span></code></p>
+                <p><code><span class="comment">&lt;/<span class="orange">script<span class="comment">&gt;</span></code></p>
+            </div>
+        </main>
+    </div>
+<script>
+    let change = document.getElementById("text")
+    function text() {
+        change.innerText = "nội dung đã thay đổi";
+        change.style.backgroundColor = "green"
+    };
+    let call = document.getElementById("callname");
+    function nhapdulieu(named = document.getElementById("nhapten").value) {
+        call.innerText = "hello " + named
+        if(named === "") {
+           call.innerText = "Welcome to my web";
+        }
+    }
+</script>
+</body>
+
+</html>
